@@ -1,17 +1,318 @@
-
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html>
 <head>
     <title>Recipes</title>
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
-<head>
 
+    <style>
+        /* Base styles for the side menu */
+        .side-menu {
+            position: fixed;
+            top: 100px;
+            right: -250px; /* Initially off-screen */
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            transition: right 0.3s; /* Transition for smooth sliding effect */
+        }
+
+        /* Styles for the hamburger button */
+        .hamburger {
+            position: fixed;
+            color: white;
+            top: 20px;
+            right: 20px;
+            font-size: 45px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* Styles for the menu links */
+        .menu-link {
+            display: block;
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* Styles for the overlay background */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+            z-index: 1;
+        }
+
+        /* Styles for the pop-up container */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the pop-up */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        /* Styles for the close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+
+        .popup-button {
+            position: fixed;
+            color: white;
+            top: 24px;
+            right: 80px;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* Style for the recipe container */
+        .recipe-list {
+            max-width: 100%;
+            margin-top: 50px;
+            margin-bottom: 75px;
+            border: 40px solid #fff;
+        }
+
+        /* Style for the list items */
+        .recipe-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recipe-list li {
+            padding: 0px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            position: fixed;
+            margin: 0px auto 0px -8px;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            height: 100px;
+        }
+        
+    </style>
+</head>
+<main>
+    <div class="header">
+        <div class="popup-button" onclick="openPopup()">+</div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776</div>
+        <h2 style="font-size: 35px">Recipes</h2>
+    </div>
+</main>
 <body>
-    <div class="tab" style="position: fixed; bottom: 0px; background: white; width: 100%;">
-        <pre><a href="UserProfileTab.html"><button>User Profile</button></a> <a href="ShoppingListTab.html"><button>Shopping List</button></a> <a href="RecipesTab.html"><button active>Recipes</button></a> <a href="YourKitchenTab.html"><button>Your Kitchen</button></a></pre>
+    <div class="popup-button" onclick="openPopup()">+</div>
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+    <div class="popup" id="popup">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <h2>Add a Recipe</h2>
+        <p>I will work on this later</p>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">&#9776</div>
+    <div class="side-menu" id="sideMenu">
+        <a class="menu-link" href="#">Personas</a>
+        <a class="menu-link" href="#">Meal Type</a>
+        <a class="menu-link" href="#">Flavors</a>
+    </div>
+
+
+
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById("sideMenu");
+            let isHeaderFront=false;
+            
+            if (sideMenu.style.right === "0px") {
+                sideMenu.style.right = "-250px"; // Hide the menu
+            } else {
+                sideMenu.style.right = "0px"; // Show the menu
+            }
+            
+            if (isheaderFront) {
+                sideMenu.style.zindex= -1;
+                isHeaderFront = false;
+            } else {
+                sideMenu.style.zindex=100;
+                isHeaderFront = true;
+            }
+        }
+
+        function openPopup() {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+<body>
+    <div style="padding: 10px;">
+    <div class="recipe-list">
+        <ul>
+            <li>
+                <h3>Recipe 1</h3>
+            </li>
+            <li>
+                <h3>Recipe 2</h3>
+            </li>
+            <li>
+                <h3>Recipe 3</h3>
+            </li>
+            <li>
+                <h3>Recipe 4</h3>
+            </li>
+            <li>
+                <h3>Recipe 5</h3>
+            </li>
+            <li>
+                <h3>Recipe 6</h3>
+            </li>
+            <li>
+                <h3>Recipe 7</h3>
+            </li>
+            <li>
+                <h3>Recipe 8</h3>
+            </li>
+            <li>
+                <h3>Recipe 9</h3>
+            </li>
+            <li>
+                <h3>Recipe 10</h3>
+            </li>
+            <li>
+                <h3>Recipe 11</h3>
+            </li>
+            <li>
+                <h3>Recipe 12</h3>
+            </li>
+            <li>
+                <h3>Recipe 13</h3>
+            </li>
+            <li>
+                <h3>Recipe 14</h3>
+            </li>
+            <li>
+                <h3>Recipe 15</h3>
+            </li>
+            <li>
+                <h3>Recipe 16</h3>
+            </li>
+            <li>
+                <h3>Recipe 17</h3>
+            </li>
+            <li>
+                <h3>Recipe 18</h3>
+            </li>
+            <li>
+                <h3>Recipe 19</h3>
+            </li>
+            <li>
+                <h3>Recipe 20</h3>
+            </li>
+            <li>
+                <h3>Recipe 21</h3>
+            </li>
+            <li>
+                <h3>Recipe 22</h3>
+            </li>
+            <li>
+                <h3>Recipe 23</h3>
+            </li>
+            <li>
+                <h3>Recipe 24</h3>
+            </li>
+            <li>
+                <h3>Recipe 25</h3>
+            </li>
+            <li>
+                <h3>Recipe 26</h3>
+            </li>
+            <li>
+                <h3>Recipe 27</h3>
+            </li>
+            <li>
+                <h3>Recipe 28</h3>
+            </li>
+            <li>
+                <h3>Recipe 29</h3>
+            </li>
+            <li>
+                <h3>Recipe 30</h3>
+            </li>
+            <li>
+                <h3>Recipe 31</h3>
+            </li>
+            <li>
+                <h3>Recipe 32</h3>
+            </li>
+            <li>
+                <h3>Recipe 33</h3>
+            </li>
+            <li>
+                <h3>Recipe 34</h3>
+            </li>
+            <li>
+                <h3>Recipe 35</h3>
+            </li>
+            <li>
+                <h3>Recipe 36</h3>
+            </li>
+            <li>
+                <h3>Recipe 37</h3>
+            </li>
+            <li>
+                <h3>Recipe 38</h3>
+            </li>
+            <li>
+                <h3>Recipe 39</h3>
+            </li>
+            <li>
+                <h3>Recipe 40</h3>
+            </li>
+            <li>
+                <h3>Recipe 41</h3>
+            </li>
+        </ul>
+    </div>
+</body>
+<body>
+    <div class = "navbar lower">
+        <table style = "border: none; height: 100%; width: 100%;">
+            <tr style = "width: 100%;">
+                <td style = "width: 5%"></td>
+                <td class = "navitem" onclick = "location.href='YourKitchenTab.html'"><p>Kitchen</p></td>
+                <td class = "navitem selected" onclick = "location.href='RecipesTab.html'"><p>Recipes</p></td>
+                <td class = "navitem" onclick = "location.href='ShoppingListTab.html'"><p>Cart</p></td>
+                <td class = "navitem" onclick = "location.href='UserProfileTab.html'"><p>Profile</p></td>
+                <td style = "width: 5%"></td>
+            </tr>
+        </table>
     </div>
 
 </body>
+</html>
