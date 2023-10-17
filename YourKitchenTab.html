@@ -20,6 +20,41 @@
             </tr>
         </table>
     </div>
+
+
+    <div style="height: 10vh"></div>
+
+    <div>
+        <!-- The form -->
+        <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Add Food Entry to Your Kitchen</h1>
+    
+            <label for="foodLabel"><b>Food Label</Label></b></label>
+            <input type="text" placeholder="Enter Food Label" name="foodLabel" required>
+    
+            <label for="expiration"><b>Expiration Date</b></label>
+            <input type="text" placeholder="Enter Expiration Date" name="expiration">
+    
+            <label for="allergens"><b></Label>Allergens</b></label>
+            <input type="text" placeholder="Enter Allergens" name="allergens">
+    
+            <label for="calories"><b></Label>Calories</b></label>
+            <input type="number" placeholder="Enter Calories" name="calories"> 
+            <br>       
+            <br>
+            <label for="servingSize"><b></Label> Serving Size</b></label>
+            <input type="text" placeholder="Enter Serving Size" name="servingSize" >
+    
+            <button type="button" class="btn" onclick="formatToAdd()">Enter</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+        </div>
+    
+            <!-- A button to open the popup form -->
+            <button style="bottom:11%; right:2%" class="open-button" onclick="openForm()">Add Food</button>
+    </div>
+
     <div class = "navbar lower">
         <table style = "border: none; height: 100%; width: calc(100vw + 8px);">
             <tr style = "width: calc(100vw + 8px);">
