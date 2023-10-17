@@ -8,9 +8,28 @@
     <meta charset="UTF-8" />
 <head>
 
-<body>
-    <div class="tab" style="position: fixed; bottom: 0px; background: white; width: 100%;">
-        <pre><a href="UserProfileTab.html"><button>User Profile</button></a> <a href="ShoppingListTab.html"><button>Shopping List</button></a> <a href="RecipesTab.html"><button>Recipes</button></a> <a href="YourKitchenTab.html"><button active>Your Kitchen</button></a></pre>
+<body style = "background-color: #eceff1">
+    <div class = "navbar upper">
+        <table style = "border: none; height: 100%; width: calc(100vw + 8px); font-size: 2rem">
+            <tr style = "width: calc(100vw + 8px);">
+                <td style = "width: 5%"></td>
+                <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My kitchen</p></td>
+                <td style = "width: 40%"></td>
+                <td style = "width: 5%">&#8801;</td>
+                <td style = "width: 5%"></td>
+            </tr>
+        </table>
     </div>
-
+    <div class = "navbar lower">
+        <table style = "border: none; height: 100%; width: calc(100vw + 8px);">
+            <tr style = "width: calc(100vw + 8px);">
+                <td style = "width: 5%"></td>
+                <td class = "navitem selected" onclick = "location.href='YourKitchenTab.html'"><p>Kitchen</p></td>
+                <td class = "navitem" onclick = "location.href='RecipesTab.html'"><p>Recipes</p></td>
+                <td class = "navitem" onclick = "location.href='ShoppingListTab.html'"><p>Cart</p></td>
+                <td class = "navitem" onclick = "location.href='UserProfileTab.html'"><p>Profile</p></td>
+                <td style = "width: 5%"></td>
+            </tr>
+        </table>
+    </div>
 </body>
