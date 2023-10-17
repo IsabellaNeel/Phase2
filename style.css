@@ -22,7 +22,8 @@
 
 .upper{
     background: rgba(255,255,255,0.875); 
-    top: 0px;    
+    top: 0px;
+    backdrop-filter: blur(5px);
 }
 
 .navitem{
