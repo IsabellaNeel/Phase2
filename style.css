@@ -75,7 +75,7 @@ h1 {
   font-size: 45px;
 }
 
-{box-sizing: border-box;}
+/*{box-sizing: border-box;}*/
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
@@ -93,9 +93,10 @@ h1 {
 .form-popup {
   display: none;
   right: 30%;
-  border: 3px solid #f1f1f1;
+  /*border: 3px solid #f1f1f1;*/
   z-index: 9;
-  padding: 18%;
+  padding-left: 20%;
+  padding-top: 100px;
 }
 
 /* Add styles to the form container */
@@ -103,6 +104,7 @@ h1 {
   max-width: 500px;
   padding: 50px;
   background-color: white;
+  border: 3px solid #5e5858;
 }
 
 /* Full-width input fields */
