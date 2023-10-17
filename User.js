@@ -1,3 +1,4 @@
+include('FoodItem.js');
 class User {
     constructor(userName, foodArr) {
         this.userName = userName;
