@@ -22,7 +22,7 @@ h1 {
     z-index: 9001;
 }
 
-.navbar:hover{
+.navbar:active{
     background: #ffffff;
     transition: background 0.3s ease;
 }
@@ -59,7 +59,7 @@ h1 {
     cursor: default;
 }
 
-.navitem p:hover{
+.navitem p:active{
     color: #3498db !important;
     transition: color 0.3s ease;
 }   
@@ -114,7 +114,7 @@ h1 {
     cursor: default !important;
 }
 
-.menuitem:hover {
+.menuitem:active {
     color: #000000;
     background: #fafbfc;
     border-bottom: 3px solid #3498db !important;
