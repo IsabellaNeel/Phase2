@@ -1,23 +1,23 @@
 .navbar{
-    height: 10vh; 
+    height: 9.5vh; 
     min-height: 50px; 
-    width: calc(100vw + 8px);
-    box-shadow: 0px 2px 5px 4px rgba(33,37,41, 0.375);
+    width: 100vw;
+    box-shadow: 0px 1px 5px 3px rgba(33,37,41, 0.33);
     position: fixed; 
-    left: -8px;
-    transition: background 0.35s ease;
+    left: 0px;
+    transition: background 0.3s ease;
     cursor: default !important;
     z-index: 9001;
 }
 
 .navbar:hover{
     background: #ffffff;
-    transition: background 0.35s ease;
+    transition: background 0.3s ease;
 }
 
 .lower{
     background: #ffffff;
-    bottom: -6px;
+    bottom: -2px;
 }
 
 .upper{
@@ -26,15 +26,22 @@
     backdrop-filter: blur(5px);
 }
 
+.navcont{
+    border: none; 
+    height: 100%; 
+    width: 100vw;
+}
+
 .navitem{
     width: 22.5%; 
     text-align: center;
+    border-bottom: 3px solid #ffffff;
 }
 
 .navitem p{
     color: #2e8cca;
     line-height: normal;
-    transition: color 0.35s ease;
+    transition: color 0.3s ease;
     font-size: 1.5rem; 
     text-decoration: none;
     cursor: default;
@@ -42,33 +49,77 @@
 
 .navitem p:hover{
     color: #3498db !important;
-    transition: color 0.35s ease;
+    transition: color 0.3s ease;
 }   
 
 .selected{
-    background-color: #ECF0F1 !important;
+    background-color: #ecf0f1 !important;
+    border-bottom: 3px solid #1e5f8a !important;
 }
 
 .selected p{
-    color: #1b567c !important;
+    color: #1e5f8a !important;
     font-weight: bold !important;
 }
 
-.tab button { /*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs*/
-    background-color: inherit;
-    float: right;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 50px 50px;
-    transition: 0.3s;
-    font-size: 25px;
-    text-align: center;
-  }
+.Menu {
+    position: fixed;
+    top: 0;
+    width: 100% !important;
+    height: 30%;
+    color: #212529 !important;
+    background: #ffffff !important;
+    z-index: 1;
+    transition: all 0.6s ease;
+    box-shadow: 0px 1px 5px 3px rgba(33,37,41, 0.33);
+}
 
-.active .tab:hover { /*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs*/
-    background-color: #e0dede;
-  }
+.hide {
+    opacity: 0;
+    left: 100% !important;
+}
+
+.show {
+    opacity: 1;
+    left: 0%;
+}
+
+.menuitem {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #242a2d;
+    text-decoration: none !important;
+    text-align: center;
+    background: inherit;
+    list-style: none;
+    border-bottom: 3px solid #ffffff !important;
+    border-top: 3px solid #ffffff !important;
+    width: 100%;
+    border: none;
+    padding: 10px 0px;
+    transition: all 0.3s ease;
+    cursor: default !important;
+}
+
+.menuitem:hover {
+    color: #000000;
+    background: #fafbfc;
+    border-bottom: 3px solid #3498db !important;
+    border-top: 3px solid #fafbfc !important;
+    transition: all 0.3s ease;
+}
+
+.hamburger{
+    font-weight: bold !important;
+    text-align: center;
+    color: inherit;
+    transition: color 0.6s ease;
+}
+
+.toggled{
+    color: #1e5f8a !important;
+    transition: color 0.6s ease;
+}
 
 h1 {
   text-align: center;

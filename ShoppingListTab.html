@@ -7,32 +7,51 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
     </style>
+    <script type="text/javascript" src="menu.js"></script>
 <head>
 
 <body style = "background-color: #eceff1; font-family: 'Lato', Helvetica, sans-serif">
     <div class = "navbar upper">
-        <table style = "border: none; height: 100%; width: calc(100vw + 8px); font-size: 2rem">
-            <tr style = "width: calc(100vw + 8px);">
+        <table class = "navcont" style = "font-size: 1.9rem">
+            <tr style = "width: 100vw;">
                 <td style = "width: 5%"></td>
                 <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My shopping list</p></td>
-                <td style = "width: 40%"></td>
-                <td style = "width: 5%; font-weight: bold !important">&#8801;</td>
-                <td style = "width: 5%"></td>
+                <td style = "width: 39%"></td>
+                <td style = "width: 7%" class = "hamburger" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
+                <td style = "width: 4%"></td>
             </tr>
         </table>
     </div>
-    <div style = "height: 10vh">
+    <div style = "height: 9.5vh">
         <!-- padding space -->
     </div>
-    <!-- PUT PAGE CONTENT HERE, IN BETWEEN UPPER AND LOWER NAV BARS -->
+    <div class="Menu hide" id="menu">
+        <table style="width: 100% !important;">
+            <tr>
+                <td>
+                    <br/><br/><br/><br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style = "padding-left: 0">
+                        <li class="menuitem" onclick="location.href='#putsomethinghere'">Search</li>
+                        <li class="menuitem" onclick="location.href='#putsomethinghere'">Filter Items</li>
+                        <li class="menuitem" onclick="location.href='#putsomethinghere'">Settings</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- PUT PAGE CONTENT HERE -->
     
     <div class = "navbar lower">
-        <table style = "border: none; height: 100%; width: calc(100vw + 8px);">
-            <tr style = "width: calc(100vw + 8px);">
+        <table class = "navcont">
+            <tr style = "width: 100vw;">
                 <td style = "width: 5%"></td>
                 <td class = "navitem" onclick = "location.href='YourKitchenTab.html'"><p>Kitchen</p></td>
                 <td class = "navitem" onclick = "location.href='RecipesTab.html'"><p>Recipes</p></td>
-                <td class = "navitem selected"><p>Cart</p></td>
+                <td class = "navitem selected"><p>Shopping</p></td>
                 <td class = "navitem" onclick = "location.href='UserProfileTab.html'"><p>Profile</p></td>
                 <td style = "width: 5%"></td>
             </tr>
