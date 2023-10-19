@@ -10,14 +10,15 @@ h1 {
 }
 
 .navbar{
+    width: 100vw;
     height: 9.5vh; 
     min-height: 50px; 
-    width: 100vw;
-    box-shadow: 0px 1px 5px 3px rgba(33,37,41, 0.33);
     position: fixed; 
     left: 0px;
+    box-shadow: 0px 1px 5px 3px rgba(33,37,41, 0.33);
     transition: background 0.3s ease;
     cursor: default !important;
+    user-select: none;
     z-index: 9001;
 }
 
@@ -74,10 +75,10 @@ h1 {
 }
 
 .Menu {
-    position: fixed;
-    top: 0;
     width: 100% !important;
     height: 30%;
+    position: fixed;
+    top: 0;
     color: #212529 !important;
     background: #ffffff !important;
     z-index: 1;
