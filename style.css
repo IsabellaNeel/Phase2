@@ -1,3 +1,14 @@
+body{
+    background-color: #eceff1 !important; 
+    font-family: 'Lato', Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 45px;
+    font-size: 45px;
+}
+
 .navbar{
     height: 9.5vh; 
     min-height: 50px; 
@@ -119,10 +130,4 @@
 .toggled{
     color: #1e5f8a !important;
     transition: color 0.6s ease;
-}
-
-h1 {
-  text-align: center;
-  padding: 45px;
-  font-size: 45px;
 }
