@@ -6,9 +6,10 @@
     <title>Your Kitchen</title>
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
-<head>
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+</head>
 
-<body style = "background-color: #eceff1">
+<body onload = "displayAllFood()" style = "background-color: #eceff1">
     <div class = "navbar upper">
         <table style = "border: none; height: 100%; width: calc(100vw + 8px); font-size: 2rem">
             <tr style = "width: calc(100vw + 8px);">
@@ -23,42 +24,8 @@
 
     <div style="height: 10vh"></div>
 
-    <div>
-        <!-- The form -->
-        <div class="form-popup" id="myForm"> <!--https://www.w3schools.com/howto/howto_js_popup_form.asp-->
-        <form action="/action_page.php" class="form-container">
-            <h1 style="padding:5%">Add Food Entry to Your Kitchen</h1>
-    
-            <label for="foodLabel"><b>Food Label</Label></b></label>
-            <input type="text" placeholder="Enter Food Label" name="foodLabel" id="foodLabel" required>
-
-            <label for="quantity"><b>Quantity</Label></b></label>
-            <input type="number" placeholder="Enter Quantity" name="quantity" id="quantity" required>
-            <br>       
-            <br>
-            <label for="expiration"><b>Expiration Date</b></label>
-            <input type="text" placeholder="Enter Expiration Date" name="expiration" id="expiration">
-    
-            <label for="allergens"><b></Label>Allergens</b></label>
-            <input type="text" placeholder="Enter Allergens" name="allergens" id="allergens">
-    
-            <label for="calories"><b></Label>Calories</b></label>
-            <input type="number" placeholder="Enter Calories" name="calories" id="calories"> 
-            <br>       
-            <br>
-            <label for="servingSize"><b></Label>Serving Size</b></label>
-            <input type="text" placeholder="Enter Serving Size" name="servingSize" id="servingSize">
-    
-            <button type="button" class="btn" onclick="formatToAdd()">Enter</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-        </form>
-        </div>
-
-    <!-- A button to open the popup form -->
-    <h1 id="result"><button style="bottom:11%; right:2%" class="open-button" onclick="openForm()">Add Food</button></h1>
-           
-            
-    </div>
+    <div id="result"><button style="bottom:11%; right:2%" class="open-button" onclick="openForm()">Add Food</button></div>
+                       
 
     <div class = "navbar lower">
         <table style = "border: none; height: 100%; width: calc(100vw + 8px);">
@@ -75,4 +42,5 @@
 </body>
 
 <script src="Functionality.js"></script>
+</html>
 
