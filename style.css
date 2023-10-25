@@ -179,7 +179,9 @@ h1 {
 .recipe-list {
     max-width: 100vw;
     margin-bottom: 10vh;
-    border: 15px solid #ffffff;
+    background-color: #ffffff;
+    padding: 15px;
+    border: 15px solid #eceff1;
 }
 
 .recipe-list ul {
