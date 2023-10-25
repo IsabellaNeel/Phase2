@@ -1,5 +1,6 @@
 body{
-    background-color: #eceff1 !important; 
+    background-color: #eceff1 !important;
+    color: #000000;
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
@@ -15,7 +16,7 @@ h1 {
     min-height: 50px; 
     position: fixed; 
     left: 0px;
-    box-shadow: 0px 1px 5px 3px rgba(33,37,41, 0.33);
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
     transition: background 0.3s ease;
     cursor: default !important;
     user-select: none;
@@ -74,17 +75,17 @@ h1 {
     font-weight: bold !important;
 }
 
-.Menu {
+.menu {
     width: 100% !important;
-    height: 30%;
+    height: 25%;
     position: fixed;
     top: 0;
     color: #212529 !important;
     background: #ffffff !important;
-    z-index: 1;
+    z-index: 10;
     user-select: none;
     transition: all 0.6s ease;
-    box-shadow: 0px 1px 5px 3px rgba(33,37,41, 0.33);
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
 }
 
 .hide {
@@ -122,7 +123,7 @@ h1 {
     transition: all 0.3s ease;
 }
 
-.hamburger{
+.menuicon{
     font-weight: bold !important;
     text-align: center;
     color: inherit;
@@ -132,4 +133,66 @@ h1 {
 .toggled{
     color: #1e5f8a !important;
     transition: color 0.6s ease;
+}
+
+/* classes for shawdi's tab */
+.overlay {
+    display: block;
+    position: fixed;
+    top: -1%;
+    left: 0px;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(36,42,45, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+    transition: height 0.6s ease, top 0.6s ease;
+}
+
+.oshow{
+    height: 100%;
+    top: 0%;
+    transition: height 0.6s ease, top 0.6s ease;
+}
+
+.popup {
+    display: block;
+    position: fixed;
+    top: 101%;
+    left: 50%;
+    opacity: 0;
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
+    z-index: 2;
+    transition: top 0.6s ease, transform 0.6s ease, opacity 0.6s ease;
+}
+
+.pshow{
+    opacity: 1;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up */
+    transition: all 0.6s ease;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: default;
+}
+
+.recipe-list {
+    max-width: 100vw;
+    margin-bottom: 10vh;
+    border: 15px solid #ffffff;
+}
+
+.recipe-list ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.recipe-list li {
+    padding: 0px;
+    border-bottom: 1px solid #c6ced2;
 }
