@@ -1,42 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Recipes</title>
-    <link rel="stylesheet" href="style.css" />
-    <meta charset="UTF-8" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-    </style>
-<head>
+    <head>
+        <title>Recipes</title>
+        <link rel="stylesheet" href="style.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+        </style>
+        <script type="text/javascript" src="menu.js"></script>
 
-<body style = "background-color: #eceff1; font-family: 'Lato', Helvetica, sans-serif">
-    <div class = "navbar upper">
-        <table style = "border: none; height: 100%; width: calc(100vw + 8px); font-size: 2rem">
-            <tr style = "width: calc(100vw + 8px);">
-                <td style = "width: 5%"></td>
-                <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My recipes</p></td>
-                <td style = "width: 40%"></td>
-                <td style = "width: 5%; font-weight: bold !important">&#8801;</td>
-                <td style = "width: 5%"></td>
-            </tr>
-        </table>
-    </div>
-    <div style = "height: 10vh">
-        <!-- padding space -->
-    </div>
-    <!-- PUT PAGE CONTENT HERE, IN BETWEEN UPPER AND LOWER NAV BARS -->
-    
-    <div class = "navbar lower">
-        <table style = "border: none; height: 100%; width: calc(100vw + 8px);">
-            <tr style = "width: calc(100vw + 8px);">
-                <td style = "width: 5%"></td>
-                <td class = "navitem" onclick = "location.href='YourKitchenTab.html'"><p>Kitchen</p></td>
-                <td class = "navitem selected"><p>Recipes</p></td>
-                <td class = "navitem" onclick = "location.href='ShoppingListTab.html'"><p>Cart</p></td>
-                <td class = "navitem" onclick = "location.href='UserProfileTab.html'"><p>Profile</p></td>
-                <td style = "width: 5%"></td>
-            </tr>
-        </table>
-    </div>
+    </head>
 
-</body>
+    <body>
+        <div class = "navbar upper">
+            <table class = "navcont" style = "font-size: 1.9rem">
+                <tr style = "width: 100vw;">
+                    <td style = "width: 5%"></td>
+                    <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My recipes</p></td>
+                    <td style = "width: 30%"></td>
+                    <td style = "width: 8%" class = "menuicon" onclick="togglePopup();" id = "plus">+</td>
+                    <td style = "width: 8%" class = "menuicon" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
+                    <td style = "width: 4%"></td>
+                </tr>
+            </table>
+        </div>
+        <div style = "height: 9.5vh">
+            <!-- padding space -->
+        </div>
+        <div class="menu hide" id="menu">
+            <table style="width: 100% !important;">
+                <tr>
+                    <td>
+                        <br/><br/><br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul style = "padding-left: 5%">
+
+                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Personas</li>
+                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Meal Type</li>
+                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Flavors</li>
+
+
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="overlay ohide" onclick="togglePopup()" id="overlay"></div>
+        <div class="popup phide" id="popup">
+            <span class="close-button" onclick="togglePopup()">&times;</span>
+            <h2>Add a Recipe</h2>
+            <p>I will work on this later</p>
+        </div>
+        <!-- PUT PAGE CONTENT HERE -->
+        <div class="recipe-list">
+            <ul>
+                <li>
+                    <h3>Recipe 1</h3>
+                </li>
+                <li>
+                    <h3>Recipe 2</h3>
+                </li>
+                <li>
+                    <h3>Recipe 3</h3>
+                </li>
+                <li>
+                    <h3>Recipe 4</h3>
+                </li>
+                <li>
+                    <h3>Recipe 5</h3>
+                </li>
+                <li>
+                    <h3>Recipe 6</h3>
+                </li>
+                <li>
+                    <h3>Recipe 7</h3>
+                </li>
+                <li>
+                    <h3>Recipe 8</h3>
+                </li>
+                <li>
+                    <h3>Recipe 9</h3>
+                </li>
+                <li>
+                    <h3>Recipe 10</h3>
+                </li>
+                <li>
+                    <h3>Recipe 11</h3>
+                </li>
+                <li>
+                    <h3>Recipe 12</h3>
+                </li>
+                <li>
+                    <h3>Recipe 13</h3>
+                </li>
+                <li>
+                    <h3>Recipe 14</h3>
+                </li>
+                <li>
+                    <h3>Recipe 15</h3>
+                </li>
+                <li>
+                    <h3>Recipe 16</h3>
+                </li>
+                <li>
+                    <h3>Recipe 17</h3>
+                </li>
+                <li>
+                    <h3>Recipe 18</h3>
+                </li>
+                <li>
+                    <h3>Recipe 19</h3>
+                </li>
+                <li>
+                    <h3>Recipe 20</h3>
+                </li>
+                <li>
+                    <h3>Recipe 21</h3>
+                </li>
+                <li>
+                    <h3>Recipe 22</h3>
+                </li>
+                <li>
+                    <h3>Recipe 23</h3>
+                </li>
+                <li>
+                    <h3>Recipe 24</h3>
+                </li>
+                <li>
+                    <h3>Recipe 25</h3>
+                </li>
+                <li>
+                    <h3>Recipe 26</h3>
+                </li>
+                <li>
+                    <h3>Recipe 27</h3>
+                </li>
+                <li>
+                    <h3>Recipe 28</h3>
+                </li>
+                <li>
+                    <h3>Recipe 29</h3>
+                </li>
+                <li>
+                    <h3>Recipe 30</h3>
+                </li>
+                <li>
+                    <h3>Recipe 31</h3>
+                </li>
+                <li>
+                    <h3>Recipe 32</h3>
+                </li>
+                <li>
+                    <h3>Recipe 33</h3>
+                </li>
+                <li>
+                    <h3>Recipe 34</h3>
+                </li>
+                <li>
+                    <h3>Recipe 35</h3>
+                </li>
+                <li>
+                    <h3>Recipe 36</h3>
+                </li>
+                <li>
+                    <h3>Recipe 37</h3>
+                </li>
+                <li>
+                    <h3>Recipe 38</h3>
+                </li>
+                <li>
+                    <h3>Recipe 39</h3>
+                </li>
+                <li>
+                    <h3>Recipe 40</h3>
+                </li>
+                <li>
+                    <h3>Recipe 41</h3>
+                </li>
+            </ul>
+        </div>
+        <div class = "navbar lower">
+            <table class = "navcont">
+                <tr style = "width: 100vw;">
+                    <td style = "width: 5%"></td>
+                    <td class = "navitem" onclick = "location.href='YourKitchenTab.html'"><p>Kitchen</p></td>
+                    <td class = "navitem selected"><p>Recipes</p></td>
+                    <td class = "navitem" onclick = "location.href='ShoppingListTab.html'"><p>Shopping</p></td>
+                    <td class = "navitem" onclick = "location.href='UserProfileTab.html'"><p>Profile</p></td>
+                    <td style = "width: 5%"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+
