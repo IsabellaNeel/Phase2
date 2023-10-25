@@ -1,73 +1,134 @@
-.navbar{
-    height: 10vh; 
-    min-height: 50px; 
-    width: calc(100vw + 8px);
-    box-shadow: 0px 2px 5px 4px rgba(33,37,41, 0.375);
-    position: fixed; 
-    left: -8px;
-    transition: background 0.35s ease;
-    cursor: default !important;
-    z-index: 9001;  
+body{
+    background-color: #eceff1 !important;
+    color: #000000;
+    font-family: 'Lato', Helvetica, sans-serif;
 }
 
-.navbar:hover{
-    background: #ffffff;
-    transition: background 0.35s ease;
+h1 {
+    text-align: center;
+    padding: 45px;
+    font-size: 45px;
+}
+
+.navbar{
+    width: 100vw;
+    height: 9.5vh; 
+    min-height: 50px; 
+    position: fixed; 
+    left: 0px;
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
+    transition: background 0.3s ease;
+    cursor: default !important;
+    user-select: none;
+    z-index: 9001;
 }
 
 .lower{
     background: #ffffff;
-    bottom: -6px;
+    bottom: -2px;
 }
 
 .upper{
-    background: rgba(255,255,255,0.875); 
-    top: 0px;    
+    background: rgba(255,255,255,0.9); 
+    top: 0px;
+    backdrop-filter: blur(5px);
+}
+
+.navcont{
+    border: none; 
+    height: 100%; 
+    width: 100vw;
 }
 
 .navitem{
     width: 22.5%; 
     text-align: center;
+    border-bottom: 3px solid #ffffff;
 }
 
 .navitem p{
     color: #2e8cca;
     line-height: normal;
-    transition: color 0.35s ease;
+    transition: color 0.3s ease;
     font-size: 1.5rem; 
     text-decoration: none;
     cursor: default;
 }
 
-.navitem p:hover{
+.navitem p:active{
     color: #3498db !important;
-    transition: color 0.35s ease;
+    transition: color 0.3s ease;
 }   
 
 .selected{
-    background-color: #ECF0F1 !important;
+    background-color: #ecf0f1 !important;
+    border-bottom: 3px solid #1e5f8a !important;
 }
 
 .selected p{
-    color: #1b567c !important;
+    color: #1e5f8a !important;
     font-weight: bold !important;
 }
 
-.tab button { /*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs*/
-    background-color: inherit;
-    float: right;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 50px 50px;
-    transition: 0.3s;
-    font-size: 25px;
-    text-align: center;
-  }
+.menu {
+    width: 100% !important;
+    height: 25%;
+    position: fixed;
+    top: 0;
+    color: #212529 !important;
+    background: #ffffff !important;
+    z-index: 10;
+    user-select: none;
+    transition: all 0.6s ease;
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
+}
 
-.active .tab:hover { /*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs*/
-    background-color: #e0dede;
-  }
+.hide {
+    opacity: 0;
+    left: 100% !important;
+}
+
+.show {
+    opacity: 1;
+    left: 0%;
+}
+
+.menuitem {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #242a2d;
+    text-decoration: none !important;
+    text-align: left;
+    background: inherit;
+    list-style: none;
+    border-bottom: 3px solid #ffffff !important;
+    border-top: 3px solid #ffffff !important;
+    width: 100%;
+    border: none;
+    padding: 10px 0px;
+    transition: all 0.3s ease;
+    cursor: default !important;
+}
+
+.menuitem:active {
+    color: #000000;
+    background: #fafbfc;
+    border-bottom: 3px solid #3498db !important;
+    border-top: 3px solid #fafbfc !important;
+    transition: all 0.3s ease;
+}
+
+.menuicon{
+    font-weight: bold !important;
+    text-align: center;
+    color: inherit;
+    transition: color 0.6s ease;
+}
+
+.toggled{
+    color: #1e5f8a !important;
+    transition: color 0.6s ease;
+}
 
   .profile-item-grid{
     display: grid;
@@ -113,8 +174,160 @@
     font-size: 20px;
   }
 
-h1 {
+/* classes for shawdi's tab */
+.overlay {
+    display: block;
+    position: fixed;
+    top: -1%;
+    left: 0px;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(36,42,45, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+    transition: height 0.6s ease, top 0.6s ease;
+}
+
+.oshow{
+    height: 100%;
+    top: 0%;
+    transition: height 0.6s ease, top 0.6s ease;
+}
+
+.popup {
+    display: block;
+    position: fixed;
+    top: 101%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up */
+    opacity: 0;
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
+    z-index: 2;
+    transition: top 0.6s ease, opacity 0.6s ease;
+}
+
+.pshow{
+    opacity: 1;
+    top: 50%;
+    transition: top 0.6s ease, opacity 0.6s ease;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: default;
+}
+
+.recipe-list {
+    max-width: 100vw;
+    margin-bottom: 10vh;
+    background-color: #ffffff;
+    padding: 15px;
+    border: 15px solid #eceff1;
+}
+
+.recipe-list ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.recipe-list li {
+    padding: 0px;
+    border-bottom: 1px solid #c6ced2;
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  /*display: none;*/
+  right: 30%;
+  /*border: 3px solid #f1f1f1;*/
+  z-index: 9;
+  padding-left: 10%;
+  padding-right:10%;
+  padding-top: 10px;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 500px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: white;
+  border: 3px solid #5e5858;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.foodBox {
   text-align: center;
-  padding: 45px;
-  font-size: 45px;
+  padding: 5px;
+  font-size: 40px;
+  border: 3px solid #5e5858; 
+  height: 200px; 
+  width: 200px; 
+  word-wrap: break-word;
+}
+
+.foodTable {
+ border-spacing:20px; 
+}
+
+
+.remove-food-button {
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 280px;
 }
