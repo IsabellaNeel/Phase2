@@ -159,19 +159,19 @@ h1 {
     position: fixed;
     top: 101%;
     left: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up */
     opacity: 0;
     background-color: #ffffff;
     padding: 25px;
     box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
     z-index: 2;
-    transition: top 0.6s ease, transform 0.6s ease, opacity 0.6s ease;
+    transition: top 0.6s ease, opacity 0.6s ease;
 }
 
 .pshow{
     opacity: 1;
     top: 50%;
-    transform: translate(-50%, -50%); /* Center the pop-up */
-    transition: all 0.6s ease;
+    transition: top 0.6s ease, opacity 0.6s ease;
 }
 
 .close-button {
