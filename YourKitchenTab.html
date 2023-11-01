@@ -18,7 +18,8 @@
                 <tr style = "width: 100vw;">
                     <td style = "width: 5%"></td>
                     <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My kitchen</p></td>
-                    <td style = "width: 38%"></td>
+                    <td style = "width: 30%"></td>
+                    <td style = "width: 8%" class = "menuicon" onclick="openForm();" id = "plus">+</td>
                     <td style = "width: 8%" class = "menuicon" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
                     <td style = "width: 4%"></td>
                 </tr>
@@ -45,8 +46,30 @@
             </table>
         </div>
         <!-- PUT PAGE CONTENT HERE -->
-        <div id="result"><button style="bottom:11%; right:2%" class="open-button" onclick="openForm()">Add Food</button></div>
-
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h2 style="padding:5%">Add Food Entry to Your Kitchen</h2>
+                <label for="foodLabel"><b>Food Label</b></label>
+                <input type="text" placeholder="Enter Food Label" name="foodLabel" id="foodLabel" required/>
+                <label for="quantity"><b>Quantity</b></label>
+                <input type="number" placeholder="Enter Quantity" name="quantity" id="quantity"/>
+                <br/><br/>
+                <label for="expiration"><b>Expiration Date</b></label>
+                <input type="text" placeholder="Enter Expiration Date" name="expiration" id="expiration"/>
+                <label for="allergens"><b>Allergens</b></label>
+                <input type="text" placeholder="Enter Allergens" name="allergens" id="allergens"/>
+                <label for="calories"><b>Calories</b></label>
+                <input type="number" placeholder="Enter Calories" name="calories" id="calories"/>
+                <br/><br/>
+                <label for="servingSize"><b>Serving Size</b></label>
+                <input type="text" placeholder="Enter Serving Size" name="servingSize" id="servingSize"/>
+                <button type="button" class="btn" onclick="formatToAdd()">Enter</button>
+                <button type="button" class="btn cancel" onclick="displayAllFood()">Close</button>     
+            </form>
+            <!--<button style="bottom:11%; right:2%" class="open-button" onclick="openForm()"><p>+</p></button>-->
+        </div>
+        <div id="result">
+        </div>
         <div class = "navbar lower">
             <table class = "navcont">
                 <tr style = "width: 100vw;">

@@ -113,10 +113,11 @@ function getFoodInfo(index){
     user1.foodArr[index].expiration + "<br>Allergens: " + user1.foodArr[index].allergens + 
     "<br>Calories: " + user1.foodArr[index].calories + "<br>Serving Size: " + 
     user1.foodArr[index].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ index + ")\">Delete Item</button>"
-    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\">Return</button><h1>";
+    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\">&#8592;</button><h1>";
 }
 
 function openForm() {
+    /* i've changed the form implementation so that this code now starts in the html file to begin with. this is to allow for a slide in/out animation --andrew
     var results = "<div class=\"form-popup\" id=\"myForm\">";
     results = results + "<form action=\"/action_page.php\" class=\"form-container\">";
     results = results + "<h2 style=\"padding:5%\">Add Food Entry to Your Kitchen</h2>";
@@ -138,8 +139,12 @@ function openForm() {
     results = results + "<button type=\"button\" class=\"btn cancel\" onclick=\"displayAllFood()()\">Cancel</button>";
     results = results + " </form>";
     results = results + "</div>";
-    results = results + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"openForm()\">Add Food</button>";
+    results = results + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"openForm()\"><p>+</p></button>";
     document.getElementById("result").innerHTML = results;
+    */
+    
+    myForm.className = "form-popup fpshow";
+    plus.className = "menuicon toggled";
 }
 
 function formatToAdd(){
@@ -165,9 +170,10 @@ function formatToAdd(){
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
 
+    
     displayAllFood();
-
-    closeForm();
+    myForm.className = "form-popup fpshow";
+    plus.className = "menuicon";
 }
 
 function displayAllFood(){
@@ -187,10 +193,23 @@ function displayAllFood(){
     }
 
     if((balanced + 1)%3 != 0){
-        results = results + "</td></table> <button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"openForm()\">Add Food</button></h1>";
+        results = results + "</td></table>";
     } else {
-        results = results + "</table> <button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"openForm()\">Add Food</button>";
+        results = results + "</table>";
     }
     
+    myForm.className = "form-popup";
+    plus.className = "menuicon";
+    flushInputs();
     document.getElementById("result").innerHTML = results;
+}
+
+function flushInputs(){
+    /* new function to clear all of the input fields on the form, in order to account for the new implementation of the form. --andrew */
+    document.getElementById('foodLabel').value = '';
+    document.getElementById('quantity').value = '';
+    document.getElementById('expiration').value = '';
+    document.getElementById('allergens').value = '';
+    document.getElementById('calories').value = '';
+    document.getElementById('servingSize').value = '';
 }

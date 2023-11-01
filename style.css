@@ -10,6 +10,8 @@ h1 {
     font-size: 45px;
 }
 
+/* ANDREW'S CLASSES */
+
 .navbar{
     width: 100vw;
     height: 9.5vh; 
@@ -62,34 +64,34 @@ h1 {
 
 .selected{
     background-color: #ecf0f1 !important;
-    border-bottom: 3px solid #1e5f8a !important;
+    border-bottom: 3px solid #1f628e !important;
 }
 
 .selected p{
-    color: #1e5f8a !important;
+    color: #1f628e !important;
     font-weight: bold !important;
 }
 
 .menu {
     width: 100% !important;
-    height: 25%;
+    height: 24%;
     position: fixed;
     top: 0;
     color: #212529 !important;
     background: #ffffff !important;
     z-index: 10;
     user-select: none;
-    transition: all 0.6s ease;
+    transition: all 0.5s ease;
     box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
 }
 
 .hide {
-    opacity: 0;
+    opacity: 0%;
     left: 100% !important;
 }
 
 .show {
-    opacity: 1;
+    opacity: 100%;
     left: 0%;
 }
 
@@ -122,97 +124,110 @@ h1 {
     font-weight: bold !important;
     text-align: center;
     color: inherit;
-    transition: color 0.6s ease;
+    transition: color 0.5s ease;
 }
 
 .toggled{
-    color: #1e5f8a !important;
-    transition: color 0.6s ease;
+    color: #1f628e !important;
+    transition: color 0.5s ease;
 }
 
-  .profile-item-grid{
+.carttable{
+    width: 100%;
+    border: 13px solid #eceff1;
+    table-layout: fixed;
+    border-spacing: 0px 12px;
+}
+
+.cartitem{
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
+    transform: scale(1,1);
+    cursor: default;
+}
+
+.cartitem td{
+    margin: 10px;
+    background-color: #ffffff;
+    padding: 3px 12px;
+    border-bottom: 5px solid #1f628e;  
+    transition: border-bottom 0.3s ease;
+}
+
+.cartitem:active td{
+    border-bottom: 5px solid #3498db;
+    transition: border-bottom 0.3s ease;
+}
+
+.cartitem td h3{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.cartitem td p{
+    font-size: 1.2rem;
+}
+
+.expand{
+    transition: transform 0.3s ease !important;
+}
+
+.collapse{
+    transform: rotate(180deg) translateY(-8px);
+}
+
+/* END ANDREW'S CLASSES */
+
+/* KARTHIK'S CLASSES */
+
+.profile-item-grid{
     display: grid;
     grid-template-rows: auto;
     grid-row-gap: 1px;
-    background: #808080;
+    background: transparent;
     margin-bottom: 10vh;
-  }
-  
-  .profile-item-grid-item{
+}
+
+.profile-item-grid-item{
     text-align: left;
     padding: 10px;
     font-size: 35px;
-    background: #f0ecf4;
-  }
-  
-  .profile-logout-button{
-    background-color: #f44336;
+}
+
+.profile-logout-button{
+    background-color: #d34233;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 35px;
     margin: 4px 2px;
-  }
-  
-  .profile-updateinfo-button{
-    background-color: #4CAF50; /* Green */
+    border-radius: 5px;
+}
+
+.profile-updateinfo-button{
+    background-color: #16a085; /* Green */
     border: none;
     color: white;
-    padding: 5px 16px;
+    padding: 7px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
     margin: 4px 2px;
-  }
-  
-  .profile-text-content{
+    border-radius: 5px;
+}
+
+.profile-text-content{
     text-align: left;
     padding: 1px;
     font-size: 20px;
-  }
-
-/* classes for shawdi's tab */
-.overlay {
-    display: block;
-    position: fixed;
-    top: -1%;
-    left: 0px;
-    width: 100%;
-    height: 0%;
-    background-color: rgba(36,42,45, 0.5); /* Semi-transparent black overlay */
-    z-index: 1;
-    transition: height 0.6s ease, top 0.6s ease;
 }
 
-.oshow{
-    height: 100%;
-    top: 0%;
-    transition: height 0.6s ease, top 0.6s ease;
-}
+/* END KARTHIK'S CLASSES */
 
-.popup {
-    display: block;
-    position: fixed;
-    top: 101%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the pop-up */
-    opacity: 0;
-    background-color: #ffffff;
-    padding: 25px;
-    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
-    z-index: 2;
-    transition: top 0.6s ease, opacity 0.6s ease;
-}
-
-.pshow{
-    opacity: 1;
-    top: 50%;
-    transition: top 0.6s ease, opacity 0.6s ease;
-}
+/* SHAWDI'S CLASSES */
 
 .close-button {
     position: absolute;
@@ -239,27 +254,92 @@ h1 {
     border-bottom: 1px solid #c6ced2;
 }
 
+.overlay {
+    display: block;
+    position: fixed;
+    top: -1%;
+    left: 0px;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(36,42,45, 0.4); /* Semi-transparent black overlay */
+    z-index: 1;
+    transition: height 0.5s ease, top 0.5s ease;
+}
+
+.oshow{
+    height: 100%;
+    top: 0%;
+    transition: height 0.5s ease, top 0.5s ease;
+}
+
+.popup {
+    display: block;
+    position: fixed;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up */
+    opacity: 0%;
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
+    z-index: 2;
+    transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+.pshow{
+    opacity: 100%;
+    top: 50%;
+    transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+/* END SHAWDI'S CLASSES */
+
+/* ISABELLA'S CLASSES */
+
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  width: 280px;
+    background-color: #455a64;
+    color: #ffffff;
+    padding: 20px 20px;
+    border: none;
+    cursor: default;
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    z-index: 2;
+    font-size: 2.75rem;
+    transition: background-color 0.3s ease;
+}
+
+.open-button p {
+    transform: translate(1px, -48px);
+}
+
+.open-button:active {
+    background-color: #607d8b;
+    transition: background-color 0.3s ease;
 }
 
 /* The popup form - hidden by default */
 .form-popup {
-  /*display: none;*/
-  right: 30%;
-  /*border: 3px solid #f1f1f1;*/
-  z-index: 9;
+  position: fixed;
+  left: 0%;
+  top: -85%;
   padding-left: 10%;
-  padding-right:10%;
-  padding-top: 10px;
+  padding-right: 10%;
+  padding-top: 7%;
+  padding-bottom: 8%;
+  z-index: 5;
+  opacity: 0%;
+  background-color: rgba(36,42,45, 0.4);
+  transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+.fpshow {
+  top: 9.5%;
+  opacity: 100%;
+  transition: top 0.5s ease, opacity 0.5s ease;
 }
 
 /* Add styles to the form container */
@@ -269,6 +349,7 @@ h1 {
   padding-right: 50px;
   background-color: white;
   border: 3px solid #5e5858;
+
 }
 
 /* Full-width input fields */
@@ -288,24 +369,31 @@ h1 {
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #16a085;
   color: white;
-  padding: 16px 20px;
+  padding: 18px 20px;
   border: none;
-  cursor: pointer;
+  cursor: default;
   width: 100%;
   margin-bottom:10px;
-  opacity: 0.8;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:active {
+  background-color: #18ae90;
+  transition: background-color 0.3s ease;
 }
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: #d34233;
+  border-radius: 5px;
 }
 
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
+.form-container .cancel:active {
+  background-color: #e74c3c;
 }
 
 .foodBox {
@@ -322,13 +410,14 @@ h1 {
  border-spacing:20px; 
 }
 
-
 .remove-food-button {
-  background-color: red;
-  color: white;
-  padding: 16px 20px;
+  background-color: #d34233;
+  color: #ffffff;
+  padding: 18px 20px;
   border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  width: 280px;
+  cursor: default;
+  width: 300px;
+  border-radius: 5px;
 }
+
+/* END ISABELLA'S CLASSES */

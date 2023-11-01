@@ -9,6 +9,22 @@
             @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
         </style>
         <script type="text/javascript" src="menu.js"></script>
+        <script type = "text/javascript">
+            function remove(input) {
+              var element = input;
+              element.remove();
+            }
+            
+            function toggleexpand(input) {
+              var element = input;
+              if (element.className === "expand"){
+                  element.className = "expand collapse";
+              } else {
+                  element.className = "expand";
+              }
+              
+            }
+        </script>
     </head>
 
     <body>
@@ -26,7 +42,7 @@
         <div style = "height: 9.5vh">
             <!-- padding space -->
         </div>
-        <div class="menu hide" id="menu">
+        <div class="menu hide" id="menu" style = "height: 19% !important">
             <table style="width: 100% !important;">
                 <tr>
                     <td>
@@ -43,7 +59,36 @@
             </table>
         </div>
         <!-- PUT PAGE CONTENT HERE -->
-
+        <div style = "width: 100%">
+            <table class = "carttable" >
+                <tr class = "cartitem">
+                    <td style = "width: 85%">
+                        <h3>item 1</h3>
+                    </td>
+                    <td style = "width: 7.5%; text-align: center" onclick = "toggleexpand(this.firstElementChild)">
+                    <!-- td onclick here should expand the item listing to show detail. so far i've only gotten the onclick to make the arrow rotate -->
+                        <h3 class = "expand">&#8964;</h3> 
+                    </td>
+                    <td style = "width: 7.5%; text-align: center" onclick = "remove(this.parentElement)">
+                        <h3>x</h3>
+                    </td>
+                </tr>
+                
+                <tr class = "cartitem">
+                    <td style = "width: 85%">
+                        <h3>item 2 - expanded</h3>
+                        <p>info info info info</p>
+                        <p>info info info info</p>
+                    </td>
+                    <td style = "width: 7.5%; text-align: center" onclick = "toggleexpand(this.firstElementChild)">
+                        <h3 class = "expand collapse">&#8964;</h3>
+                    </td>
+                    <td style = "width: 7.5%; text-align: center" onclick = "remove(this.parentElement)">
+                        <h3>x</h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div class = "navbar lower">
             <table class = "navcont">
                 <tr style = "width: 100vw;">
