@@ -113,7 +113,7 @@ function getFoodInfo(index){
     user1.foodArr[index].expiration + "<br>Allergens: " + user1.foodArr[index].allergens + 
     "<br>Calories: " + user1.foodArr[index].calories + "<br>Serving Size: " + 
     user1.foodArr[index].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ index + ")\">Delete Item</button>"
-    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\">&#8592;</button><h1>";
+    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button><h1>";
 }
 
 function openForm() {
