@@ -23,7 +23,7 @@ button{
     position: fixed; 
     left: 0px;
     box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
-    transition: background 0.3s ease;
+    transition: background 0.25s ease;
     cursor: default !important;
     user-select: none;
     z-index: 9001;
@@ -55,7 +55,7 @@ button{
 .navitem p{
     color: #2e8cca;
     line-height: normal;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
     font-size: 1.5rem; 
     text-decoration: none;
     cursor: default;
@@ -63,7 +63,7 @@ button{
 
 .navitem p:active{
     color: #3498db !important;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }   
 
 .selected{
@@ -112,7 +112,7 @@ button{
     width: 100%;
     border: none;
     padding: 10px 0px;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     cursor: default !important;
 }
 
@@ -121,7 +121,7 @@ button{
     background: #fafbfc;
     border-bottom: 3px solid #3498db !important;
     border-top: 3px solid #fafbfc !important;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .menuicon{
@@ -155,14 +155,14 @@ button{
     background-color: rgba(255,255,255, 0.9);
     padding: 3px 12px;
     border-bottom: 5px solid #1f628e;  
-    transition: border-bottom 0.3s ease, background-color 0.3s ease;
+    transition: border-bottom 0.25s ease, background-color 0.25s ease;
     user-select: none;
 }
 
 .cartitem:active td{
     background-color: #ffffff;
     border-bottom: 5px solid #3498db;
-    transition: border-bottom 0.3s ease, background-color 0.3s ease;
+    transition: border-bottom 0.25s ease, background-color 0.25s ease;
 }
 
 .cartitem td h3{
@@ -175,7 +175,7 @@ button{
 }
 
 .expand{
-    transition: transform 0.3s ease !important;
+    transition: transform 0.25s ease !important;
 }
 
 .collapse{
@@ -316,7 +316,7 @@ button{
     border-radius: 45px;
     z-index: 2;
     font-size: 2.75rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.25s ease;
 }
 
 .open-button p {
@@ -325,7 +325,7 @@ button{
 
 .open-button:active {
     background-color: #607d8b;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.25s ease;
 }
 
 /* The popup form - hidden by default */
@@ -384,13 +384,13 @@ button{
   width: 100%;
   margin-bottom: 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.25s ease;
 }
 
 /* Add some hover effects to buttons */
 .form-container .btn:active {
   background-color: #18ae90;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.25s ease;
 }
 
 /* Add a red background color to the cancel button */
