@@ -179,6 +179,7 @@ function formatToAdd(){
 function displayAllFood(){
     var results = "<table class=\"foodTable\" >";
     let balanced = 0;
+    let num = 0;
     for(let i in user1.foodArr){
         if(i%3 == 0){
             results = results + "<tr><td class=\"foodBox\" onclick=\"getFoodInfo(" + i + ")\">" + user1.foodArr[i].name + "</td>"; 
@@ -190,12 +191,17 @@ function displayAllFood(){
             results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + ")\">" + user1.foodArr[i].name + "</td>";
         }
         balanced = i;
+        num = num + 1;
     }
-
+    
     if((balanced + 1)%3 != 0){
         results = results + "</td></table>";
     } else {
         results = results + "</table>";
+    }
+    
+    if (num == 0){
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Get started by pressing the <span style = \"font-weight: bold\">+</span> button on the top right.</p></div>" + results
     }
     
     myForm.className = "form-popup";
