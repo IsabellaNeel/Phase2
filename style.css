@@ -4,10 +4,14 @@ body{
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
-h1 {
+h1{
     text-align: center;
     padding: 45px;
     font-size: 45px;
+}
+
+button{
+    font-family: 'Lato', Helvetica, sans-serif;
 }
 
 /* ANDREW'S CLASSES */
@@ -134,7 +138,7 @@ h1 {
 
 .carttable{
     width: 100%;
-    border: 13px solid #eceff1;
+    border: 14px solid #eceff1;
     table-layout: fixed;
     border-spacing: 0px 12px;
     margin-bottom: 9.5vh;
@@ -148,15 +152,16 @@ h1 {
 
 .cartitem td{
     margin: 10px;
-    background-color: #ffffff;
+    background-color: rgba(255,255,255, 0.9);
     padding: 3px 12px;
     border-bottom: 5px solid #1f628e;  
-    transition: border-bottom 0.3s ease;
+    transition: border-bottom 0.3s ease, background-color 0.3s ease;
 }
 
 .cartitem:active td{
+    background-color: #ffffff;
     border-bottom: 5px solid #3498db;
-    transition: border-bottom 0.3s ease;
+    transition: border-bottom 0.3s ease, background-color 0.3s ease;
 }
 
 .cartitem td h3{
