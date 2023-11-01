@@ -156,6 +156,7 @@ button{
     padding: 3px 12px;
     border-bottom: 5px solid #1f628e;  
     transition: border-bottom 0.3s ease, background-color 0.3s ease;
+    user-select: none;
 }
 
 .cartitem:active td{
