@@ -109,11 +109,21 @@ function removeFoodItem(index){
 }
 
 function getFoodInfo(index){
-    document.getElementById("result").innerHTML = "<h1>Name: " + user1.foodArr[index].name + "<br>Quantity: " + user1.foodArr[index].quantity + "<br>Expiration: " +
+    document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" + getImage( user1.foodArr[index].name) + "\" width=\"200\" class=\"center\"> Name: " + user1.foodArr[index].name + "<br>Quantity: " + user1.foodArr[index].quantity + "<br>Expiration: " +
     user1.foodArr[index].expiration + "<br>Allergens: " + user1.foodArr[index].allergens + 
     "<br>Calories: " + user1.foodArr[index].calories + "<br>Serving Size: " + 
     user1.foodArr[index].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ index + ")\">Delete Item</button>"
     + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button><h1>";
+}
+
+function getImage(string){
+    if(string == "apple" || string == "Apple" || string == "apples" || string == "Apples"){
+        return "apple.jfif";
+    } else if(string == "bananas" || string == "Bananas" || string == "banana" || string == "Banana"){
+        return "banana.jfif";
+    } else if(string == "limes" || string == "Limes" || string == "lime" || string == "Lime"){
+        return "lime.jfif";
+    }
 }
 
 function openForm() {
@@ -171,9 +181,10 @@ function formatToAdd(){
     sessionStorage.setItem('foodArr', jsonArray);
 
     
-    displayAllFood();
+    //displayAllFood();
     myForm.className = "form-popup fpshow";
     plus.className = "menuicon";
+    displayAllFood();
 }
 
 function displayAllFood(){
