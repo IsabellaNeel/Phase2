@@ -152,7 +152,7 @@ button{
 
 .cartitem td{
     margin: 10px;
-    background-color: rgba(255,255,255, 0.75);
+    background-color: rgba(255,255,255, 0.8);
     padding: 3px 12px;
     border-bottom: 5px solid #1f628e;
     transition: border-bottom 0.25s ease, background-color 0.25s ease;
