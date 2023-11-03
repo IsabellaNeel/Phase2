@@ -154,11 +154,11 @@ function displayAllShoppingListItems(){
         "<tr class = \"cartitem\">" +
             "<td style = \"width: 85%\">" +
                 "<h3>" + user1.shoppingListArr[i].foodName + "</h3>" +
+                "<p id = \"showNotes"+ i +"\"></p>" +
             "</td>" +
 
             "<td style = \"width: 8%; text-align: center\" onclick = \"toggleExpand(this.firstElementChild," + i +")\">" +
                 "<h3 class = \"expand\">&#8964;</h3>" + 
-                "<p id = \"showNotes\"></p>" +
             "</td>" +
 
             "<td style = \"width: 7%; text-align: center\" onclick = \"deleteItem(this.parentElement," + i + ")\">" +
@@ -199,10 +199,14 @@ function deleteItem(input, index) {
     var element = input;
     if (element.className === "expand"){
         element.className = "expand collapse";
-        document.getElementById("showNotes").innerHTML = "";
+        if(user1.shoppingListArr[index].notes == ""){
+            document.getElementById("showNotes"+index).innerHTML = "No Notes";
+        } else{
+            document.getElementById("showNotes"+index).innerHTML = user1.shoppingListArr[index].notes;
+        }
     } else {
         element.className = "expand";
-        document.getElementById("showNotes").innerHTML = user1.shoppingListArr[index].notes;
+        document.getElementById("showNotes"+index).innerHTML = "";
     }
   }
 
