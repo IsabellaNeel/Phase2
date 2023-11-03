@@ -19,7 +19,7 @@
                     <td style = "width: 5%"></td>
                     <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My shopping list</p></td>
                     <td style = "width: 30%"></td>
-                    <td style = "width: 8%" class = "menuicon" onclick="openForm();" id = "plus">+</td>
+                    <td style = "width: 8%" class = "menuicon" onclick="openShoppingForm();" id = "plus">+</td>
                     <td style = "width: 8%" class = "menuicon" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
                     <td style = "width: 4%"></td>
                 </tr>
@@ -48,15 +48,15 @@
         <div style = "width: 100%">
             <div id="resultShoppingList"></div>
         </div>
-        <div class="form-popup" id="myForm">
+        <div class="form-popup-shopping" id="myFormShopping">
             <form action="/action_page.php" class="form-container">
                 <h2 style="padding:5%">Add Item to Your Shopping List</h2>
                 <label for="foodLabelShopping"><b>Food Label</b></label>
                 <input type="text" placeholder="Enter Food Label" name="foodLabelShopping" id="foodLabelShopping" required/>
                 <label for="notesLabelShopping"><b>Notes</b></label>
-                <textarea rows="4" cols="50" name="notesLabelShopping" id="notesLabelShopping" form="form-container"></textarea>
-                <br>
-                
+                <textarea rows="5" cols="50" name="notesLabelShopping" id="notesLabelShopping" form="form-container" style = "resize: none"></textarea>
+                <br/>
+                <br/>
                 <button type="button" class="btn" onclick="formatToAddShoppingList()">Enter</button>
                 <button type="button" class="btn cancel" onclick="displayAllShoppingListItems()">Close</button>     
             </form>

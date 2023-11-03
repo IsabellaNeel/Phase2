@@ -118,7 +118,7 @@ function getImage(string){ //returns an image based on the string parameter
 }
 
 /*SHOPPING LIST FUNCTIONS START*/
-function openShoppingListForm(){
+function openShoppingForm(){
     myFormShopping.className = "form-popup-shopping fpshow-shopping";
     plus.className = "menuicon toggled";
 }
@@ -140,7 +140,7 @@ function formatToAddShoppingList(){
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
 
-    myForm.className = "form-popup-shopping fpshow-shopping";
+    myFormShopping.className = "form-popup-shopping fpshow-shopping";
     plus.className = "menuicon";
     displayAllShoppingListItems();
 }
@@ -174,7 +174,7 @@ function displayAllShoppingListItems(){
         results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list.</p></div>" + results
     }
     
-    myForm.className = "form-popup";
+    myFormShopping.className = "form-popup-shopping";
     plus.className = "menuicon";
     flushInputsShoppingList();
     document.getElementById("resultShoppingList").innerHTML = results;
@@ -193,7 +193,7 @@ function deleteItem(input, index) {
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
     displayAllShoppingListItems();
-  }
+}
   
   function toggleExpand(input, index) {
     var element = input;
