@@ -9,30 +9,17 @@
             @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
         </style>
         <script type="text/javascript" src="menu.js"></script>
-        <script type = "text/javascript">
-            function deleteItem(input) {
-              var element = input;
-              element.remove();
-            }
-            
-            function toggleExpand(input) {
-              var element = input;
-              if (element.className === "expand"){
-                  element.className = "expand collapse";
-              } else {
-                  element.className = "expand";
-              }
-            }
-        </script>
+        <script src="Functionality.js"></script>
     </head>
 
-    <body>
+    <body onload = "displayAllShoppingListItems()">
         <div class = "navbar upper">
             <table class = "navcont" style = "font-size: 1.9rem">
                 <tr style = "width: 100vw;">
                     <td style = "width: 5%"></td>
                     <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My shopping list</p></td>
-                    <td style = "width: 38%"></td>
+                    <td style = "width: 30%"></td>
+                    <td style = "width: 8%" class = "menuicon" onclick="openForm();" id = "plus">+</td>
                     <td style = "width: 8%" class = "menuicon" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
                     <td style = "width: 4%"></td>
                 </tr>
@@ -59,13 +46,14 @@
         </div>
         <!-- PUT PAGE CONTENT HERE -->
         <div style = "width: 100%">
-            <table class = "carttable" >
-                <tr class = "cartitem">
+            <div id="resultShoppingList"></div>
+            <!-- <table class = "carttable" >
+               <tr class = "cartitem">
                     <td style = "width: 85%">
                         <h3>item 1</h3>
                     </td>
                     <td style = "width: 8%; text-align: center" onclick = "toggleExpand(this.firstElementChild)">
-                    <!-- td onclick here should expand the item listing to show detail. so far i've only gotten the onclick to make the arrow rotate -->
+                     td onclick here should expand the item listing to show detail. so far i've only gotten the onclick to make the arrow rotate 
                         <h3 class = "expand">&#8964;</h3> 
                     </td>
                     <td style = "width: 7%; text-align: center" onclick = "deleteItem(this.parentElement)">
@@ -98,7 +86,19 @@
                         <h3>x</h3>
                     </td>
                 </tr>
-            </table>
+            </table> -->
+        </div>
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h2 style="padding:5%">Add Item to Your Shopping List</h2>
+                <label for="foodLabelShopping"><b>Food Label</b></label>
+                <input type="text" placeholder="Enter Food Label" name="foodLabelShopping" id="foodLabelShopping" required/>
+                <label for="notesLabelShopping"><b>Notes</b></label>
+                <textarea rows="4" cols="50" name="notesLabelShopping" id="notesLabelShopping" form="form-container"></textarea>
+                <button type="button" class="btn" onclick="formatToAddShoppingList()">Enter</button>
+                <button type="button" class="btn cancel" onclick="displayAllShoppingListItems()">Close</button>     
+            </form>
+            <!--<button style="bottom:11%; right:2%" class="open-button" onclick="openForm()"><p>+</p></button>-->
         </div>
         <div class = "navbar lower">
             <table class = "navcont">

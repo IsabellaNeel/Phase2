@@ -7,25 +7,13 @@ class KitchenApp {
     }
 }
 
-class ShoppingList {
-    constuctor(foodArr){
-        this.foodArr = foodArr;
+
+class ShoppingListItem {
+    constructor(foodName, notes){
+        this.foodName = foodName;
+        this.notes = notes;
     }
 
-    addListItem(){
-
-    }
-
-    removeListItem(){
-
-    }
-
-}
-
-class Recipee {
-    constructor(){
-
-    }
 }
 
 class FoodItem {
@@ -70,13 +58,22 @@ class FoodItem {
 
 class User {
     static foodArr;
-    constructor(userName, foodArr) {
+    constructor(userName, foodArr, shoppingListArr) {
         this.userName = userName;
         this.foodArr = foodArr;
+        this.shoppingListArr = shoppingListArr;
     }
 
     addFoodItem(foodItem){
         this.foodArr.push(foodItem);
+    }
+
+    addShoppingListItem(shoppingListItem){
+        this.shoppingListArr.push(shoppingListItem);
+    }
+
+    getshoppingListArr(){
+        return this.foodArr;
     }
 
     getFoodArr(){
@@ -92,6 +89,7 @@ let myKitchen = new KitchenApp();
 let user1 = new User();
 user1.userName = "Bob";
 let str = sessionStorage.getItem('foodArr');
+let str2 = sessionStorage.getItem('shoppingListArr');
 
 if(str != null){
     user1.foodArr = JSON.parse(str);
@@ -101,22 +99,15 @@ if(str != null){
     sessionStorage.setItem('foodArr', jsonArray);
 }
 
-function removeFoodItem(index){
-    user1.foodArr.splice(index, 1);
-    let jsonArray = JSON.stringify(user1.foodArr);
-    sessionStorage.setItem('foodArr', jsonArray);
-    displayAllFood();
+if(str2 != null){
+    user1.shoppingListArr = JSON.parse(str2);
+} else {
+    user1.shoppingListArr = new Array();
+    let jsonArray = JSON.stringify(user1.shoppingListArr);
+    sessionStorage.setItem('shoppingListArr', jsonArray);
 }
 
-function getFoodInfo(index){
-    document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" + getImage( user1.foodArr[index].name) + "\" width=\"200\" class=\"center\"> Name: " + user1.foodArr[index].name + "<br>Quantity: " + user1.foodArr[index].quantity + "<br>Expiration: " +
-    user1.foodArr[index].expiration + "<br>Allergens: " + user1.foodArr[index].allergens + 
-    "<br>Calories: " + user1.foodArr[index].calories + "<br>Serving Size: " + 
-    user1.foodArr[index].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ index + ")\">Delete Item</button>"
-    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button><h1>";
-}
-
-function getImage(string){
+function getImage(string){ //returns an image based on the string parameter
     if(string == "apple" || string == "Apple" || string == "apples" || string == "Apples"){
         return "apple.jfif";
     } else if(string == "bananas" || string == "Bananas" || string == "banana" || string == "Banana"){
@@ -126,38 +117,104 @@ function getImage(string){
     }
 }
 
-function openForm() {
-    /* i've changed the form implementation so that this code now starts in the html file to begin with. this is to allow for a slide in/out animation --andrew
-    var results = "<div class=\"form-popup\" id=\"myForm\">";
-    results = results + "<form action=\"/action_page.php\" class=\"form-container\">";
-    results = results + "<h2 style=\"padding:5%\">Add Food Entry to Your Kitchen</h2>";
-    results = results + " <label for=\"foodLabel\"><b>Food Label</Label></b></label>";
-    results = results + "<input type=\"text\" placeholder=\"Enter Food Label\" name=\"foodLabel\" id=\"foodLabel\" required>";
-    results = results + "<label for=\"quantity\"><b>Quantity</Label></b></label>";
-    results = results + "<input type=\"number\" placeholder=\"Enter Quantity\" name=\"quantity\" id=\"quantity\">";
-    results = results + "<br><br>";
-    results = results + "<label for=\"expiration\"><b>Expiration Date</b></label>";
-    results = results + "<input type=\"text\" placeholder=\"Enter Expiration Date\" name=\"expiration\" id=\"expiration\">";
-    results = results + "<label for=\"allergens\"><b></Label>Allergens</b></label>";
-    results = results + "<input type=\"text\" placeholder=\"Enter Allergens\" name=\"allergens\" id=\"allergens\">";
-    results = results + "<label for=\"calories\"><b></Label>Calories</b></label>";
-    results = results + "<input type=\"number\" placeholder=\"Enter Calories\" name=\"calories\" id=\"calories\"> ";
-    results = results + "<br><br>";
-    results = results + "<label for=\"servingSize\"><b></Label>Serving Size</b></label>";
-    results = results + "<input type=\"text\" placeholder=\"Enter Serving Size\" name=\"servingSize\" id=\"servingSize\">";
-    results = results + "<button type=\"button\" class=\"btn\" onclick=\"formatToAdd()\">Enter</button>";
-    results = results + "<button type=\"button\" class=\"btn cancel\" onclick=\"displayAllFood()()\">Cancel</button>";
-    results = results + " </form>";
-    results = results + "</div>";
-    results = results + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"openForm()\"><p>+</p></button>";
-    document.getElementById("result").innerHTML = results;
-    */
+/*SHOPPING LIST FUNCTIONS START*/
+function openShoppingListForm(){
+    myFormShopping.className = "form-popup-shopping fpshow-shopping";
+    plus.className = "menuicon toggled";
+}
+
+function formatToAddShoppingList(){
+    var nameValue = document.getElementById("foodLabelShopping").value;
+    var notesValue = document.getElementById("notesLabelShopping").value;
     
+    let shoppingListItem = {foodName: nameValue, notes: notesValue};
+
+    let str2 = sessionStorage.getItem('shoppingListArr');
+    if(str2 == null){
+        user1.shoppingListArr = new Array();
+    } else {
+        user1.shoppingListArr = JSON.parse(str2);
+    }
+
+    user1.shoppingListArr.push(shoppingListItem);
+    let jsonArray = JSON.stringify(user1.shoppingListArr);
+    sessionStorage.setItem('shoppingListArr', jsonArray);
+
+    myForm.className = "form-popup-shopping fpshow-shopping";
+    plus.className = "menuicon";
+    displayAllShoppingListItems();
+}
+
+function displayAllShoppingListItems(){
+    var results = "<table class = \"carttable\" >";
+   
+    let num = 0;
+    for(let i in user1.shoppingListArr){
+        results = results + 
+        "<tr class = \"cartitem\">" +
+            "<td style = \"width: 85%\">" +
+                "<h3>" + user1.shoppingListArr[i].foodName + "</h3>" +
+            "</td>" +
+
+            "<td style = \"width: 8%; text-align: center\" onclick = \"toggleExpand(this.firstElementChild," + i +")\">" +
+                "<h3 class = \"expand\">&#8964;</h3>" + 
+                "<p id = \"showNotes\"></p>" +
+            "</td>" +
+
+            "<td style = \"width: 7%; text-align: center\" onclick = \"deleteItem(this.parentElement," + i + ")\">" +
+                "<h3>x</h3>" +
+            "</td>" +
+        "</tr>";
+        
+        num = num + 1;
+    }
+        results = results + "</table>";
+    
+    if (num == 0){
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list.</p></div>" + results
+    }
+    
+    myForm.className = "form-popup";
+    plus.className = "menuicon";
+    flushInputsShoppingList();
+    document.getElementById("resultShoppingList").innerHTML = results;
+}
+
+function flushInputsShoppingList(){
+    /* new function to clear all of the input fields on the form, in order to account for the new implementation of the form. --andrew */
+    document.getElementById('foodLabelShopping').value = '';
+    document.getElementById('notesLabelShopping').value = '';
+}
+
+function deleteItem(input, index) {
+    var element = input;
+    element.remove();
+    user1.shoppingListArr.splice(index, 1);
+    let jsonArray = JSON.stringify(user1.shoppingListArr);
+    sessionStorage.setItem('shoppingListArr', jsonArray);
+    displayAllShoppingListItems();
+  }
+  
+  function toggleExpand(input, index) {
+    var element = input;
+    if (element.className === "expand"){
+        element.className = "expand collapse";
+        document.getElementById("showNotes").innerHTML = "";
+    } else {
+        element.className = "expand";
+        document.getElementById("showNotes").innerHTML = user1.shoppingListArr[index].notes;
+    }
+  }
+
+/*SHOPPING LIST FUNCTIONS END*/
+
+/*YOUR KITCHEN FUNCTIONS START*/
+function openForm() { // opens the form to enter food items to your kitchen page
     myForm.className = "form-popup fpshow";
     plus.className = "menuicon toggled";
 }
 
-function formatToAdd(){
+function formatToAdd(){ //adds food item to foodArr after food item form has been filled out and entered
     var nameValue = document.getElementById("foodLabel").value;
     var quantityValue = document.getElementById("quantity").value;
     var expirationValue = document.getElementById("expiration").value;
@@ -181,13 +238,12 @@ function formatToAdd(){
     sessionStorage.setItem('foodArr', jsonArray);
 
     
-    //displayAllFood();
     myForm.className = "form-popup fpshow";
     plus.className = "menuicon";
     displayAllFood();
 }
 
-function displayAllFood(){
+function displayAllFood(){ //displays all food items from foodArr in boxes
     var results = "<table class=\"foodTable\" >";
     let balanced = 0;
     let num = 0;
@@ -221,8 +277,7 @@ function displayAllFood(){
     document.getElementById("result").innerHTML = results;
 }
 
-function flushInputs(){
-    /* new function to clear all of the input fields on the form, in order to account for the new implementation of the form. --andrew */
+function flushInputs(){ //new function to clear all of the input fields on the form, in order to account for the new implementation of the form. --andrew
     document.getElementById('foodLabel').value = '';
     document.getElementById('quantity').value = '';
     document.getElementById('expiration').value = '';
@@ -230,3 +285,20 @@ function flushInputs(){
     document.getElementById('calories').value = '';
     document.getElementById('servingSize').value = '';
 }
+
+function removeFoodItem(index){ //removes food item from array and screen 
+    user1.foodArr.splice(index, 1);
+    let jsonArray = JSON.stringify(user1.foodArr);
+    sessionStorage.setItem('foodArr', jsonArray);
+    displayAllFood();
+}
+
+function getFoodInfo(index){ //gets information about specified food item to display on screen
+    document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" + getImage( user1.foodArr[index].name) + "\" width=\"200\" class=\"center\"> Name: " + user1.foodArr[index].name + "<br>Quantity: " + user1.foodArr[index].quantity + "<br>Expiration: " +
+    user1.foodArr[index].expiration + "<br>Allergens: " + user1.foodArr[index].allergens + 
+    "<br>Calories: " + user1.foodArr[index].calories + "<br>Serving Size: " + 
+    user1.foodArr[index].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ index + ")\">Delete Item</button>"
+    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button><h1>";
+}
+
+/*YOUR KITCHEN FUNCTIONS END*/

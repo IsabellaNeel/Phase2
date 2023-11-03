@@ -349,6 +349,27 @@ button{
   transition: top 0.5s ease, opacity 0.5s ease;
 }
 
+/*form pop up for shopping list items*/
+.form-popup-shopping {
+    position: fixed;
+    left: 0%;
+    top: -85%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 7%;
+    padding-bottom: 8%;
+    z-index: 5;
+    opacity: 0%;
+    background-color: rgba(36,42,45, 0.4);
+    transition: top 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .fpshow-shopping {
+    top: 9.5%;
+    opacity: 100%;
+    transition: top 0.5s ease, opacity 0.5s ease;
+  }
+
 /* Add styles to the form container */
 .form-container {
   max-width: 500px;
