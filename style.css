@@ -118,9 +118,9 @@ button{
 
 .menuitem:active {
     color: #000000;
-    background: #fafbfc;
+    background: #f8f8f8;
     border-bottom: 3px solid #3498db !important;
-    border-top: 3px solid #fafbfc !important;
+    border-top: 3px solid #f8f8f8 !important;
     transition: all 0.25s ease;
 }
 
