@@ -272,7 +272,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     }
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Get started by pressing the <span style = \"font-weight: bold\">+</span> button on the top right.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>" + results
     }
     
     myForm.className = "form-popup";
