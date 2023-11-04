@@ -269,7 +269,7 @@ button{
     left: 0px;
     width: 100%;
     height: 0%;
-    background-color: rgba(36,42,45, 0.3); /* Semi-transparent black overlay */
+    background-color: rgba(36,42,45, 0.25); /* Semi-transparent black overlay */
     z-index: 1;
     transition: height 0.5s ease, top 0.5s ease;
 }
@@ -340,7 +340,7 @@ button{
   padding-bottom: 16%;
   z-index: 5;
   opacity: 0%;
-  background-color: rgba(36,42,45, 0.3);
+  background-color: rgba(36,42,45, 0.25);
   transition: top 0.5s ease, opacity 0.5s ease;
 }
 
@@ -361,7 +361,7 @@ button{
     padding-bottom: 46%;
     z-index: 5;
     opacity: 0%;
-    background-color: rgba(36,42,45, 0.3);
+    background-color: rgba(36,42,45, 0.25);
     transition: top 0.5s ease, opacity 0.5s ease;
   }
   
@@ -376,10 +376,10 @@ button{
   width: 75vw;
   padding-left: 3.5vw;
   padding-right: 3.5vw;
-  background-color: rgba(255,255,255,0.97);
+  background-color: rgba(255,255,255,0.96);
   border: 2px solid #242a2d;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .form-container span{
