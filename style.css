@@ -61,7 +61,7 @@ button{
     cursor: default;
 }
 
-.navitem p:hover{
+.navitem p:active{
     color: #3498db !important;
     transition: color 0.25s ease;
 }   
@@ -116,7 +116,7 @@ button{
     cursor: default !important;
 }
 
-.menuitem:hover {
+.menuitem:active {
     color: #000000;
     background: #f8f8f8;
     border-bottom: 3px solid #3498db !important;
@@ -159,7 +159,7 @@ button{
     user-select: none;
 }
 
-.cartitem:hover td{
+.cartitem:active td{
     background-color: #ffffff;
     border-bottom: 5px solid #3498db;
     transition: border-bottom 0.25s ease, background-color 0.25s ease;
@@ -323,7 +323,7 @@ button{
     transform: translate(1px, -48px);
 }
 
-.open-button:hover {
+.open-button:active {
     background-color: #607d8b;
     transition: background-color 0.25s ease;
 }
@@ -409,7 +409,7 @@ button{
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover {
+.form-container .btn:active {
   background-color: #18ae90;
   transition: background-color 0.25s ease;
 }
@@ -420,7 +420,7 @@ button{
   border-radius: 5px;
 }
 
-.form-container .cancel:hover {
+.form-container .cancel:active {
   background-color: #e74c3c;
 }
 
