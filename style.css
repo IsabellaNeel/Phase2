@@ -31,7 +31,7 @@ button{
 
 .lower{
     background: #ffffff;
-    bottom: -2px;
+    bottom: 0px;
 }
 
 .upper{
@@ -43,6 +43,7 @@ button{
 
 .navcont{
     border: none; 
+    border-collapse: collapse; 
     height: 100%; 
     width: 100vw;
 }
