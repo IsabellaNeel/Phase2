@@ -37,9 +37,9 @@
                 <tr>
                     <td>
                         <ul style = "padding-left: 5%">
-                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Personas</li>
-                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Meal Type</li>
-                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Flavors</li>
+                            <li class="menuitem" onclick="togglePopupPersons();" id="persons">Personas</li>
+                            <li class="menuitem" onclick="togglePopupMeals();">Meal Type</li>
+                            <li class="menuitem" onclick="togglePopupFlavors();">Flavors</li>
                         </ul>
                     </td>
                 </tr>
@@ -51,6 +51,51 @@
             <h2>Add a Recipe</h2>
             <p>I will work on this later</p>
         </div>
+
+        <div class="overlay ohide" onclick="togglePopupPersons()" id="overlayPersons"></div>
+        <div class="popup phide" id="popupPersons">
+            <span class="close-button" onclick="togglePopupPersons()">&times;</span>
+            <h2>Personas</h2>
+            <input type="checkbox" id="p1" name="p1" value="p1">
+            <label for="p1">Person 1</label><br>
+            <input type="checkbox" id="p2" name="p2" value="p2">
+            <label for="p2">Person 2</label><br>
+            <input type="checkbox" id="p3" name="p3" value="p3">
+            <label for="p3">Person 3</label><br><br>
+        </div>
+
+        <div class="overlay ohide" onclick="togglePopupMeals()" id="overlayMeals"></div>
+        <div class="popup phide" id="popupMeals">
+            <span class="close-button" onclick="togglePopupMeals()">&times;</span>
+            <h2>Meal Types</h2>
+            <input type="checkbox" id="m1" name="m1" value="m1">
+            <label for="m1">Breakfast</label><br>
+            <input type="checkbox" id="m2" name="m2" value="m2">
+            <label for="m2">Lunch</label><br>
+            <input type="checkbox" id="m3" name="m1" value="m3">
+            <label for="m3">Dinner</label><br>
+            <input type="checkbox" id="m4" name="m4" value="m4">
+            <label for="m4">Appetizer</label><br>
+            <input type="checkbox" id="m5" name="m5" value="m5">
+            <label for="m5">Dessert</label><br>
+            <input type="checkbox" id="m6" name="m6" value="m6">
+            <label for="m6">Snack</label><br>
+        </div>
+
+        <div class="overlay ohide" onclick="togglePopupFlavors()" id="overlayFlavors"></div>
+        <div class="popup phide" id="popupFlavors">
+            <span class="close-button" onclick="togglePopupFlavors()">&times;</span>
+            <h2>Flavors</h2>
+            <input type="checkbox" id="f1" name="f1" value="f1">
+            <label for="f1">Sweet</label><br>
+            <input type="checkbox" id="f2" name="f2" value="f2">
+            <label for="f2">Salty</label><br>
+            <input type="checkbox" id="f3" name="f3" value="f3">
+            <label for="f3">Spicy</label><br>
+            <input type="checkbox" id="f4" name="f4" value="f4">
+            <label for="f4">Sour</label><br>
+        </div>
+
         <!-- PUT PAGE CONTENT HERE -->
         <div class="recipe-list">
             <ul>
@@ -77,105 +122,6 @@
                 </li>
                 <li>
                     <h3>Recipe 8</h3>
-                </li>
-                <li>
-                    <h3>Recipe 9</h3>
-                </li>
-                <li>
-                    <h3>Recipe 10</h3>
-                </li>
-                <li>
-                    <h3>Recipe 11</h3>
-                </li>
-                <li>
-                    <h3>Recipe 12</h3>
-                </li>
-                <li>
-                    <h3>Recipe 13</h3>
-                </li>
-                <li>
-                    <h3>Recipe 14</h3>
-                </li>
-                <li>
-                    <h3>Recipe 15</h3>
-                </li>
-                <li>
-                    <h3>Recipe 16</h3>
-                </li>
-                <li>
-                    <h3>Recipe 17</h3>
-                </li>
-                <li>
-                    <h3>Recipe 18</h3>
-                </li>
-                <li>
-                    <h3>Recipe 19</h3>
-                </li>
-                <li>
-                    <h3>Recipe 20</h3>
-                </li>
-                <li>
-                    <h3>Recipe 21</h3>
-                </li>
-                <li>
-                    <h3>Recipe 22</h3>
-                </li>
-                <li>
-                    <h3>Recipe 23</h3>
-                </li>
-                <li>
-                    <h3>Recipe 24</h3>
-                </li>
-                <li>
-                    <h3>Recipe 25</h3>
-                </li>
-                <li>
-                    <h3>Recipe 26</h3>
-                </li>
-                <li>
-                    <h3>Recipe 27</h3>
-                </li>
-                <li>
-                    <h3>Recipe 28</h3>
-                </li>
-                <li>
-                    <h3>Recipe 29</h3>
-                </li>
-                <li>
-                    <h3>Recipe 30</h3>
-                </li>
-                <li>
-                    <h3>Recipe 31</h3>
-                </li>
-                <li>
-                    <h3>Recipe 32</h3>
-                </li>
-                <li>
-                    <h3>Recipe 33</h3>
-                </li>
-                <li>
-                    <h3>Recipe 34</h3>
-                </li>
-                <li>
-                    <h3>Recipe 35</h3>
-                </li>
-                <li>
-                    <h3>Recipe 36</h3>
-                </li>
-                <li>
-                    <h3>Recipe 37</h3>
-                </li>
-                <li>
-                    <h3>Recipe 38</h3>
-                </li>
-                <li>
-                    <h3>Recipe 39</h3>
-                </li>
-                <li>
-                    <h3>Recipe 40</h3>
-                </li>
-                <li>
-                    <h3>Recipe 41</h3>
                 </li>
             </ul>
         </div>
