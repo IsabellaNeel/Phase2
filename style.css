@@ -1,5 +1,5 @@
 body{
-    background: #eceff1 linear-gradient(to bottom right, #f8f8f8, #eceff1) no-repeat fixed !important;
+    background: #eceff1 linear-gradient(to bottom right, #f6f6f6, #eceff1) no-repeat fixed !important;
     color: #000000;
     font-family: 'Lato', Helvetica, sans-serif;
 }
@@ -118,9 +118,9 @@ button{
 
 .menuitem:active {
     color: #000000;
-    background: #f8f8f8;
+    background: #f6f6f6;
     border-bottom: 3px solid #3498db !important;
-    border-top: 3px solid #f8f8f8 !important;
+    border-top: 3px solid #f6f6f6 !important;
     transition: all 0.25s ease;
 }
 
@@ -333,10 +333,10 @@ button{
   position: fixed;
   left: 0%;
   top: -85%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 9%;
+  padding-right: 9%;
   padding-top: 2%;
-  padding-bottom: 13%;
+  padding-bottom: 16%;
   z-index: 5;
   opacity: 0%;
   background-color: rgba(36,42,45, 0.4);
@@ -354,52 +354,72 @@ button{
     position: fixed;
     left: 0%;
     top: -85%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 9%;
+    padding-right: 9%;
     padding-top: 10%;
-    padding-bottom: 42%;
+    padding-bottom: 46%;
     z-index: 5;
     opacity: 0%;
     background-color: rgba(36,42,45, 0.4);
     transition: top 0.5s ease, opacity 0.5s ease;
   }
   
-  .fpshow-shopping {
+.fpshow-shopping {
     top: 9.5%;
     opacity: 100%;
     transition: top 0.5s ease, opacity 0.5s ease;
-  }
+}
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 500px;
-  padding-left: 50px;
-  padding-right: 50px;
+  width: 75vw;
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
   background-color: white;
   border: 2px solid #242a2d;
+}
 
+.form-container span{
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text], .form-container input[type=number], .form-container input[type=password] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
+  padding: 15px 15px 15px;
+  font-size: 16px;
+  margin: 5px 0px 14px 0px;
+  border-style: none none solid;
+  border-bottom: 1px solid #242a2d;
+  background-color: #f6f6f6;
+  transition: background-color 0.25s ease;
 }
 
 /* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
+.form-container input[type=text]:focus, .form-container input[type=number]:focus, .form-container input[type=password]:focus {
+  background-color: #ecf0f1;
+  padding: 15px 15px 14px;
+  border-bottom: 2px solid #2e8cca;
   outline: none;
+  transition: background-color 0.25s ease;
+}
+
+.form-container table{
+    border: none; 
+    border-collapse: collapse; 
+    padding: 0px; 
+    margin: 0px; 
+    background: transparent; 
+    width: calc(100% - 30px)
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
   background-color: #16a085;
   color: white;
-  padding: 18px 20px;
+  padding: 17px 20px;
+  font-size: 1.2rem;
   border: none;
   cursor: default;
   width: 100%;
@@ -417,6 +437,7 @@ button{
 /* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: #d34233;
+  font-size: 1.2rem;
   border-radius: 5px;
 }
 
