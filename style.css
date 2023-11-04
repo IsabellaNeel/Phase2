@@ -14,7 +14,7 @@ button{
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
-/* ANDREW'S CLASSES */
+/* BEGIN ANDREW'S CLASSES */
 
 .navbar{
     width: 100vw;
@@ -38,6 +38,7 @@ button{
     background: rgba(255,255,255,0.9); 
     top: 0px;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .navcont{
@@ -184,7 +185,7 @@ button{
 
 /* END ANDREW'S CLASSES */
 
-/* KARTHIK'S CLASSES */
+/* BEGIN KARTHIK'S CLASSES */
 
 .profile-item-grid{
     display: grid;
@@ -234,7 +235,7 @@ button{
 
 /* END KARTHIK'S CLASSES */
 
-/* SHAWDI'S CLASSES */
+/* BEGIN SHAWDI'S CLASSES */
 
 .close-button {
     position: absolute;
@@ -301,7 +302,7 @@ button{
 
 /* END SHAWDI'S CLASSES */
 
-/* ISABELLA'S CLASSES */
+/* BEGIN ISABELLA'S CLASSES */
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
