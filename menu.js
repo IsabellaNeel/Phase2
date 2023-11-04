@@ -19,12 +19,12 @@ var togglePopup = function () {
         plus.className = "menuicon toggled";
         
         // close all others
-        popupPersons.className = "popup pshow";
-        overlayPersons.className = "overlay oshow";
-        popupMeals.className = "popup pshow";
-        overlayMeals.className = "overlay oshow";
-        popupFlavors.className = "popup pshow";
-        overlayFlavors.className = "overlay oshow";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
     }
 };
 
@@ -59,8 +59,8 @@ var togglePopupMeals = function () {
         plus.className = "menuicon";
         popup.className = "popup";
         overlay.className = "overlay";
-        popupPersons.className = "popup pshow";
-        overlayPersons.className = "overlay oshow";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
     }
@@ -78,9 +78,9 @@ var togglePopupFlavors = function () {
         plus.className = "menuicon";
         popup.className = "popup";
         overlay.className = "overlay";
-        popupPersons.className = "popup pshow";
-        overlayPersons.className = "overlay oshow";
-        popupMeals.className = "popup pshow";
-        overlayMeals.className = "overlay oshow";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
     }
 };
