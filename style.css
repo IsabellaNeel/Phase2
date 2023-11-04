@@ -1,5 +1,5 @@
 body{
-    background: #eceff1 linear-gradient(to bottom right, #f5f5f5, #eceff1) no-repeat fixed !important;
+    background: #eceff1 linear-gradient(to bottom right, #f6f6f6, #eceff1) no-repeat fixed !important;
     color: #000000;
     font-family: 'Lato', Helvetica, sans-serif;
 }
@@ -119,9 +119,9 @@ button{
 
 .menuitem:active {
     color: #000000;
-    background: #f5f5f5;
+    background: #f6f6f6;
     border-bottom: 3px solid #3498db !important;
-    border-top: 3px solid #f5f5f5 !important;
+    border-top: 3px solid #f6f6f6 !important;
     transition: all 0.25s ease;
 }
 
@@ -394,7 +394,7 @@ button{
   font-size: 16px;
   margin: 5px 0px 14px 0px;
   border: 1px solid #242a2d;
-  background-color: #f5f5f5;
+  background-color: #f6f6f6;
   transition: background-color 0.25s ease;
 }
 
