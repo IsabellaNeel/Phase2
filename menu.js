@@ -17,6 +17,14 @@ var togglePopup = function () {
         popup.className = "popup pshow";
         overlay.className = "overlay oshow";
         plus.className = "menuicon toggled";
+        
+        // close all others
+        popupPersons.className = "popup pshow";
+        overlayPersons.className = "overlay oshow";
+        popupMeals.className = "popup pshow";
+        overlayMeals.className = "overlay oshow";
+        popupFlavors.className = "popup pshow";
+        overlayFlavors.className = "overlay oshow";
     }
 };
 
@@ -27,6 +35,15 @@ var togglePopupPersons = function () {
     } else {
         popupPersons.className = "popup pshow";
         overlayPersons.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
     }
 };
 
@@ -37,6 +54,15 @@ var togglePopupMeals = function () {
     } else {
         popupMeals.className = "popup pshow";
         overlayMeals.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupPersons.className = "popup pshow";
+        overlayPersons.className = "overlay oshow";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
     }
 };
 
@@ -47,5 +73,14 @@ var togglePopupFlavors = function () {
     } else {
         popupFlavors.className = "popup pshow";
         overlayFlavors.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupPersons.className = "popup pshow";
+        overlayPersons.className = "overlay oshow";
+        popupMeals.className = "popup pshow";
+        overlayMeals.className = "overlay oshow";
     }
 };
