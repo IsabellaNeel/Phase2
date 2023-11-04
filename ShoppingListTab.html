@@ -9,15 +9,17 @@
             @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
         </style>
         <script type="text/javascript" src="menu.js"></script>
+        <script src="Functionality.js"></script>
     </head>
 
-    <body>
+    <body onload = "displayAllShoppingListItems()" ontouchstart = "">
         <div class = "navbar upper">
             <table class = "navcont" style = "font-size: 1.9rem">
                 <tr style = "width: 100vw;">
                     <td style = "width: 5%"></td>
-                    <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">My shopping list</p></td>
-                    <td style = "width: 38%"></td>
+                    <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">Shopping list</p></td>
+                    <td style = "width: 30%"></td>
+                    <td style = "width: 8%" class = "menuicon" onclick="openShoppingForm();" id = "plus">+</td>
                     <td style = "width: 8%" class = "menuicon" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
                     <td style = "width: 4%"></td>
                 </tr>
@@ -26,7 +28,7 @@
         <div style = "height: 9.5vh">
             <!-- padding space -->
         </div>
-        <div class="menu hide" id="menu">
+        <div class="menu hide" id="menu" style = "height: 19% !important">
             <table style="width: 100% !important;">
                 <tr>
                     <td>
@@ -43,12 +45,28 @@
             </table>
         </div>
         <!-- PUT PAGE CONTENT HERE -->
-
+        <div style = "width: 100%">
+            <div id="resultShoppingList"></div>
+        </div>
+        <div class="form-popup-shopping" id="myFormShopping">
+            <form action="/action_page.php" class="form-container">
+                <h2 style="padding: 2%; text-align: center">Add Item to Your Shopping List</h2>
+                <label for="foodLabelShopping"><span>Food Label</span></label>
+                <input type="text" placeholder="Enter Food Label" name="foodLabelShopping" id="foodLabelShopping" style = "width: 76% !important" required/>
+                <br/>
+                <label for="notesLabelShopping"><span>Notes</span></label>
+                <textarea rows="5" cols="44" name="notesLabelShopping" id="notesLabelShopping" form="form-container" style = "resize: none; font-size: 16px"></textarea>
+                <br/>
+                <br/>
+                <button type="button" class="btn" onclick="formatToAddShoppingList()">Enter</button>
+                <button type="button" class="btn cancel" onclick="displayAllShoppingListItems()">Close</button>     
+            </form>
+        </div>
         <div class = "navbar lower">
             <table class = "navcont">
                 <tr style = "width: 100vw;">
                     <td style = "width: 5%"></td>
-                    <td class = "navitem" onclick = "location.href='YourKitchenTab.html'"><p>Kitchen</p></td>
+                    <td class = "navitem" onclick = "location.href='index.html'"><p>Kitchen</p></td>
                     <td class = "navitem" onclick = "location.href='RecipesTab.html'"><p>Recipes</p></td>
                     <td class = "navitem selected"><p>Shopping</p></td>
                     <td class = "navitem" onclick = "location.href='UserProfileTab.html'"><p>Profile</p></td>

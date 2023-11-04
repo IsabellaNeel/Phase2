@@ -1,14 +1,20 @@
 body{
-    background-color: #eceff1 !important;
+    background: #eceff1 linear-gradient(to bottom right, #f5f5f5, #eceff1) no-repeat fixed !important;
     color: #000000;
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
-h1 {
+h1{
     text-align: center;
     padding: 45px;
     font-size: 45px;
 }
+
+button{
+    font-family: 'Lato', Helvetica, sans-serif;
+}
+
+/* BEGIN ANDREW'S CLASSES */
 
 .navbar{
     width: 100vw;
@@ -16,8 +22,8 @@ h1 {
     min-height: 50px; 
     position: fixed; 
     left: 0px;
-    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
-    transition: background 0.3s ease;
+    box-shadow: 0px 1px 6px 4px rgba(36,42,45, 0.3);
+    transition: background 0.25s ease;
     cursor: default !important;
     user-select: none;
     z-index: 9001;
@@ -32,6 +38,7 @@ h1 {
     background: rgba(255,255,255,0.9); 
     top: 0px;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .navcont{
@@ -49,7 +56,7 @@ h1 {
 .navitem p{
     color: #2e8cca;
     line-height: normal;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
     font-size: 1.5rem; 
     text-decoration: none;
     cursor: default;
@@ -57,39 +64,39 @@ h1 {
 
 .navitem p:active{
     color: #3498db !important;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }   
 
 .selected{
     background-color: #ecf0f1 !important;
-    border-bottom: 3px solid #1e5f8a !important;
+    border-bottom: 3px solid #1f628e !important;
 }
 
 .selected p{
-    color: #1e5f8a !important;
+    color: #1f628e !important;
     font-weight: bold !important;
 }
 
 .menu {
     width: 100% !important;
-    height: 25%;
+    height: 24%;
     position: fixed;
     top: 0;
     color: #212529 !important;
     background: #ffffff !important;
     z-index: 10;
     user-select: none;
-    transition: all 0.6s ease;
-    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
+    transition: all 0.5s ease;
+    box-shadow: 0px 1px 6px 4px rgba(36,42,45, 0.3);
 }
 
 .hide {
-    opacity: 0;
+    opacity: 0%;
     left: 100% !important;
 }
 
 .show {
-    opacity: 1;
+    opacity: 100%;
     left: 0%;
 }
 
@@ -106,69 +113,129 @@ h1 {
     width: 100%;
     border: none;
     padding: 10px 0px;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     cursor: default !important;
 }
 
 .menuitem:active {
     color: #000000;
-    background: #fafbfc;
+    background: #f5f5f5;
     border-bottom: 3px solid #3498db !important;
-    border-top: 3px solid #fafbfc !important;
-    transition: all 0.3s ease;
+    border-top: 3px solid #f5f5f5 !important;
+    transition: all 0.25s ease;
 }
 
 .menuicon{
     font-weight: bold !important;
     text-align: center;
     color: inherit;
-    transition: color 0.6s ease;
+    transition: color 0.5s ease;
 }
 
 .toggled{
-    color: #1e5f8a !important;
-    transition: color 0.6s ease;
+    color: #1f628e !important;
+    transition: color 0.5s ease;
 }
 
-
-/* classes for shawdi's tab */
-.overlay {
-    display: block;
-    position: fixed;
-    top: -1%;
-    left: 0px;
-    width: 100%;
-    height: 0%;
-    background-color: rgba(36,42,45, 0.5); /* Semi-transparent black overlay */
-    z-index: 1;
-    transition: height 0.6s ease, top 0.6s ease;
+.carttable{
+    width: calc(100% - 30px);
+    border: none;
+    table-layout: fixed;
+    border-spacing: 0px 12px;
+    margin: 15px 15px 9.5vh;
 }
 
-.oshow{
-    height: 100%;
-    top: 0%;
-    transition: height 0.6s ease, top 0.6s ease;
+.cartitem{
+    box-shadow: 0px 1px 6px 4px rgba(36,42,45, 0.3);
+    transform: scale(1,1);
+    cursor: default;
 }
 
-.popup {
-    display: block;
-    position: fixed;
-    top: 101%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the pop-up */
-    opacity: 0;
+.cartitem td{
+    margin: 10px;
+    background-color: rgba(255,255,255, 0.8);
+    padding: 3px 12px;
+    border-bottom: 5px solid #1f628e;
+    transition: border-bottom 0.25s ease, background-color 0.25s ease;
+    user-select: none;
+}
+
+.cartitem:active td{
     background-color: #ffffff;
-    padding: 25px;
-    box-shadow: 0px 1px 5px 3px rgba(36,42,45, 0.3);
-    z-index: 2;
-    transition: top 0.6s ease, opacity 0.6s ease;
+    border-bottom: 5px solid #3498db;
+    transition: border-bottom 0.25s ease, background-color 0.25s ease;
 }
 
-.pshow{
-    opacity: 1;
-    top: 50%;
-    transition: top 0.6s ease, opacity 0.6s ease;
+.cartitem td h3{
+    font-size: 1.4rem;
+    font-weight: bold;
 }
+
+.cartitem td p{
+    font-size: 1.2rem;
+}
+
+.expand{
+    transition: transform 0.25s ease !important;
+}
+
+.collapse{
+    transform: rotate(180deg) translateY(-8px);
+}
+
+/* END ANDREW'S CLASSES */
+
+/* BEGIN KARTHIK'S CLASSES */
+
+.profile-item-grid{
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 1px;
+    background: transparent;
+    margin-bottom: 9.5vh;
+}
+
+.profile-item-grid-item{
+    text-align: left;
+    padding: 10px;
+    font-size: 35px;
+}
+
+.profile-logout-button{
+    background-color: #d34233;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 35px;
+    margin: 4px 2px;
+    border-radius: 5px;
+}
+
+.profile-updateinfo-button{
+    background-color: #16a085; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    border-radius: 5px;
+}
+
+.profile-text-content{
+    text-align: left;
+    padding: 1px;
+    font-size: 20px;
+}
+
+/* END KARTHIK'S CLASSES */
+
+/* BEGIN SHAWDI'S CLASSES */
 
 .close-button {
     position: absolute;
@@ -179,10 +246,10 @@ h1 {
 
 .recipe-list {
     max-width: 100vw;
-    margin-bottom: 10vh;
+    margin: 15px 15px 9.5vh;
     background-color: #ffffff;
     padding: 15px;
-    border: 15px solid #eceff1;
+    border: none;
 }
 
 .recipe-list ul {
@@ -193,82 +260,198 @@ h1 {
 .recipe-list li {
     padding: 0px;
     border-bottom: 1px solid #c6ced2;
+}
 
+.overlay {
+    display: block;
+    position: fixed;
+    top: -1%;
+    left: 0px;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(36,42,45, 0.25); /* Semi-transparent black overlay */
+    z-index: 1;
+    transition: height 0.5s ease, top 0.5s ease;
+}
+
+.oshow{
+    height: 100%;
+    top: 0%;
+    transition: height 0.5s ease, top 0.5s ease;
+}
+
+.popup {
+    display: block;
+    position: fixed;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up */
+    opacity: 0%;
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 0px 1px 6px 4px rgba(36,42,45, 0.3);
+    z-index: 2;
+    transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+.pshow{
+    opacity: 100%;
+    top: 50%;
+    transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+/* END SHAWDI'S CLASSES */
+
+/* BEGIN ISABELLA'S CLASSES */
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  width: 280px;
+    background-color: #455a64;
+    color: #ffffff;
+    padding: 20px 20px;
+    border: none;
+    cursor: default;
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    z-index: 2;
+    font-size: 2.75rem;
+    transition: background-color 0.25s ease;
+}
+
+.open-button p {
+    transform: translate(1px, -48px);
+}
+
+.open-button:active {
+    background-color: #607d8b;
+    transition: background-color 0.25s ease;
 }
 
 /* The popup form - hidden by default */
 .form-popup {
-  /*display: none;*/
-  right: 30%;
-  /*border: 3px solid #f1f1f1;*/
-  z-index: 9;
-  padding-left: 10%;
-  padding-right:10%;
-  padding-top: 10px;
+  position: fixed;
+  left: 0%;
+  top: -85%;
+  padding-left: 9%;
+  padding-right: 9%;
+  padding-top: 2%;
+  padding-bottom: 16%;
+  z-index: 5;
+  opacity: 0%;
+  background-color: rgba(36,42,45, 0.25);
+  transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+.fpshow {
+  top: 9.5%;
+  opacity: 100%;
+  transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+/*form pop up for shopping list items*/
+.form-popup-shopping {
+    position: fixed;
+    left: 0%;
+    top: -85%;
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top: 10%;
+    padding-bottom: 46%;
+    z-index: 5;
+    opacity: 0%;
+    background-color: rgba(36,42,45, 0.25);
+    transition: top 0.5s ease, opacity 0.5s ease;
+  }
+  
+.fpshow-shopping {
+    top: 9.5%;
+    opacity: 100%;
+    transition: top 0.5s ease, opacity 0.5s ease;
 }
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 500px;
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: white;
-  border: 3px solid #5e5858;
+  width: 75vw;
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
+  background-color: rgba(255,255,255,0.96);
+  border: 2px solid #242a2d;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.form-container span{
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text], .form-container input[type=number], .form-container input[type=password] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
+  padding: 15px 15px 15px;
+  font-size: 16px;
+  margin: 5px 0px 14px 0px;
+  border: 1px solid #242a2d;
+  background-color: #f5f5f5;
+  transition: background-color 0.25s ease;
 }
 
 /* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
+.form-container input[type=text]:focus, .form-container input[type=number]:focus, .form-container input[type=password]:focus {
+  background-color: #ecf0f1;
+  padding: 15px 15px 14px;
+  border-bottom: 2px solid #2e8cca;
   outline: none;
+  transition: background-color 0.25s ease;
+}
+
+.form-container table{
+    border: none; 
+    border-collapse: collapse; 
+    padding: 0px; 
+    margin: 0px; 
+    background: transparent; 
+    width: calc(100% - 30px)
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #16a085;
   color: white;
-  padding: 16px 20px;
+  padding: 17px 20px;
+  font-size: 1.2rem;
   border: none;
-  cursor: pointer;
+  cursor: default;
   width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.25s ease;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:active {
+  background-color: #18ae90;
+  transition: background-color 0.25s ease;
 }
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: #d34233;
+  font-size: 1.2rem;
+  border-radius: 5px;
 }
 
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
+.form-container .cancel:active {
+  background-color: #e74c3c;
 }
 
 .foodBox {
   text-align: center;
   padding: 5px;
   font-size: 40px;
-  border: 3px solid #5e5858; 
+  border: 2px solid #242a2d; 
   height: 200px; 
   width: 200px; 
   word-wrap: break-word;
@@ -278,13 +461,21 @@ h1 {
  border-spacing:20px; 
 }
 
-
 .remove-food-button {
-  background-color: red;
-  color: white;
-  padding: 16px 20px;
+  background-color: #d34233;
+  color: #ffffff;
+  padding: 18px 20px;
   border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  width: 280px;
+  cursor: default;
+  width: 300px;
+  border-radius: 5px;
 }
+
+.foodImage {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* END ISABELLA'S CLASSES */
