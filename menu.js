@@ -2,10 +2,28 @@ var toggleMenu = function () {
     if (menu.className === "menu show") {
         menu.className = "menu hide";
         hamburger.className = "menuicon";
+
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+
     } else {
         menu.className = "menu show";
         hamburger.className = "menuicon toggled";
+
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
     }
+
 };
 
 var togglePopup = function () {
@@ -13,12 +31,19 @@ var togglePopup = function () {
         popup.className = "popup";
         overlay.className = "overlay";
         plus.className = "menuicon";
+
+        // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
+
     } else {
         popup.className = "popup pshow";
         overlay.className = "overlay oshow";
         plus.className = "menuicon toggled";
         
         // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
         popupPersons.className = "popup";
         overlayPersons.className = "overlay";
         popupMeals.className = "popup";
@@ -84,3 +109,5 @@ var togglePopupFlavors = function () {
         overlayMeals.className = "overlay";
     }
 };
+
+    

@@ -58,10 +58,11 @@ class FoodItem {
 
 class User {
     static foodArr;
-    constructor(userName, foodArr, shoppingListArr) {
+    constructor(userName, foodArr, shoppingListArr, recipesArr) {
         this.userName = userName;
         this.foodArr = foodArr;
         this.shoppingListArr = shoppingListArr;
+        this.recipesArr=recipesArr;
     }
 
     addFoodItem(foodItem){
@@ -83,6 +84,9 @@ class User {
     getUserName(){
         return this.userName;
     }
+    getRecipesArr(){
+        return this.recipesArr;
+    }
 }
 
 let myKitchen = new KitchenApp();
@@ -90,6 +94,7 @@ let user1 = new User();
 user1.userName = "Bob";
 let str = sessionStorage.getItem('foodArr');
 let str2 = sessionStorage.getItem('shoppingListArr');
+let str3 = sessionStorage.getItem('recipesArr');
 
 if(str != null){
     user1.foodArr = JSON.parse(str);
@@ -105,6 +110,14 @@ if(str2 != null){
     user1.shoppingListArr = new Array();
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
+}
+
+if(str3 != null){
+    user1.recipesArr = JSON.parse(str3);
+} else {
+    user1.recipesArr = new Array();
+    let jsonArray = JSON.stringify(user1.recipesArr);
+    sessionStorage.setItem('recipesArr', jsonArray);
 }
 
 function getImage(string){ //returns an image based on the string parameter
@@ -306,3 +319,215 @@ function getFoodInfo(index){ //gets information about specified food item to dis
 }
 
 /*YOUR KITCHEN FUNCTIONS END*/
+
+/* recipe functions start*/
+var toggleMenu = function () {
+    if (menu.className === "menu show") {
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
+
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+
+    } else {
+        menu.className = "menu show";
+        hamburger.className = "menuicon toggled";
+
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+    }
+
+};
+
+var togglePopup = function () {
+    if (popup.className === "popup pshow" || overlay.className === "overlay pshow") {
+        popup.className = "popup";
+        overlay.className = "overlay";
+        plus.className = "menuicon";
+
+        // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
+
+    } else {
+        popup.className = "popup pshow";
+        overlay.className = "overlay oshow";
+        plus.className = "menuicon toggled";
+        
+        // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+    }
+};
+
+var togglePopupPersons = function () {
+    if (popupPersons.className === "popup pshow" || overlayPersons.className === "overlay pshow") {
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+    } else {
+        popupPersons.className = "popup pshow";
+        overlayPersons.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+    }
+};
+
+var togglePopupMeals = function () {
+    if (popupMeals.className === "popup pshow" || overlayMeals.className === "overlay pshow") {
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+    } else {
+        popupMeals.className = "popup pshow";
+        overlayMeals.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+    }
+};
+
+var togglePopupFlavors = function () {
+    if (popupFlavors.className === "popup pshow" || overlayFlavors.className === "overlay pshow") {
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+    } else {
+        popupFlavors.className = "popup pshow";
+        overlayFlavors.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+    }
+};
+
+class RecipeItem {
+    constructor(name, owner, ingredients, instructions) {
+    this.name = name;
+    this.owner = owner;
+    this.ingredients = ingredients;
+    this.instructions = instructions;
+    }  
+}
+
+function deleteItem1(input, index) {
+    var element = input;
+    element.remove();
+    user1.recipesArr.splice(index, 1);
+    let jsonArray = JSON.stringify(user1.recipesArr);
+    sessionStorage.setItem('recipesArr', jsonArray);
+    displayAllRecipes();
+}
+
+
+function displayAllRecipes() {
+    var results = "<table class = \"carttable\" >";
+   
+    let num = 0;
+    for(let i in user1.recipesArr){
+        results = results + 
+        "<tr class = \"cartitem\">" +
+            "<td style = \"width: 85%\">" +
+                "<h3>" + user1.recipesArr[i].name + "</h3>" +
+                "<p id = \"showIngredients"+ i +"\"></p>" +
+                "<p id = \"showInstructions"+ i +"\"></p>" +
+            "</td>" +
+
+            "<td style = \"width: 8%; text-align: center\" onclick = \"toggleExpand1(this.firstElementChild," + i +")\">" +
+                "<h3 class = \"expand\">&#8964;</h3>" + 
+            "</td>" +
+
+            "<td style = \"width: 7%; text-align: center\" onclick = \"deleteItem1(this.parentElement," + i + ")\">" +
+                "<h3>x</h3>" +
+            "</td>" +
+        "</tr>";
+        
+        num = num + 1;
+    }
+        results = results + "</table>";
+    
+    if (num == 0){
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list.</p></div>" + results
+    }
+    popup.className="popup";
+    overlay.className="overlay";
+    plus.className = "menuicon";
+    flushInputRecipeList();
+    document.getElementById("resultRecipeList").innerHTML = results;
+}
+
+function flushInputRecipeList() {
+    document.getElementById('recipeName').value = '';
+    document.getElementById('recipeIngredients').value = '';
+    document.getElementById('recipeInstructions').value = '';
+}
+function addRecipes(){
+    var nameValue=document.getElementById("recipeName").value;
+    var ingredientValue=document.getElementById("recipeIngredients").value;
+    var instructionsValue=document.getElementById("recipeInstructions").value;
+
+    let recipeItem = {name: nameValue, ingredients: ingredientValue, 
+        instructions: instructionsValue, owner: user1.username};
+    
+
+    let str3=sessionStorage.getItem('recipesArr');
+    if (str3 == null) {
+        user1.recipesArr = new Array();
+    } else {
+        user1.recipesArr = JSON.parse(str3);
+    }
+
+    user1.recipesArr.push(recipeItem);
+    let jsonArray = JSON.stringify(user1.recipesArr);
+    sessionStorage.setItem('recipesArr', jsonArray);
+    
+
+    popup.className = "popup";
+    overlay.className = "overlay";
+    displayAllRecipes();
+
+}
+function toggleExpand1(input, index) {
+    var element = input;
+    if (element.className === "expand"){
+        element.className = "expand collapse";
+        document.getElementById("showIngredients"+index).innerHTML = user1.recipesArr[index].ingredients;
+        document.getElementById("showInstructions"+index).innerHTML = user1.recipesArr[index].instructions;
+    } else {
+        element.className = "expand";
+        document.getElementById("showIngredients"+index).innerHTML = "";
+        document.getElementById("showInstructions"+index).innerHTML = "";
+    }
+  }
