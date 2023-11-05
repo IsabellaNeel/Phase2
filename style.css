@@ -227,10 +227,16 @@ button{
     font-size: 35px;
     margin: 4px 2px;
     border-radius: 5px;
+    transition: background-color 0.25s ease;
+}
+
+.profile-logout-button:active{
+    background-color: #e74c3c;
+    transition: background-color 0.25s ease;
 }
 
 .profile-updateinfo-button{
-    background-color: #16a085; /* Green */
+    background-color: #16a085;
     border: none;
     color: white;
     padding: 7px 16px;
@@ -240,6 +246,12 @@ button{
     font-size: 20px;
     margin: 4px 2px;
     border-radius: 5px;
+    transition: background-color 0.25s ease;
+}
+
+.profile-updateinfo-button:active{
+    background-color: #18ae90;
+    transition: background-color 0.25s ease;
 }
 
 .profile-text-content{
