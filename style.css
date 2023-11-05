@@ -139,7 +139,7 @@ button{
 }
 
 .carttable{
-    width: calc(100% - 30px);
+    width: calc(100% - 28px);
     border: none;
     table-layout: fixed;
     border-spacing: 0px 12px;
@@ -182,6 +182,20 @@ button{
 
 .collapse{
     transform: rotate(180deg) translateY(-8px);
+}
+
+.profileinput {
+  width: 33%;
+  padding: 8px 8px 8px;
+  font-size: 16px;
+  border: 1px solid #242a2d;
+  background-color: #ffffff;
+}
+
+.profileinput:focus {
+  padding: 8px 8px 7px;
+  border-bottom: 2px solid #2e8cca;
+  outline: none;
 }
 
 /* END ANDREW'S CLASSES */
@@ -337,8 +351,8 @@ button{
   top: -85%;
   padding-left: 9%;
   padding-right: 9%;
-  padding-top: 2%;
-  padding-bottom: 16%;
+  padding-top: 3%;
+  padding-bottom: 20%;
   z-index: 5;
   opacity: 0%;
   background-color: rgba(36,42,45, 0.25);
@@ -359,7 +373,7 @@ button{
     padding-left: 9%;
     padding-right: 9%;
     padding-top: 10%;
-    padding-bottom: 41%;
+    padding-bottom: 42%;
     z-index: 5;
     opacity: 0%;
     background-color: rgba(36,42,45, 0.25);
@@ -391,9 +405,9 @@ button{
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=number], .form-container input[type=password] {
   width: 100%;
-  padding: 15px 15px 15px;
+  padding: 14px 14px 14px;
   font-size: 16px;
-  margin: 5px 0px 13px 0px;
+  margin: 8px 0px 8px 0px;
   border: 1px solid #242a2d;
   background-color: #f6f6f6;
   transition: background-color 0.25s ease;
@@ -402,7 +416,7 @@ button{
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=number]:focus, .form-container input[type=password]:focus {
   background-color: #ecf0f1;
-  padding: 15px 15px 14px;
+  padding: 14px 14px 13px;
   border-bottom: 2px solid #2e8cca;
   outline: none;
   transition: background-color 0.25s ease;
@@ -414,7 +428,7 @@ button{
     padding: 0px; 
     margin: 0px; 
     background: transparent; 
-    width: calc(100% - 30px)
+    width: calc(100% - 28px);
 }
 
 /* Set a style for the submit/login button */
