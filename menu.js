@@ -1,4 +1,8 @@
-var toggleMenu = function () {
+class MenuFunctionality{
+
+}
+
+function toggleMenu() {
     if (menu.className === "menu show") {
         menu.className = "menu hide";
         hamburger.className = "menuicon";
@@ -8,7 +12,7 @@ var toggleMenu = function () {
     }
 };
 
-var togglePopup = function () {
+function togglePopup() {
     if (popup.className === "popup pshow" || overlay.className === "overlay pshow") {
         popup.className = "popup";
         overlay.className = "overlay";
@@ -28,7 +32,7 @@ var togglePopup = function () {
     }
 };
 
-var togglePopupPersons = function () {
+function togglePopupPersons() {
     if (popupPersons.className === "popup pshow" || overlayPersons.className === "overlay pshow") {
         popupPersons.className = "popup";
         overlayPersons.className = "overlay";
@@ -47,7 +51,7 @@ var togglePopupPersons = function () {
     }
 };
 
-var togglePopupMeals = function () {
+function togglePopupMeals() {
     if (popupMeals.className === "popup pshow" || overlayMeals.className === "overlay pshow") {
         popupMeals.className = "popup";
         overlayMeals.className = "overlay";
@@ -66,7 +70,7 @@ var togglePopupMeals = function () {
     }
 };
 
-var togglePopupFlavors = function () {
+function togglePopupFlavors() {
     if (popupFlavors.className === "popup pshow" || overlayFlavors.className === "overlay pshow") {
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
