@@ -132,7 +132,19 @@
     
 
     <!-- PUT PAGE CONTENT HERE -->
+
+    <!-- -->
     <div id="resultRecipeList"></div>
+    <div class="overlay ohide" onclick="toggleRecipe()" id="overlayRecipe"></div>
+    <div class="popup phide" id="popupRecipe">
+        <span class="close-button" onclick="toggleRecipe()">&times;</span>
+        <h3 id="resultName"></h3>
+        <h4> Ingredients: </h4>
+        <p id="resultIngredient"></p>
+        <h4> Instructions </h4>
+        <p id="resultInstructions"></p>
+
+    </div>
     <div class="navbar lower">
         <table class="navcont">
             <tr style="width: 100vw;">

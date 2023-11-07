@@ -7,6 +7,9 @@ class KitchenApp {
     }
 }
 
+class recipeItem {
+
+}
 
 class ShoppingListItem {
     constructor(foodName, notes){
@@ -331,7 +334,6 @@ function deleteRecipe(input, index) {
     displayAllRecipes();
 }
 
-
 function displayAllRecipes() {
     var results = "<table class = \"carttable\" >";
    
@@ -345,8 +347,8 @@ function displayAllRecipes() {
                 "<p id = \"showInstructions"+ i +"\"></p>" +
             "</td>" +
 
-            "<td style = \"width: 8%; text-align: center\" onclick = \"toggleExpand1(this.firstElementChild," + i +")\">" +
-                "<h3 class = \"expand\">&#8964;</h3>" + 
+            "<td style = \"width: 8%; text-align: center\" onclick = \"myFunction(" + i + ")\">" +
+                "<h3 class = \"expand\">i</h3>" + 
             "</td>" +
 
             "<td style = \"width: 7%; text-align: center\" onclick = \"deleteRecipe(this.parentElement," + i + ")\">" +
@@ -410,4 +412,21 @@ function toggleExpand1(input, index) {
         document.getElementById("showIngredients"+index).innerHTML = "";
         document.getElementById("showInstructions"+index).innerHTML = "";
     }
+  }
+
+  function myFunction(index) {
+    toggleRecipe();
+    inputName = user1.recipesArr[index].name;
+    outputName = document.getElementById("resultName");
+    outputName.innerHTML = inputName;
+
+    inputIngredient = user1.recipesArr[index].ingredients;
+    outputIngredient = document.getElementById("resultIngredient");
+    ingredientBreak = inputIngredient.replace(/\n/g,'<li>');
+    outputIngredient.innerHTML = ingredientBreak;
+
+    inputInstructions = user1.recipesArr[index].instructions;
+    outputInstructions = document.getElementById("resultInstructions");
+    instructionsBreak = inputInstructions.replace(/\n/g, '<p>');
+    outputInstructions.innerHTML = instructionsBreak;
   }
