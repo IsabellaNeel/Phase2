@@ -6,7 +6,8 @@ class ShoppingListItem {
 }
 
 class FoodItem {
-    constructor(name, category, quantity, expiration, allergens, calories, owner, servingSize) {
+    constructor(id, name, category, quantity, expiration, allergens, calories, owner, servingSize) {
+      this.id = id;
       this.name = name;
       this.category = category;
       this.quantity = quantity;
@@ -27,6 +28,7 @@ class User {
 }
 
 let user1 = new User();
+let idNum = 0;
 user1.userName = "Bob";
 let str = sessionStorage.getItem('foodArr');
 let str2 = sessionStorage.getItem('shoppingListArr');
@@ -233,7 +235,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
     var caloriesValue = document.getElementById("calories").value;
     var servingSizeValue = document.getElementById("servingSize").value;
 
-    let foodItem = {name: nameValue, category: categoryValue, quantity: quantityValue, 
+    let foodItem = {id: idNum++, name: nameValue, category: categoryValue, quantity: quantityValue, 
         expiration: expirationValue, allergens: allergensValue, calories: caloriesValue, 
         owner:user1.userName, servingSize: servingSizeValue};
 
@@ -261,7 +263,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     console.log("user1.foodArr");
     console.log(user1.foodArr);
     for(let i in user1.foodArr){
-        if(i < 10){
+       // if(i < 10){
             if(user1.foodArr[i].length > 1){
                 if(num%3 == 0){
                     results = results + "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td>";
@@ -272,7 +274,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
                 }
                 num = num + 1;
             }
-        }
+       // }
     }
     if((num + 1)%3 != 0){
         "</tr></table>";
@@ -298,18 +300,18 @@ function displayCatagory(i){
         if(j == 0){
             results = results + "<div class=\"categoryTitle\">"+ numToString(i) +"</div>"
         } else {
-            if(j%4 == 0){
+            if(balanced%3 == 0){
                 results = results + "<tr><td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>"; 
-            } else if ((j+1)%4 == 0){
+            } else if ((balanced+1)%3 == 0){
                 results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td></tr>";
             } else {
                 results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>";
             }
-            balanced = j;
+            balanced = balanced + 1;
         }
     }
 
-    if((balanced + 1)%4 != 0){
+    if((balanced + 1)%3 != 0){
         results = results + "</tr></table>";
     } else {
         results = results + "</table>";
@@ -333,15 +335,32 @@ function flushInputs(){ //new function to clear all of the input fields on the f
     document.getElementById('servingSize').value = '';
 }
 
-function removeFoodItem(i, j){ //removes food item from array and screen
-    user1.foodArr[i].splice(j, 1);
-    user1.foodArr[10] = new Array();
-    user1.foodArr[10].push("All");
+function removeById(id){
     for(i in user1.foodArr){
         if(i != 10){
             for(j in user1.foodArr[i]){
-                if(j != 0){
-                    user1.foodArr[10].push(user1.foodArr[i][j]);
+                if(j != 0 && user1.foodArr[i][j].id == id){
+                    user1.foodArr[i].splice(j, 1);
+                }
+            }
+        }
+    }
+}
+
+function removeFoodItem(i, j){ //removes food item from array and screen
+    let foodId = user1.foodArr[i][j].id;
+    user1.foodArr[i].splice(j, 1);
+    if(i == 10){
+        removeById(foodId);
+    } else {
+        user1.foodArr[10] = new Array();
+        user1.foodArr[10].push("All");
+        for(i in user1.foodArr){
+            if(i != 10){
+                for(j in user1.foodArr[i]){
+                    if(j != 0){
+                        user1.foodArr[10].push(user1.foodArr[i][j]);
+                    }
                 }
             }
         }
