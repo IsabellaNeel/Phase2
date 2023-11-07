@@ -34,7 +34,7 @@ let str2 = sessionStorage.getItem('shoppingListArr');
 if(str != null){
     user1.foodArr = JSON.parse(str);
 } else {
-    user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"]];
+    user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
 }
@@ -193,6 +193,8 @@ function stringToNum(string){
         return 8;
     } else if (string == "Other"){
         return 9;
+    }  else if (string == "All"){
+        return 10;
     }
 }
 
@@ -217,6 +219,8 @@ function numToString(num){
         return "Oils";
     } else if (num == 9){
         return "Other";
+    }  else if (num == 10){
+        return "All";
     }
 }
 
@@ -235,12 +239,13 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"]];
+        user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
 
     user1.foodArr[stringToNum(categoryValue)].push(foodItem);
+    user1.foodArr[10].push(foodItem);
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
     
@@ -251,42 +256,27 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 
 function displayAllFood(){ //displays all food items from foodArr in boxes
     var results = "<table class=\"foodTable\" >";
-    let balanced = 0;
     let num = 0;
     console.log("user1.foodArr");
     console.log(user1.foodArr);
     for(let i in user1.foodArr){
         if(user1.foodArr[i].length > 1){
-            if(i != 7 && i != 8){
-                results = results + "<tr><td>"+ numToString(i) +"</td></tr>"
-                for(let j in user1.foodArr[i]){
-                    if(j == 0){
-
-                    } else {
-                        if(j%4 == 0){
-                            results = results + "<tr><td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>"; 
-                            console.log("user1.foodArr[i][j]");
-                            console.log(user1.foodArr[i][j]);
-                        } else if ((j+1)%4 == 0){
-                            results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td></tr>";
-                        } else {
-                            results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>";
-                        }
-                        balanced = j;
-                        num = num + 1;
-                    }
-                }
-
-                if((balanced + 1)%4 != 0){
-                    results = results + "</tr>";
-                } 
+            
+            if(num%3 == 0){
+                results = results + "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td>";
+            } else if ((num+1)%3 == 0){
+                results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td></tr>";
             } else {
-                results = results + "<tr><td>" + numToString(i) +"</td></tr>" +
-                "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td></tr>";
+                results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td>";
             }
+            num = num + 1;
         }
     }
-    results = results + "</table>";
+    if((num + 1)%3 != 0){
+        "</tr></table>";
+    } else {
+        results = results  + "</table>";
+    }
     
     if (num == 0){
         results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>" + results
@@ -297,6 +287,8 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     flushInputs();
     document.getElementById("result").innerHTML = results;
 }
+
+
 
 function displayCatagory(i){
     results =  "<table class=\"foodTable\" >";
@@ -354,7 +346,7 @@ function getFoodInfo(i, j){ //gets information about specified food item to disp
     user1.foodArr[i][j].expiration + "<br>Allergens: " + user1.foodArr[i][j].allergens + 
     "<br>Calories: " + user1.foodArr[i][j].calories + "<br>Serving Size: " + 
     user1.foodArr[i][j].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ i + "," + j + ")\">Delete Item</button>"
-    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button><h1>";
+    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayCatagory("+ i +")\"><p>&#8592;</p></button><h1>";
 }
 
 /*YOUR KITCHEN FUNCTIONS END*/
