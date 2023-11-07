@@ -7,10 +7,6 @@ class KitchenApp {
     }
 }
 
-class recipeItem {
-
-}
-
 class ShoppingListItem {
     constructor(foodName, notes){
         this.foodName = foodName;
@@ -134,9 +130,14 @@ function getImage(string){ //returns an image based on the string parameter
 }
 
 /*SHOPPING LIST FUNCTIONS START*/
-function openShoppingForm(){
-    myFormShopping.className = "form-popup-shopping fpshow-shopping";
-    plus.className = "menuicon toggled";
+function toggleShoppingForm(){
+    if (myFormShopping.className === "form-popup-shopping fpsshow"){
+        myFormShopping.className = "form-popup-shopping";
+        plus.className = "menuicon";
+    } else {
+        myFormShopping.className = "form-popup-shopping fpsshow";
+        plus.className = "menuicon toggled";
+    }
 }
 
 function formatToAddShoppingList(){
@@ -156,7 +157,7 @@ function formatToAddShoppingList(){
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
 
-    myFormShopping.className = "form-popup-shopping fpshow-shopping";
+    myFormShopping.className = "form-popup-shopping fpsshow";
     plus.className = "menuicon";
     displayAllShoppingListItems();
 }
@@ -229,9 +230,14 @@ function deleteItem(input, index) {
 /*SHOPPING LIST FUNCTIONS END*/
 
 /*YOUR KITCHEN FUNCTIONS START*/
-function openForm() { // opens the form to enter food items to your kitchen page
-    myForm.className = "form-popup fpshow";
-    plus.className = "menuicon toggled";
+function toggleForm() { // opens/closes the form to enter food items to your kitchen page
+    if (myForm.className === "form-popup fpshow"){
+        myForm.className = "form-popup";
+        plus.className = "menuicon";
+    } else {
+        myForm.className = "form-popup fpshow";
+        plus.className = "menuicon toggled";
+    } 
 }
 
 function formatToAdd(){ //adds food item to foodArr after food item form has been filled out and entered

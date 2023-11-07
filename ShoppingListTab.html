@@ -19,7 +19,7 @@
                     <td style = "width: 5%"></td>
                     <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">Shopping list</p></td>
                     <td style = "width: 30%"></td>
-                    <td style = "width: 8%" class = "menuicon" onclick="openShoppingForm();" id = "plus">+</td>
+                    <td style = "width: 8%" class = "menuicon" onclick="toggleShoppingForm();" id = "plus">+</td>
                     <td style = "width: 8%" class = "menuicon" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
                     <td style = "width: 4%"></td>
                 </tr>
@@ -49,13 +49,15 @@
             <div id="resultShoppingList"></div>
         </div>
         <div class="form-popup-shopping" id="myFormShopping">
-            <form action="/action_page.php" class="form-container">
+            <form class="form-container">
                 <h2 style="padding: 2%; text-align: center">Add Item to Your Shopping List</h2>
                 <label for="foodLabelShopping"><span>Food Label</span></label>
-                <input type="text" placeholder="Enter Food Label" name="foodLabelShopping" id="foodLabelShopping" style = "width: 76% !important" required/>
+                <br/>
+                <input type="text" placeholder="Enter Food Label" name="foodLabelShopping" id="foodLabelShopping" style = "width: calc(100% - 30px) !important" required/>
                 <br/>
                 <label for="notesLabelShopping"><span>Notes</span></label>
-                <textarea rows="5" cols="44" name="notesLabelShopping" id="notesLabelShopping" form="form-container" style = "resize: none; font-size: 16px"></textarea>
+                <br/>
+                <textarea rows="5" cols="49" name="notesLabelShopping" id="notesLabelShopping" form="form-container" style = "resize: none; font-size: 16px"></textarea>
                 <br/>
                 <br/>
                 <button type="button" class="btn" onclick="formatToAddShoppingList()">Enter</button>

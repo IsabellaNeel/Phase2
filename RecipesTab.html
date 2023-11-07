@@ -60,21 +60,23 @@
             <section>
                 <div style="width:450px">
                     <label for="recipeName">Recipe Name</label>
-                    <input type="text" style="display:block" id="recipeName" name="recipeName">
+                    <input type="text" style="display:block" id="recipeName" 
+                    name="recipeName" placeholder="Enter Recipe Name" required>
                 </div>
             </section>
             <section>
                 <div>
                     <label for="recipeIngredients">Ingredients</label>
                     <textarea id="recipeIngredients" name="recipeIngredients"
-                        style="resize:none;width:476px;height:100px"></textarea>
+                        style="resize:none;width:476px;height:100px" placeholder="1 lb cheese&#10;1 tortilla" required></textarea>
                 </div>
             </section>
             <section>
                 <div>
                     <label for="recipeInstructions">Instructions</label>
                     <textarea id="recipeInstructions" name="recipeInstructions"
-                        style="resize:none;width:476px;height:270px"></textarea>
+                        style="resize:none;width:476px;height:270px"
+                        placeholder="1) Place a pan on medium heat&#10;2) Place the tortilla in a pan&#10;3) Pour the cheese onto the tortilla" required></textarea>
                 </div>
             </section>
             <button type="button" class="btn" onclick="addRecipes();">Add Recipe</button>
