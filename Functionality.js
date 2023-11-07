@@ -1,24 +1,14 @@
-class KitchenApp {
-    constuctor(userArr, foodItemArr, shoppingListArr, recipesArr){
-        this.userArr = userArr;
-        this.foodItemArr = foodItemArr;
-        this.shoppingListArr = shoppingListArr;
-        this.recipesArr = recipesArr;
-    }
-}
-
-
 class ShoppingListItem {
     constructor(foodName, notes){
         this.foodName = foodName;
         this.notes = notes;
     }
-
 }
 
 class FoodItem {
-    constructor(name, quantity, expiration, allergens, calories, owner, servingSize) {
+    constructor(name, category, quantity, expiration, allergens, calories, owner, servingSize) {
       this.name = name;
+      this.category = category;
       this.quantity = quantity;
       this.expiration = expiration;
       this.allergens = allergens;
@@ -26,66 +16,16 @@ class FoodItem {
       this.owner = owner;
       this.servingSize = servingSize;
     }
-
-    getName(){
-        return this.name;
-    }
-    getQuantity(){
-        return this.quantity;
-    }
-
-    getExpiration(){
-        return this.expiration;
-    }
-
-    getAllergens(){
-        return this.allergens;
-    }
-
-    getCalories(){
-        return this.calories;
-    }
-
-    getOwner(){
-        return this.owner;
-    }
-
-    getServingSize(){
-        return this.servingSize;
-    }
-
   }
 
 class User {
-    static foodArr;
     constructor(userName, foodArr, shoppingListArr) {
         this.userName = userName;
         this.foodArr = foodArr;
         this.shoppingListArr = shoppingListArr;
     }
-
-    addFoodItem(foodItem){
-        this.foodArr.push(foodItem);
-    }
-
-    addShoppingListItem(shoppingListItem){
-        this.shoppingListArr.push(shoppingListItem);
-    }
-
-    getshoppingListArr(){
-        return this.foodArr;
-    }
-
-    getFoodArr(){
-        return this.foodArr;
-    }
-
-    getUserName(){
-        return this.userName;
-    }
 }
 
-let myKitchen = new KitchenApp();
 let user1 = new User();
 user1.userName = "Bob";
 let str = sessionStorage.getItem('foodArr');
@@ -94,7 +34,7 @@ let str2 = sessionStorage.getItem('shoppingListArr');
 if(str != null){
     user1.foodArr = JSON.parse(str);
 } else {
-    user1.foodArr = new Array();
+    user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"]];
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
 }
@@ -109,11 +49,15 @@ if(str2 != null){
 
 function getImage(string){ //returns an image based on the string parameter
     if(string == "apple" || string == "Apple" || string == "apples" || string == "Apples"){
-        return "apple.jfif";
+        return "Images/apple.jfif";
     } else if(string == "bananas" || string == "Bananas" || string == "banana" || string == "Banana"){
-        return "banana.jfif";
+        return "Images/banana.jfif";
     } else if(string == "limes" || string == "Limes" || string == "lime" || string == "Lime"){
-        return "lime.jfif";
+        return "Images/lime.jfif";
+    } else if(string == "bread" || string == "Bread"){
+        return "Images/bread.jpg";
+    } else {
+        return "Images/food.jfif"
     }
 }
 
@@ -228,29 +172,77 @@ function toggleForm() { // opens/closes the form to enter food items to your kit
     } 
 }
 
+function stringToNum(string){
+    if (string == "Protein"){
+        return 0;
+    } else if (string == "Dairy"){
+        return 1;
+    } else if (string == "Vegtable"){
+        return 2;
+    }  else if (string == "Fruit"){
+        return 3;
+    } else if (string == "Grain"){
+        return 4;
+    } else if (string == "Drink"){
+        return 5;
+    } else if (string == "Meal"){
+        return 6;
+    } else if (string == "Spice"){
+        return 7;
+    } else if (string == "Oil"){
+        return 8;
+    } else if (string == "Other"){
+        return 9;
+    }
+}
+
+function numToString(num){
+    if (num == 0){
+        return "Protein";
+    } else if (num == 1){
+        return "Dairy";
+    } else if (num == 2){
+        return "Vegtables";
+    }  else if (num == 3){
+        return "Fruits";
+    } else if (num == 4){
+        return "Grains";
+    } else if (num == 5){
+        return "Drinks";
+    } else if (num == 6){
+        return "Meals";
+    } else if (num == 7){
+        return "Spices";
+    } else if (num == 8){
+        return "Oils";
+    } else if (num == 9){
+        return "Other";
+    }
+}
+
 function formatToAdd(){ //adds food item to foodArr after food item form has been filled out and entered
     var nameValue = document.getElementById("foodLabel").value;
+    var categoryValue = document.getElementById("category").value;
     var quantityValue = document.getElementById("quantity").value;
     var expirationValue = document.getElementById("expiration").value;
     var allergensValue = document.getElementById("allergens").value;
     var caloriesValue = document.getElementById("calories").value;
     var servingSizeValue = document.getElementById("servingSize").value;
 
-    let foodItem = {name: nameValue, quantity: quantityValue, expiration: expirationValue, 
-        allergens: allergensValue, calories: caloriesValue, 
+    let foodItem = {name: nameValue, category: categoryValue, quantity: quantityValue, 
+        expiration: expirationValue, allergens: allergensValue, calories: caloriesValue, 
         owner:user1.userName, servingSize: servingSizeValue};
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = new Array();
+        user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
 
-    user1.foodArr.push(foodItem);
+    user1.foodArr[stringToNum(categoryValue)].push(foodItem);
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
-
     
     myForm.className = "form-popup fpshow";
     plus.className = "menuicon";
@@ -261,25 +253,40 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     var results = "<table class=\"foodTable\" >";
     let balanced = 0;
     let num = 0;
+    console.log("user1.foodArr");
+    console.log(user1.foodArr);
     for(let i in user1.foodArr){
-        if(i%3 == 0){
-            results = results + "<tr><td class=\"foodBox\" onclick=\"getFoodInfo(" + i + ")\">" + user1.foodArr[i].name + "</td>"; 
-            console.log("user1.foodArr[i]");
-            console.log(user1.foodArr[i]);
-        } else if ((i+1)%3 == 0){
-            results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + ")\">" + user1.foodArr[i].name + "</td></tr>";
-        } else {
-            results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + ")\">" + user1.foodArr[i].name + "</td>";
+        if(user1.foodArr[i].length > 1){
+            if(i != 7 && i != 8){
+                results = results + "<tr><td>"+ numToString(i) +"</td></tr>"
+                for(let j in user1.foodArr[i]){
+                    if(j == 0){
+
+                    } else {
+                        if(j%4 == 0){
+                            results = results + "<tr><td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>"; 
+                            console.log("user1.foodArr[i][j]");
+                            console.log(user1.foodArr[i][j]);
+                        } else if ((j+1)%4 == 0){
+                            results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td></tr>";
+                        } else {
+                            results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>";
+                        }
+                        balanced = j;
+                        num = num + 1;
+                    }
+                }
+
+                if((balanced + 1)%4 != 0){
+                    results = results + "</tr>";
+                } 
+            } else {
+                results = results + "<tr><td>" + numToString(i) +"</td></tr>" +
+                "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td></tr>";
+            }
         }
-        balanced = i;
-        num = num + 1;
     }
-    
-    if((balanced + 1)%3 != 0){
-        results = results + "</td></table>";
-    } else {
-        results = results + "</table>";
-    }
+    results = results + "</table>";
     
     if (num == 0){
         results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>" + results
@@ -291,8 +298,43 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     document.getElementById("result").innerHTML = results;
 }
 
+function displayCatagory(i){
+    results =  "<table class=\"foodTable\" >";
+    let balanced = 0;
+    for(let j in user1.foodArr[i]){
+        if(j == 0){
+            results = results + "<div class=\"categoryTitle\">"+ numToString(i) +"</div>"
+        } else {
+            if(j%4 == 0){
+                results = results + "<tr><td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>"; 
+                console.log("user1.foodArr[i][j]");
+                console.log(user1.foodArr[i][j]);
+            } else if ((j+1)%4 == 0){
+                results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td></tr>";
+            } else {
+                results = results + "<td class=\"foodBox\" onclick=\"getFoodInfo(" + i + "," + j + ")\">" + user1.foodArr[i][j].name + "</td>";
+            }
+            balanced = j;
+        }
+    }
+
+    if((balanced + 1)%4 != 0){
+        results = results + "</tr></table>";
+    } else {
+        results = results + "</table>";
+    }
+
+    results = results + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button>";
+
+    myForm.className = "form-popup";
+    plus.className = "menuicon";
+    flushInputs();
+    document.getElementById("result").innerHTML = results;
+}
+
 function flushInputs(){ //new function to clear all of the input fields on the form, in order to account for the new implementation of the form. --andrew
     document.getElementById('foodLabel').value = '';
+    document.getElementById('category').value = 'Other';
     document.getElementById('quantity').value = '';
     document.getElementById('expiration').value = '';
     document.getElementById('allergens').value = '';
@@ -300,18 +342,18 @@ function flushInputs(){ //new function to clear all of the input fields on the f
     document.getElementById('servingSize').value = '';
 }
 
-function removeFoodItem(index){ //removes food item from array and screen 
-    user1.foodArr.splice(index, 1);
+function removeFoodItem(i, j){ //removes food item from array and screen 
+    user1.foodArr[i].splice(j, 1);
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
     displayAllFood();
 }
 
-function getFoodInfo(index){ //gets information about specified food item to display on screen
-    document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" + getImage( user1.foodArr[index].name) + "\" width=\"200\" class=\"center\"> Name: " + user1.foodArr[index].name + "<br>Quantity: " + user1.foodArr[index].quantity + "<br>Expiration: " +
-    user1.foodArr[index].expiration + "<br>Allergens: " + user1.foodArr[index].allergens + 
-    "<br>Calories: " + user1.foodArr[index].calories + "<br>Serving Size: " + 
-    user1.foodArr[index].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ index + ")\">Delete Item</button>"
+function getFoodInfo(i, j){ //gets information about specified food item to display on screen
+    document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" + getImage( user1.foodArr[i][j].name) + "\" width=\"200\" class=\"center\"> Name: " + user1.foodArr[i][j].name + "<br>Quantity: " + user1.foodArr[i][j].quantity + "<br>Expiration: " +
+    user1.foodArr[i][j].expiration + "<br>Allergens: " + user1.foodArr[i][j].allergens + 
+    "<br>Calories: " + user1.foodArr[i][j].calories + "<br>Serving Size: " + 
+    user1.foodArr[i][j].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ i + "," + j + ")\">Delete Item</button>"
     + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button><h1>";
 }
 
