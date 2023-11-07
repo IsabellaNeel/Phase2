@@ -36,7 +36,7 @@ let str2 = sessionStorage.getItem('shoppingListArr');
 if(str != null){
     user1.foodArr = JSON.parse(str);
 } else {
-    user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+    user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
 }
@@ -179,7 +179,7 @@ function stringToNum(string){
         return 0;
     } else if (string == "Dairy"){
         return 1;
-    } else if (string == "Vegtable"){
+    } else if (string == "Vegetable"){
         return 2;
     }  else if (string == "Fruit"){
         return 3;
@@ -206,7 +206,7 @@ function numToString(num){
     } else if (num == 1){
         return "Dairy";
     } else if (num == 2){
-        return "Vegtables";
+        return "Vegetables";
     }  else if (num == 3){
         return "Fruits";
     } else if (num == 4){
@@ -241,7 +241,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = [["Protein"], ["Dairy"], ["Vegtables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+        user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Grains"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
