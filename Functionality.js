@@ -347,17 +347,11 @@ function displayAllRecipes() {
     for(let i in user1.recipesArr){
         results = results + 
         "<tr class = \"cartitem\">" +
-            "<td style = \"width: 85%\">" +
+            "<td style = \"width: 92.5%\" onclick = \"setPopup(" + i + ")\">" +
                 "<h3>" + user1.recipesArr[i].name + "</h3>" +
-                "<p id = \"showIngredients"+ i +"\"></p>" +
-                "<p id = \"showInstructions"+ i +"\"></p>" +
             "</td>" +
 
-            "<td style = \"width: 8%; text-align: center\" onclick = \"myFunction(" + i + ")\">" +
-                "<h3 class = \"expand\">i</h3>" + 
-            "</td>" +
-
-            "<td style = \"width: 7%; text-align: center\" onclick = \"deleteRecipe(this.parentElement," + i + ")\">" +
+            "<td style = \"width: 7.5%; text-align: center\" onclick = \"deleteRecipe(this.parentElement," + i + ")\">" +
                 "<h3>x</h3>" +
             "</td>" +
         "</tr>";
@@ -367,7 +361,7 @@ function displayAllRecipes() {
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Tap on a recipe to view it.</p></div>" + results
     }
     popup.className="popup";
     overlay.className="overlay";
@@ -420,7 +414,7 @@ function toggleExpand1(input, index) {
     }
   }
 
-  function myFunction(index) {
+function setPopup(index) {
     toggleRecipe();
     inputName = user1.recipesArr[index].name;
     outputName = document.getElementById("resultName");
@@ -435,4 +429,4 @@ function toggleExpand1(input, index) {
     outputInstructions = document.getElementById("resultInstructions");
     instructionsBreak = inputInstructions.replace(/\n/g, '<p>');
     outputInstructions.innerHTML = instructionsBreak;
-  }
+}
