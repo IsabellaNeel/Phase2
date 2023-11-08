@@ -309,12 +309,12 @@ button{
 } 
 
 .scrollable-area {
-    height: 200px;
-    width: 100%;
-    overflow:auto;
-    border: 1px solid #ffffff;
-    padding: 10px;
-    margin-bottom: 20px;
+    width: 600px;
+    overflow:scroll;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 0px
 }
 
 
