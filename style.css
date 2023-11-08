@@ -271,23 +271,6 @@ button{
     cursor: default;
 }
 
-.recipe-list {
-    max-width: 100vw;
-    margin: 15px 15px 9.5vh;
-    padding: 15px;
-    border: none;
-}
-
-.recipe-list ul {
-    list-style-type: none;
-    padding: 0px;
-}
-
-.recipe-list li {
-    padding: 0px;
-    border-bottom: 1px solid #c6ced2;
-}
-
 .overlay {
     display: block;
     position: fixed;
@@ -324,6 +307,15 @@ button{
     top: 50%;
     transition: top 0.5s ease, opacity 0.5s ease;
 } 
+
+.scrollable-area {
+    height: 200px;
+    width: 100%;
+    overflow:auto;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
 
 
 /* END SHAWDI'S CLASSES */

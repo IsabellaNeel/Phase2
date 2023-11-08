@@ -347,7 +347,7 @@ function displayAllRecipes() {
     for(let i in user1.recipesArr){
         results = results + 
         "<tr class = \"cartitem\">" +
-            "<td style = \"width: 92.5%\" onclick = \"setPopup(" + i + ")\">" +
+            "<td style = \"width: 92.5%\" onclick = \"displayRecipeItem(" + i + ")\">" +
                 "<h3>" + user1.recipesArr[i].name + "</h3>" +
             "</td>" +
 
@@ -355,7 +355,8 @@ function displayAllRecipes() {
                 "<h3>x</h3>" +
             "</td>" +
         "</tr>";
-        
+        console.log("user1.recipesArr[i]");
+        console.log(user1.recipesArr[i]);
         num = num + 1;
     }
         results = results + "</table>";
@@ -369,6 +370,7 @@ function displayAllRecipes() {
     flushInputRecipeList();
     document.getElementById("resultRecipeList").innerHTML = results;
 }
+
 
 function flushInputRecipeList() {
     document.getElementById('recipeName').value = '';
@@ -401,18 +403,6 @@ function addRecipes(){
     displayAllRecipes();
 
 }
-function toggleExpand1(input, index) {
-    var element = input;
-    if (element.className === "expand"){
-        element.className = "expand collapse";
-        document.getElementById("showIngredients"+index).innerHTML = user1.recipesArr[index].ingredients;
-        document.getElementById("showInstructions"+index).innerHTML = user1.recipesArr[index].instructions;
-    } else {
-        element.className = "expand";
-        document.getElementById("showIngredients"+index).innerHTML = "";
-        document.getElementById("showInstructions"+index).innerHTML = "";
-    }
-  }
 
 function setPopup(index) {
     toggleRecipe();
@@ -423,10 +413,31 @@ function setPopup(index) {
     inputIngredient = user1.recipesArr[index].ingredients;
     outputIngredient = document.getElementById("resultIngredient");
     ingredientBreak = inputIngredient.replace(/\n/g,'<li>');
-    outputIngredient.innerHTML = ingredientBreak;
+    outputIngredient.innerHTML = "<li>" + ingredientBreak;
 
     inputInstructions = user1.recipesArr[index].instructions;
     outputInstructions = document.getElementById("resultInstructions");
     instructionsBreak = inputInstructions.replace(/\n/g, '<p>');
     outputInstructions.innerHTML = instructionsBreak;
+}
+
+// function getFoodInfo(index){ //gets information about specified food item to display on screen
+//     document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" + 
+//     getImage( user1.foodArr[index].name) + "\" width=\"200\" class=\"center\"> Name: " + 
+//     user1.foodArr[index].name + "<br>Quantity: " + user1.foodArr[index].quantity + "<br>Expiration: " +
+//     user1.foodArr[index].expiration + "<br>Allergens: " + user1.foodArr[index].allergens + 
+//     "<br>Calories: " + user1.foodArr[index].calories + "<br>Serving Size: " + 
+//     user1.foodArr[index].servingSize + "<br> <button class=\"remove-food-button\" 
+//     onclick=\"removeFoodItem("+ index + ")\">Delete Item</button>"
+//     + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" 
+//     onclick=\"displayAllFood()\"><p>&#8592;</p></button><h1>";
+// }
+
+function displayRecipeItem(index) {    
+    //document.getElementById("resultRecipeList").innerHTML = "recipe1"; // this works
+    
+    // document.getElementById("resultRecipeList").innerHTML = "<h1 style=\"text-align: center\">" + user1.recipesArr[index].ingredients + "</h1>"; // this works
+
+    document.getElementById("resultRecipeList").innerHTML = "<h1 style=\"text-align: center\">" + user1.recipesArr[index].ingredients + "</h1>" 
+    + "<br><button style=\"bottom:11%; right:2%\" class=\"remove-food-button\" onclick=displayAllRecipes()>return</button>";
 }
