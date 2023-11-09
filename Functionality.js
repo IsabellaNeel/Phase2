@@ -9,9 +9,10 @@ class KitchenApp {
 
 
 class ShoppingListItem {
-    constructor(foodName, notes){
+    constructor(foodName, notes, striked){
         this.foodName = foodName;
         this.notes = notes;
+        this.striked = striked;
     }
 
 }
@@ -132,7 +133,7 @@ function formatToAddShoppingList(){
     var nameValue = document.getElementById("foodLabelShopping").value;
     var notesValue = document.getElementById("notesLabelShopping").value;
     
-    let shoppingListItem = {foodName: nameValue, notes: notesValue};
+    let shoppingListItem = {foodName: nameValue, notes: notesValue, striked: "false"};
 
     let str2 = sessionStorage.getItem('shoppingListArr');
     if(str2 == null){
@@ -157,9 +158,13 @@ function displayAllShoppingListItems(){
     for(let i in user1.shoppingListArr){
         results = results + 
         "<tr class = \"cartitem\">" +
-            "<td style = \"width: 85%\">" +
-                "<h3 style = \"text-decoration: none\" id = \"itemLabel" + i + "\">" + user1.shoppingListArr[i].foodName + "</h3>" +
-                "<p id = \"showNotes"+ i +"\"></p>" +
+            "<td style = \"width: 85%\">";
+                if(user1.shoppingListArr[i].striked == "true"){
+                    results = results + "<h3 style = \"text-decoration: line-through\" id = \"itemLabel" + i + "\">" + user1.shoppingListArr[i].foodName + "</h3>";
+                } else {
+                    results = results + "<h3 style = \"text-decoration: none\" id = \"itemLabel" + i + "\">" + user1.shoppingListArr[i].foodName + "</h3>";
+                }
+                results = results + "<p id = \"showNotes"+ i +"\"></p>" +
                 "<p style = \"color: #2e8cca\" id = \"strikeLink" + i + "\" onclick = \"toggleStrikethough(" + i + ")\"></p>" +
             "</td>" +
 
@@ -228,11 +233,14 @@ function toggleStrikethough(index){
     if (document.getElementById("itemLabel" + index).style.textDecoration === "none"){
         document.getElementById("itemLabel" + index).style.textDecoration = "line-through"
         document.getElementById("strikeLink" + index).innerHTML = "Undo";
+        user1.shoppingListArr[index].striked = "true";
     } else {
         document.getElementById("itemLabel" + index).style.textDecoration = "none"
         document.getElementById("strikeLink" + index).innerHTML = "Mark as purchased and add to kitchen";
+        user1.shoppingListArr[index].striked = "false";
     }
-    
+    let jsonArray = JSON.stringify(user1.shoppingListArr);
+    sessionStorage.setItem('shoppingListArr', jsonArray);
 }
 /*SHOPPING LIST FUNCTIONS END*/
 
