@@ -516,11 +516,11 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
        // if(i < 10){
             if(user1.foodArr[i].length > 1){
                 if(num%3 == 0){
-                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td>";
+                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" >" + numToString(i) +"</td>";
                 } else if ((num+1)%3 == 0){
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td></tr>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" >" + numToString(i) +"</td></tr>";
                 } else {
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" >" + numToString(i) +"</td>";
                 }
                 num = num + 1;
             }
@@ -543,7 +543,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
 }
 
 function pickRandColor(){
-    // pick random color out of selected colors to be the food box outline color --andrew
+    // pick random color out of selected colors to be the food box outline color. currently unused --andrew
     var num = 0;
     num = Math.floor(Math.random() * 8);
     var output = "#242a2d"
