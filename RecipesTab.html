@@ -32,7 +32,8 @@
     <div style="height: 9.5vh">
         <!-- padding space -->
     </div>
-    <div class="menu hide" id="menu" style="height: 29% !important">
+    <!-- originally height: 29% !important-->
+    <div class="menu hide" id="menu" style="height: 35% !important">
         <table style="width: 100% !important;">
             <tr>
                 <td>
@@ -45,6 +46,7 @@
                         <li class="menuitem" onclick="togglePopupPersons();" id="persons">Personas</li>
                         <li class="menuitem" onclick="togglePopupMeals();" id="mealTypes">Meal Type</li>
                         <li class="menuitem" onclick="togglePopupFlavors();" id="flavors">Flavors</li>
+                        <li class="menuitem" onclick="togglePopupDiet();" id="flavors">Dietary Constraint</li>
                     </ul>
                 </td>
             </tr>
@@ -116,6 +118,20 @@
         <label for="m6">Snack</label><br>
     </div>
 
+
+    <div class="overlay ohide" onclick="togglePopupDiet()" id="overlayDiet"></div>
+    <div class="popup phide" id="popupDiet">
+        <span class="close-button" onclick="togglePopupDiet()">&times;</span>
+        <h2>Dietary Restrictions</h2>
+        <input type="checkbox" id="f1" name="d1" value="d1">
+        <label for="d1">Gluten Free</label><br>
+        <input type="checkbox" id="d2" name="d2" value="d2">
+        <label for="d2">Vegetarian</label><br>
+        <input type="checkbox" id="d3" name="d3" value="d3">
+        <label for="d3">Vegan</label><br>
+        <input type="checkbox" id="d4" name="d4" value="d4">
+        <label for="d4">Nut Free</label><br>
+    </div>
 
     <div class="overlay ohide" onclick="togglePopupFlavors()" id="overlayFlavors"></div>
     <div class="popup phide" id="popupFlavors">

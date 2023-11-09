@@ -55,6 +55,8 @@ var toggleRecipe = function() {
         overlayMeals.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 
 }
@@ -81,6 +83,8 @@ var togglePopup = function () {
         overlayMeals.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
 
@@ -100,6 +104,8 @@ function togglePopupPersons() {
         overlayMeals.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
 
@@ -119,6 +125,8 @@ function togglePopupMeals() {
         overlayPersons.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
 
@@ -138,7 +146,30 @@ function togglePopupFlavors() {
         overlayPersons.className = "overlay";
         popupMeals.className = "popup";
         overlayMeals.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
+
+function togglePopupDiet() {
+    if (popupDiet.className === "popup pshow" || overlayDiet.className === "overlay pshow") {
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
+    } else {
+        popupDiet.className = "popup pshow";
+        overlayDiet.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+    }
+}
 
     
