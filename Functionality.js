@@ -158,8 +158,9 @@ function displayAllShoppingListItems(){
         results = results + 
         "<tr class = \"cartitem\">" +
             "<td style = \"width: 85%\">" +
-                "<h3>" + user1.shoppingListArr[i].foodName + "</h3>" +
+                "<h3 style = \"text-decoration: none\" id = \"itemLabel" + i + "\">" + user1.shoppingListArr[i].foodName + "</h3>" +
                 "<p id = \"showNotes"+ i +"\"></p>" +
+                "<p style = \"color: #2e8cca\" id = \"strikeLink" + i + "\" onclick = \"toggleStrikethough(" + i + ")\"></p>" +
             "</td>" +
 
             "<td style = \"width: 8%; text-align: center\" onclick = \"toggleExpand(this.firstElementChild," + i +")\">" +
@@ -202,6 +203,12 @@ function deleteItem(input, index) {
   
   function toggleExpand(input, index) {
     var element = input;
+    var mark = "";
+    if (document.getElementById("itemLabel" + index).style.textDecoration === "none"){
+        mark = "Mark as purchased and add to kitchen";
+    } else {
+        mark = "Undo"
+    }
     if (element.className === "expand"){
         element.className = "expand collapse";
         if(user1.shoppingListArr[index].notes == ""){
@@ -209,12 +216,24 @@ function deleteItem(input, index) {
         } else{
             document.getElementById("showNotes"+index).innerHTML = user1.shoppingListArr[index].notes;
         }
+        document.getElementById("strikeLink" + index).innerHTML = mark;
     } else {
         element.className = "expand";
         document.getElementById("showNotes"+index).innerHTML = "";
+        document.getElementById("strikeLink" + index).innerHTML = "";
     }
   }
 
+function toggleStrikethough(index){
+    if (document.getElementById("itemLabel" + index).style.textDecoration === "none"){
+        document.getElementById("itemLabel" + index).style.textDecoration = "line-through"
+        document.getElementById("strikeLink" + index).innerHTML = "Undo";
+    } else {
+        document.getElementById("itemLabel" + index).style.textDecoration = "none"
+        document.getElementById("strikeLink" + index).innerHTML = "Mark as purchased and add to kitchen";
+    }
+    
+}
 /*SHOPPING LIST FUNCTIONS END*/
 
 /*YOUR KITCHEN FUNCTIONS START*/
