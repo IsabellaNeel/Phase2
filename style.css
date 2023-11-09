@@ -80,7 +80,7 @@ button{
 
 .menu {
     width: 100% !important;
-    height: 24%;
+    height: 19%;
     position: fixed;
     top: 0;
     color: #212529 !important;
@@ -310,12 +310,12 @@ button{
 } 
 
 .scrollable-area {
-    width: 600px;
     overflow:scroll;
-    border: 1px solid black;
+    border: 1px solid #242a2d;
     padding: 5px;
-    margin-bottom: 5px;
-    margin-top: 0px
+    margin: 2px auto 5px;
+    background: #ffffff;
+    font-size: 16px;
 }
 
 
@@ -355,8 +355,8 @@ button{
   bottom: 100%;
   padding-left: 9%;
   padding-right: 9%;
-  padding-top: 15vh;
-  padding-bottom: 15vh;
+  padding-top: 12vh;
+  padding-bottom: 10vh;
   z-index: 5;
   opacity: 0%;
   background-color: rgba(36,42,45, 0.25);
@@ -471,13 +471,14 @@ button{
   padding: 5px;
   font-size: 32px;
   border: 2px solid #242a2d; 
-  height: 140px; 
+  background-color: #ffffff;
+  height: 146px; 
   width: 180px; 
   word-wrap: break-word;
 }
 
 .foodTable {
- border-spacing:20px; 
+ border-spacing:15px; 
  font-size: 40px;
 }
 
@@ -489,6 +490,7 @@ button{
   cursor: default;
   width: 200px;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 .foodImage {
@@ -512,6 +514,7 @@ button{
     cursor: default;
     width: 200px;
     border-radius: 5px;
+    font-size: 16px
   }
   
   

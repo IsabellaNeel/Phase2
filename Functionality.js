@@ -326,7 +326,7 @@ function displayAllShoppingListItems(){
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list. Press the <span style = \"font-weight: bold\">&#8964;</span> button on an item to view more details.</p></div>" + results
     }
     
     myFormShopping.className = "form-popup-shopping";
@@ -512,11 +512,11 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
        // if(i < 10){
             if(user1.foodArr[i].length > 1){
                 if(num%3 == 0){
-                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td>";
+                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\">" + numToString(i) +"</td>";
                 } else if ((num+1)%3 == 0){
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td></tr>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\">" + numToString(i) +"</td></tr>";
                 } else {
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\">" + numToString(i) +"</td>";
                 }
                 num = num + 1;
             }
@@ -538,7 +538,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     document.getElementById("result").innerHTML = results;
 }
 
-function displayCatagory(i){
+function displayCategory(i){
     var results = "<table class = \"carttable\" >";
    
     let num = 0;
@@ -573,7 +573,7 @@ function displayCatagory(i){
 }
 
 
-function displayCatagoryOldWay(i){ //not being used anymore
+function displayCategoryOldWay(i){ //not being used anymore
     results =  "<table class=\"foodTable\" >";
     let balanced = 0;
     for(let j in user1.foodArr[i]){
@@ -634,7 +634,7 @@ function removeFoodItem(i, j){ //removes food item from array and screen
     if(user1.foodArr[i].length == 1){
         displayAllFood();
     } else {
-        displayCatagory(i);
+        displayCategory(i);
     }
 }
 
@@ -648,7 +648,7 @@ function getFoodInfo(i, j){ //gets information about specified food item to disp
     "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ i + "," + j +
      ")\">Delete Item</button> <button type=\"button\" class=\"edit-food-button\" onclick=\"notYetImplemented("+ i +"," + j
      + ")\">Edit Item</button>" +
-    "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayCatagory("+ i 
+    "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayCategory("+ i 
     +")\"><p>&#8592;</p></button><h1>";
 }
 
@@ -693,13 +693,13 @@ function displayAllRecipes() {
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Tap on a recipe to view it.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Select a recipe to view it.</p></div>" + results
     }
-    popup.className="popup";
-    overlay.className="overlay";
+    popup.className="form-popup";
     plus.className = "menuicon";
     flushInputRecipeList();
     document.getElementById("resultRecipeList").innerHTML = results;
+    document.getElementById("recipeContainer").style.width = "100%";
 }
 
 
@@ -729,8 +729,7 @@ function addRecipes(){
     sessionStorage.setItem('recipesArr', jsonArray);
     
 
-    popup.className = "popup";
-    overlay.className = "overlay";
+    popup.className = "form-popup";
     displayAllRecipes();
 
 }
@@ -742,16 +741,17 @@ function displayRecipeItem(index) {
     inputIngredient = user1.recipesArr[index].ingredients;
     ingredientBreak = inputIngredient.replace(/\n/g, '<p>');
     strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Ingredients<h3></div>" 
-    + "<div style=\"height:150px ; margin-top:3px;\" class=\"scrollable-area\">" + ingredientBreak + "</div>";
+    + "<div style=\"height:150px \" class=\"scrollable-area\">" + ingredientBreak + "</div>";
 
     inputInstructions = user1.recipesArr[index].instructions;
     instructionBreak = inputInstructions.replace(/\n/g, '<p>');
     strInstructions = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Instructions</h3></div>" 
-    + "<div style=\"height:350px; margin-top:3px;\" class=\"scrollable-area\">" + instructionBreak + "</div>";
+    + "<div style=\"height:350px \" class=\"scrollable-area\">" + instructionBreak + "</div>";
 
 
-    strButtonReturn = "<button onclick=displayAllRecipes() style=\"position:absolute; bottom:110px; left:50%; right:50%;\" class=\"remove-food-button\">return</button>";
-    strButtonDelete = "<button onclick=deleteRecipe(this.parentElement," + index + ") style=\"position:absolute; bottom:110px; left:10px;\" class=\"remove-food-button\">Delete Recipe</button>";
+    strButtonReturn = "<button onclick=displayAllRecipes() style=\"bottom:11%; right:2%\" class=\"open-button\"><p>&#8592;</p></button>";
+    strButtonDelete = "<p style = \"text-align: center\" > <button onclick=deleteRecipe(this.parentElement," + index + ") class=\"remove-food-button\">Delete Recipe</button></p>";
 
+    document.getElementById("recipeContainer").style.width = "90%";
     document.getElementById("resultRecipeList").innerHTML = strName + strIngredients + strInstructions + strButtonReturn + strButtonDelete;
 }
