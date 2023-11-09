@@ -40,7 +40,7 @@ if(str != null){
     user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     
     //Hard code food items onto the list
-    let foodItem1 = {id: idNum++, name: "Chicken Breast", category: "Protein", quantity: "5", 
+    let foodItem1 = {id: idNum++, name: "Chicken Breasts", category: "Protein", quantity: "5", 
         expiration: "11/20/2023", allergens: "None", calories: "284", 
         owner:user1.userName, servingSize: "1 Chicken Breast"};
     user1.foodArr[0].push(foodItem1);
@@ -76,19 +76,19 @@ if(str != null){
     user1.foodArr[2].push(foodItem6);
     user1.foodArr[10].push(foodItem6);
 
-    let foodItem7 = {id: idNum++, name: "Apple", category: "Fruit", quantity: "6", 
+    let foodItem7 = {id: idNum++, name: "Apples", category: "Fruit", quantity: "6", 
         expiration: "12/04/2023", allergens: "None", calories: "95", 
         owner:user1.userName, servingSize: "1 apple"};
     user1.foodArr[3].push(foodItem7);
     user1.foodArr[10].push(foodItem7);
 
-    let foodItem8 = {id: idNum++, name: "Banana", category: "Fruit", quantity: "3", 
+    let foodItem8 = {id: idNum++, name: "Bananas", category: "Fruit", quantity: "3", 
         expiration: "11/10/2023", allergens: "None", calories: "105", 
         owner:user1.userName, servingSize: "1 banana"};
     user1.foodArr[3].push(foodItem8);
     user1.foodArr[10].push(foodItem8);
 
-    let foodItem9 = {id: idNum++, name: "Lime", category: "Fruit", quantity: "3", 
+    let foodItem9 = {id: idNum++, name: "Limes", category: "Fruit", quantity: "3", 
         expiration: "11/10/2023", allergens: "None", calories: "105", 
         owner:user1.userName, servingSize: "1 banana"};
     user1.foodArr[3].push(foodItem9);
@@ -112,7 +112,7 @@ if(str != null){
     user1.foodArr[5].push(foodItem12);
     user1.foodArr[10].push(foodItem12);
 
-    let foodItem13 = {id: idNum++, name: "Kombucha", category: "Drink", quantity: "3", 
+    let foodItem13 = {id: idNum++, name: "Kombuchas", category: "Drink", quantity: "3", 
         expiration: "01/01/2024", allergens: "None", calories: "30", 
         owner:user1.userName, servingSize: "8 oz"};
     user1.foodArr[5].push(foodItem13);
@@ -195,13 +195,13 @@ function getImage(string){ //returns an image based on the string parameter
         return "Images/oat-milk.jfif";
     } else if(string == "yogurt" || string == "Yogurt" || string == "Greek Yogurt" || string == " greek yogurt" || string == "Greek yogurt"){
         return "Images/yogurt.jfif";
-    } else if(string == "chicken breast" || string == "Chicken breast" || string == "Chicken Breast"){
+    } else if(string == "chicken breast" || string == "Chicken breast" || string == "Chicken Breast" || string == "Chicken Breasts"){
         return "Images/chicken-breast.jfif";
     } else if(string == "Spinach Bag" || string == "Spinach" || string == "spinach" || string == "spinach bag" || string == "Spinach bag"){
         return "Images/spinach.jfif";
     } else if(string == "Angle Hair Pasta" || string == "Angle hair pasta" || string == "Pasta" || string == "pasta"){
         return "Images/pasta.jfif";
-    } else if(string == "Kombucha" || string == "kombucha"){
+    } else if(string == "Kombucha" || string == "kombucha" || string == "Kombuchas"){
         return "Images/kombucha.jfif";
     } else if(string == "Grape Juice" || string == "grape juice" || string == "Grape juice"){
         return "Images/grape-juice.jfif";
@@ -467,7 +467,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 }
 
 function displayAllFood(){ //displays all food items from foodArr in boxes
-    var results = "<table class=\"foodTable\" >";
+    var results = "<div class=\"kitchen-instructions\">Click on Catagory to Display</div><table class=\"foodTable\">";
     let num = 0;
     console.log("user1.foodArr");
     console.log(user1.foodArr);
@@ -475,11 +475,11 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
        // if(i < 10){
             if(user1.foodArr[i].length > 1){
                 if(num%3 == 0){
-                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td>";
+                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td>";
                 } else if ((num+1)%3 == 0){
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td></tr>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td></tr>";
                 } else {
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td>";
                 }
                 num = num + 1;
             }
@@ -492,7 +492,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     }
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>"
     }
     
     myForm.className = "form-popup";
@@ -501,8 +501,42 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     document.getElementById("result").innerHTML = results;
 }
 
-
 function displayCatagory(i){
+    var results = "<table class = \"carttable\" >";
+   
+    let num = 0;
+    for(let j in user1.foodArr[i]){
+        if(j == 0){
+            results = results + "<div class=\"categoryTitle\">"+ numToString(i) +"</div>"
+        } else {
+            results = results + 
+            "<tr class = \"cartitem\">" +
+                "<td style = \"width: 92.5%\" onclick = \"getFoodInfo(" + i + "," + j + ")\">" +
+                    "<h3>" + user1.foodArr[i][j].quantity + " " + user1.foodArr[i][j].name + "</h3>" +
+                "</td>" +
+
+                "<td style = \"width: 7.5%; text-align: center\" onclick = \"removeFoodItem("+ i + "," + j + ")\">" +
+                    "<h3>x</h3>" +
+                "</td>" +
+            "</tr>";
+            num = num + 1;
+        }
+    }
+        results = results + "</table>";
+    
+    if (num == 0){
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your Kitchen Inventory.</p></div>" + results
+    }
+    results = results + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button>";
+
+    myForm.className = "form-popup";
+    plus.className = "menuicon";
+    flushInputs();
+    document.getElementById("result").innerHTML = results;
+}
+
+
+function displayCatagoryOldWay(i){ //not being used anymore
     results =  "<table class=\"foodTable\" >";
     let balanced = 0;
     for(let j in user1.foodArr[i]){
@@ -546,11 +580,9 @@ function flushInputs(){ //new function to clear all of the input fields on the f
 
 function removeById(id){
     for(i in user1.foodArr){
-        if(i != 10){
-            for(j in user1.foodArr[i]){
-                if(j != 0 && user1.foodArr[i][j].id == id){
-                    user1.foodArr[i].splice(j, 1);
-                }
+        for(j in user1.foodArr[i]){
+            if(j != 0 && user1.foodArr[i][j].id == id){
+                user1.foodArr[i].splice(j, 1);
             }
         }
     }
@@ -559,24 +591,10 @@ function removeById(id){
 function removeFoodItem(i, j){ //removes food item from array and screen
     let foodId = user1.foodArr[i][j].id;
     user1.foodArr[i].splice(j, 1);
-    if(i == 10){
-        removeById(foodId);
-    } else {
-        user1.foodArr[10] = new Array();
-        user1.foodArr[10].push("All");
-        for(x in user1.foodArr){
-            if(x != 10){
-                for(y in user1.foodArr[x]){
-                    if(y != 0){
-                        user1.foodArr[10].push(user1.foodArr[x][y]);
-                    }
-                }
-            }
-        }
-    }
+    removeById(foodId);
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
-    if(j == 1){
+    if(user1.foodArr[i].length == 1){
         displayAllFood();
     } else {
         displayCatagory(i);

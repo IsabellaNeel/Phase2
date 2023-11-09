@@ -6,7 +6,7 @@ body{
 
 h1{
     text-align: center;
-    padding: 45px;
+    /*padding: 45px;*/
     font-size: 45px;
 }
 
@@ -478,9 +478,9 @@ button{
 .foodBox {
   text-align: center;
   padding: 5px;
-  font-size: 40px;
+  font-size: 35px;
   border: 2px solid #242a2d; 
-  height: 180px; 
+  height: 140px; 
   width: 180px; 
   word-wrap: break-word;
 }
@@ -528,6 +528,12 @@ button{
   .edit-food-button .btn:active {
     background-color: #18ae90;
     transition: background-color 0.25s ease;
+  }
+
+  .kitchen-instructions {
+    text-align: center;
+    padding: 5px;
+    font-size: 30px;
   }
 
 /* END ISABELLA'S CLASSES */
