@@ -553,7 +553,7 @@ function pickRandColor(){
             output = "#242a2d"; // dark grey
             break;
         case 1:
-            output = "#78909c"; // mid grey
+            output = "#6c8693"; // mid grey
             break;
         case 2:
             output = "#c0392b"; // red
