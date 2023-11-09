@@ -234,6 +234,7 @@ function toggleStrikethough(index){
         document.getElementById("itemLabel" + index).style.textDecoration = "line-through"
         document.getElementById("strikeLink" + index).innerHTML = "Undo";
         user1.shoppingListArr[index].striked = "true";
+        addFromShoppingList(index);
     } else {
         document.getElementById("itemLabel" + index).style.textDecoration = "none"
         document.getElementById("strikeLink" + index).innerHTML = "Mark as purchased and add to kitchen";
@@ -241,6 +242,28 @@ function toggleStrikethough(index){
     }
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
+}
+
+function addFromShoppingList(index){
+    console.log("index");
+    console.log(index);
+    console.log("user1.shoppingListArr");
+    console.log(user1.shoppingListArr);
+    console.log("user1.shoppingListArr[index]");
+    console.log(user1.shoppingListArr[index]);
+    let foodItem = {name: user1.shoppingListArr[index].foodName, quantity: "", expiration: "", 
+        allergens: "", calories: "", owner:user1.userName, servingSize: ""};
+
+    let str = sessionStorage.getItem('foodArr');
+    if(str == null){
+        user1.foodArr = new Array();
+    } else {
+        user1.foodArr = JSON.parse(str);
+    }
+
+    user1.foodArr.push(foodItem);
+    let jsonArray = JSON.stringify(user1.foodArr);
+    sessionStorage.setItem('foodArr', jsonArray);
 }
 /*SHOPPING LIST FUNCTIONS END*/
 
