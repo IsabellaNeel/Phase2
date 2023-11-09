@@ -516,11 +516,11 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
        // if(i < 10){
             if(user1.foodArr[i].length > 1){
                 if(num%3 == 0){
-                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\">" + numToString(i) +"</td>";
+                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td>";
                 } else if ((num+1)%3 == 0){
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\">" + numToString(i) +"</td></tr>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td></tr>";
                 } else {
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\">" + numToString(i) +"</td>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td>";
                 }
                 num = num + 1;
             }
@@ -540,6 +540,44 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     plus.className = "menuicon";
     flushInputs();
     document.getElementById("result").innerHTML = results;
+}
+
+function pickRandColor(){
+    // pick random color out of selected colors to be the food box outline color --andrew
+    var num = 0;
+    num = Math.floor(Math.random() * 8);
+    var output = "#242a2d"
+    
+    switch(num){
+        case 0:
+            output = "#242a2d"; // dark grey
+            break;
+        case 1:
+            output = "#607d8b"; // mid grey
+            break;
+        case 2:
+            output = "#c0392b"; // red
+            break;
+        case 3:
+            output = "#e67e22"; // orange
+            break;
+        case 4:
+            output = "#16a085"; // teal
+            break;
+        case 5:
+            output = "#27ae60"; // green
+            break;
+        case 6:
+            output = "#2e8cca"; // blue
+            break;
+        case 7:
+            output = "#1f628e"; // dark blue
+            break;
+        default:
+            output = "#242a2d"; // keep as dark grey in case of failure
+            break;
+    }
+    return output;
 }
 
 function displayCategory(i){
