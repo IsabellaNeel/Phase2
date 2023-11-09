@@ -21,11 +21,38 @@ class FoodItem {
   }
 
 class User {
-    constructor(userName, foodArr, shoppingListArr) {
+
+    static foodArr;
+    constructor(userName, foodArr, shoppingListArr, recipesArr) {
         this.userName = userName;
         this.foodArr = foodArr;
         this.shoppingListArr = shoppingListArr;
+        this.recipesArr=recipesArr;
     }
+
+    addFoodItem(foodItem){
+        this.foodArr.push(foodItem);
+    }
+
+    addShoppingListItem(shoppingListItem){
+        this.shoppingListArr.push(shoppingListItem);
+    }
+
+    getshoppingListArr(){
+        return this.foodArr;
+    }
+
+    getFoodArr(){
+        return this.foodArr;
+    }
+
+    getUserName(){
+        return this.userName;
+    }
+    getRecipesArr(){
+        return this.recipesArr;
+    }
+
 }
 
 let user1 = new User();
@@ -33,6 +60,7 @@ let idNum = 0;
 user1.userName = "Bob";
 let str = sessionStorage.getItem('foodArr');
 let str2 = sessionStorage.getItem('shoppingListArr');
+let str3 = sessionStorage.getItem('recipesArr');
 
 if(str != null){
     user1.foodArr = JSON.parse(str);
@@ -176,6 +204,14 @@ if(str2 != null){
     user1.shoppingListArr = new Array();
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
+}
+
+if(str3 != null){
+    user1.recipesArr = JSON.parse(str3);
+} else {
+    user1.recipesArr = new Array();
+    let jsonArray = JSON.stringify(user1.recipesArr);
+    sessionStorage.setItem('recipesArr', jsonArray);
 }
 
 function getImage(string){ //returns an image based on the string parameter
@@ -623,3 +659,99 @@ function notYetImplemented(i, j){
 }
 
 /*YOUR KITCHEN FUNCTIONS END*/
+
+/* recipe functions start*/
+
+function deleteRecipe(input, index) {
+    var element = input;
+    element.remove();
+    user1.recipesArr.splice(index, 1);
+    let jsonArray = JSON.stringify(user1.recipesArr);
+    sessionStorage.setItem('recipesArr', jsonArray);
+    displayAllRecipes();
+}
+
+function displayAllRecipes() {
+    var results = "<table class = \"carttable\" >";
+   
+    let num = 0;
+    for(let i in user1.recipesArr){
+        results = results + 
+        "<tr class = \"cartitem\">" +
+            "<td style = \"width: 92.5%\" onclick = \"displayRecipeItem(" + i + ")\">" +
+                "<h3>" + user1.recipesArr[i].name + "</h3>" +
+            "</td>" +
+
+            "<td style = \"width: 7.5%; text-align: center\" onclick = \"deleteRecipe(this.parentElement," + i + ")\">" +
+                "<h3>x</h3>" +
+            "</td>" +
+        "</tr>";
+        console.log("user1.recipesArr[i]");
+        console.log(user1.recipesArr[i]);
+        num = num + 1;
+    }
+        results = results + "</table>";
+    
+    if (num == 0){
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Tap on a recipe to view it.</p></div>" + results
+    }
+    popup.className="popup";
+    overlay.className="overlay";
+    plus.className = "menuicon";
+    flushInputRecipeList();
+    document.getElementById("resultRecipeList").innerHTML = results;
+}
+
+
+function flushInputRecipeList() {
+    document.getElementById('recipeName').value = '';
+    document.getElementById('recipeIngredients').value = '';
+    document.getElementById('recipeInstructions').value = '';
+}
+function addRecipes(){
+    var nameValue=document.getElementById("recipeName").value;
+    var ingredientValue=document.getElementById("recipeIngredients").value;
+    var instructionsValue=document.getElementById("recipeInstructions").value;
+
+    let recipeItem = {name: nameValue, ingredients: ingredientValue, 
+        instructions: instructionsValue, owner: user1.username};
+    
+
+    let str3=sessionStorage.getItem('recipesArr');
+    if (str3 == null) {
+        user1.recipesArr = new Array();
+    } else {
+        user1.recipesArr = JSON.parse(str3);
+    }
+
+    user1.recipesArr.push(recipeItem);
+    let jsonArray = JSON.stringify(user1.recipesArr);
+    sessionStorage.setItem('recipesArr', jsonArray);
+    
+
+    popup.className = "popup";
+    overlay.className = "overlay";
+    displayAllRecipes();
+
+}
+
+
+function displayRecipeItem(index) {
+    strName = "<div><h3 style=\"text-align:center;margin-top: 0px; margin-bottom: 10px;font-size:35px\">" + user1.recipesArr[index].name + "</h3></div>"
+
+    inputIngredient = user1.recipesArr[index].ingredients;
+    ingredientBreak = inputIngredient.replace(/\n/g, '<p>');
+    strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Ingredients<h3></div>" 
+    + "<div style=\"height:150px ; margin-top:3px;\" class=\"scrollable-area\">" + ingredientBreak + "</div>";
+
+    inputInstructions = user1.recipesArr[index].instructions;
+    instructionBreak = inputInstructions.replace(/\n/g, '<p>');
+    strInstructions = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Instructions</h3></div>" 
+    + "<div style=\"height:350px; margin-top:3px;\" class=\"scrollable-area\">" + instructionBreak + "</div>";
+
+
+    strButtonReturn = "<button onclick=displayAllRecipes() style=\"position:absolute; bottom:110px; left:50%; right:50%;\" class=\"remove-food-button\">return</button>";
+    strButtonDelete = "<button onclick=deleteRecipe(this.parentElement," + index + ") style=\"position:absolute; bottom:110px; left:10px;\" class=\"remove-food-button\">Delete Recipe</button>";
+
+    document.getElementById("resultRecipeList").innerHTML = strName + strIngredients + strInstructions + strButtonReturn + strButtonDelete;
+}

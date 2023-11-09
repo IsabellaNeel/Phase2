@@ -272,24 +272,6 @@ button{
     cursor: default;
 }
 
-.recipe-list {
-    max-width: 100vw;
-    margin: 15px 15px 9.5vh;
-    background-color: #ffffff;
-    padding: 15px;
-    border: none;
-}
-
-.recipe-list ul {
-    list-style-type: none;
-    padding: 0px;
-}
-
-.recipe-list li {
-    padding: 0px;
-    border-bottom: 1px solid #c6ced2;
-}
-
 .overlay {
     display: block;
     position: fixed;
@@ -297,7 +279,7 @@ button{
     left: 0px;
     width: 100%;
     height: 0%;
-    background-color: rgba(36,42,45, 0.25); /* Semi-transparent black overlay */
+    background-color: rgba(36,42,45, 0.25); 
     z-index: 1;
     transition: height 0.5s ease, top 0.5s ease;
 }
@@ -309,11 +291,10 @@ button{
 }
 
 .popup {
-    display: block;
     position: fixed;
-    top: -15%;
+    top: -35%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the pop-up */
+    transform: translate(-50%, -50%); 
     opacity: 0%;
     background-color: #ffffff;
     padding: 25px;
@@ -326,7 +307,17 @@ button{
     opacity: 100%;
     top: 50%;
     transition: top 0.5s ease, opacity 0.5s ease;
+} 
+
+.scrollable-area {
+    width: 600px;
+    overflow:scroll;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 0px
 }
+
 
 /* END SHAWDI'S CLASSES */
 
