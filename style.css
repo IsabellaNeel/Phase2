@@ -495,7 +495,7 @@ button{
   padding: 18px 20px;
   border: none;
   cursor: default;
-  width: 300px;
+  width: 200px;
   border-radius: 5px;
 }
 
@@ -511,5 +511,22 @@ button{
     padding-top: 5px;
     font-size: 45px;
 }
+
+.edit-food-button {
+    background-color: #16a085;
+    color: #ffffff;
+    padding: 18px 20px;
+    border: none;
+    cursor: default;
+    width: 200px;
+    border-radius: 5px;
+  }
+  
+  
+  /* Add some hover effects to buttons */
+  .edit-food-button .btn:active {
+    background-color: #18ae90;
+    transition: background-color 0.25s ease;
+  }
 
 /* END ISABELLA'S CLASSES */

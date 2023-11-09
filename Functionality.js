@@ -202,6 +202,8 @@ function getImage(string){ //returns an image based on the string parameter
         return "Images/pasta.jfif";
     } else if(string == "Kombucha" || string == "kombucha"){
         return "Images/kombucha.jfif";
+    } else if(string == "Grape Juice" || string == "grape juice" || string == "Grape juice"){
+        return "Images/grape-juice.jfif";
     } else if(string == "Lasagna" || string == "lasagna"){
         return "Images/lasagna.jfif";
     } else if(string == "Olive Oil" || string == "olive oil" || string == "oil" || string == "Oil"){
@@ -515,11 +517,11 @@ function removeFoodItem(i, j){ //removes food item from array and screen
     } else {
         user1.foodArr[10] = new Array();
         user1.foodArr[10].push("All");
-        for(i in user1.foodArr){
-            if(i != 10){
-                for(j in user1.foodArr[i]){
-                    if(j != 0){
-                        user1.foodArr[10].push(user1.foodArr[i][j]);
+        for(x in user1.foodArr){
+            if(x != 10){
+                for(y in user1.foodArr[x]){
+                    if(y != 0){
+                        user1.foodArr[10].push(user1.foodArr[x][y]);
                     }
                 }
             }
@@ -527,15 +529,31 @@ function removeFoodItem(i, j){ //removes food item from array and screen
     }
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
-    displayAllFood();
+    if(j == 1){
+        displayAllFood();
+    } else {
+        displayCatagory(i);
+    }
 }
 
 function getFoodInfo(i, j){ //gets information about specified food item to display on screen
-    document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" + getImage( user1.foodArr[i][j].name) + "\" width=\"200\" class=\"center\"> Name: " + user1.foodArr[i][j].name + "<br>Quantity: " + user1.foodArr[i][j].quantity + "<br>Expiration: " +
+    document.getElementById("result").innerHTML = "<h1><img class=\"foodImage\" src=\"" +
+    getImage( user1.foodArr[i][j].name) + "\" width=\"200\" class=\"center\"> Name: " +
+    user1.foodArr[i][j].name + "<br>Quantity: " + user1.foodArr[i][j].quantity + "<br>Expiration: " +
     user1.foodArr[i][j].expiration + "<br>Allergens: " + user1.foodArr[i][j].allergens + 
     "<br>Calories: " + user1.foodArr[i][j].calories + "<br>Serving Size: " + 
-    user1.foodArr[i][j].servingSize + "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ i + "," + j + ")\">Delete Item</button>"
-    + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayCatagory("+ i +")\"><p>&#8592;</p></button><h1>";
+    user1.foodArr[i][j].servingSize  + "<br>Food Owner: " + user1.foodArr[i][j].owner + 
+    "<br> <button class=\"remove-food-button\" onclick=\"removeFoodItem("+ i + "," + j +
+     ")\">Delete Item</button> <button type=\"button\" class=\"edit-food-button\" onclick=\"notYetImplemented("+ i +"," + j
+     + ")\">Edit Item</button>" +
+    "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayCatagory("+ i 
+    +")\"><p>&#8592;</p></button><h1>";
+}
+
+function notYetImplemented(i, j){
+    document.getElementById("result").innerHTML = "<h1>Sorry! This Feature is not yet implemented" +
+    "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"getFoodInfo("+ i +"," + j
+    +")\"><p>&#8592;</p></button></h1>";
 }
 
 /*YOUR KITCHEN FUNCTIONS END*/
