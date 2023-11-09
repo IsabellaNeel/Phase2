@@ -39,7 +39,7 @@ if(str != null){
     user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     
     //Hard code food items onto the list
-    let foodItem1 = {id: idNum++, name: "Chicken Breast", category: "Protein", quantity: "5", 
+    let foodItem1 = {id: idNum++, name: "Chicken Breasts", category: "Protein", quantity: "5", 
         expiration: "11/20/2023", allergens: "None", calories: "284", 
         owner:user1.userName, servingSize: "1 Chicken Breast"};
     user1.foodArr[0].push(foodItem1);
@@ -75,19 +75,19 @@ if(str != null){
     user1.foodArr[2].push(foodItem6);
     user1.foodArr[10].push(foodItem6);
 
-    let foodItem7 = {id: idNum++, name: "Apple", category: "Fruit", quantity: "6", 
+    let foodItem7 = {id: idNum++, name: "Apples", category: "Fruit", quantity: "6", 
         expiration: "12/04/2023", allergens: "None", calories: "95", 
         owner:user1.userName, servingSize: "1 apple"};
     user1.foodArr[3].push(foodItem7);
     user1.foodArr[10].push(foodItem7);
 
-    let foodItem8 = {id: idNum++, name: "Banana", category: "Fruit", quantity: "3", 
+    let foodItem8 = {id: idNum++, name: "Bananas", category: "Fruit", quantity: "3", 
         expiration: "11/10/2023", allergens: "None", calories: "105", 
         owner:user1.userName, servingSize: "1 banana"};
     user1.foodArr[3].push(foodItem8);
     user1.foodArr[10].push(foodItem8);
 
-    let foodItem9 = {id: idNum++, name: "Lime", category: "Fruit", quantity: "3", 
+    let foodItem9 = {id: idNum++, name: "Limes", category: "Fruit", quantity: "3", 
         expiration: "11/10/2023", allergens: "None", calories: "105", 
         owner:user1.userName, servingSize: "1 banana"};
     user1.foodArr[3].push(foodItem9);
@@ -111,7 +111,7 @@ if(str != null){
     user1.foodArr[5].push(foodItem12);
     user1.foodArr[10].push(foodItem12);
 
-    let foodItem13 = {id: idNum++, name: "Kombucha", category: "Drink", quantity: "3", 
+    let foodItem13 = {id: idNum++, name: "Kombuchas", category: "Drink", quantity: "3", 
         expiration: "01/01/2024", allergens: "None", calories: "30", 
         owner:user1.userName, servingSize: "8 oz"};
     user1.foodArr[5].push(foodItem13);
@@ -194,13 +194,13 @@ function getImage(string){ //returns an image based on the string parameter
         return "Images/oat-milk.jfif";
     } else if(string == "yogurt" || string == "Yogurt" || string == "Greek Yogurt" || string == " greek yogurt" || string == "Greek yogurt"){
         return "Images/yogurt.jfif";
-    } else if(string == "chicken breast" || string == "Chicken breast" || string == "Chicken Breast"){
+    } else if(string == "chicken breast" || string == "Chicken breast" || string == "Chicken Breast" || string == "Chicken Breasts"){
         return "Images/chicken-breast.jfif";
     } else if(string == "Spinach Bag" || string == "Spinach" || string == "spinach" || string == "spinach bag" || string == "Spinach bag"){
         return "Images/spinach.jfif";
     } else if(string == "Angle Hair Pasta" || string == "Angle hair pasta" || string == "Pasta" || string == "pasta"){
         return "Images/pasta.jfif";
-    } else if(string == "Kombucha" || string == "kombucha"){
+    } else if(string == "Kombucha" || string == "kombucha" || string == "Kombuchas"){
         return "Images/kombucha.jfif";
     } else if(string == "Grape Juice" || string == "grape juice" || string == "Grape juice"){
         return "Images/grape-juice.jfif";
@@ -465,7 +465,7 @@ function displayCatagory(i){
             results = results + 
             "<tr class = \"cartitem\">" +
                 "<td style = \"width: 92.5%\" onclick = \"getFoodInfo(" + i + "," + j + ")\">" +
-                    "<h3>" + user1.foodArr[i][j].name + "</h3>" +
+                    "<h3>" + user1.foodArr[i][j].quantity + " " + user1.foodArr[i][j].name + "</h3>" +
                 "</td>" +
 
                 "<td style = \"width: 7.5%; text-align: center\" onclick = \"removeFoodItem("+ i + "," + j + ")\">" +
