@@ -480,13 +480,14 @@ button{
   padding: 5px;
   font-size: 40px;
   border: 2px solid #242a2d; 
-  height: 200px; 
-  width: 200px; 
+  height: 180px; 
+  width: 180px; 
   word-wrap: break-word;
 }
 
 .foodTable {
  border-spacing:20px; 
+ font-size: 40px;
 }
 
 .remove-food-button {
@@ -495,7 +496,7 @@ button{
   padding: 18px 20px;
   border: none;
   cursor: default;
-  width: 300px;
+  width: 200px;
   border-radius: 5px;
 }
 
@@ -505,5 +506,28 @@ button{
     margin-left: auto;
     margin-right: auto;
 }
+
+.categoryTitle {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 45px;
+}
+
+.edit-food-button {
+    background-color: #16a085;
+    color: #ffffff;
+    padding: 18px 20px;
+    border: none;
+    cursor: default;
+    width: 200px;
+    border-radius: 5px;
+  }
+  
+  
+  /* Add some hover effects to buttons */
+  .edit-food-button .btn:active {
+    background-color: #18ae90;
+    transition: background-color 0.25s ease;
+  }
 
 /* END ISABELLA'S CLASSES */
