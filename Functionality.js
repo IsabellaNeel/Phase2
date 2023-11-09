@@ -420,7 +420,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 }
 
 function displayAllFood(){ //displays all food items from foodArr in boxes
-    var results = "<div class=\"kitchen-instructions\">Click on Catagory to Display</div><table class=\"foodTable\">";
+    var results = "<div class=\"kitchen-instructions\">Click on a category to view.</div><table class=\"foodTable\">";
     let num = 0;
     console.log("user1.foodArr");
     console.log(user1.foodArr);
