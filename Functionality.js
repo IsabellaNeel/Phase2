@@ -22,178 +22,167 @@ class FoodItem {
   }
 
 class User {
-
     static foodArr;
-    constructor(userName, foodArr, shoppingListArr, recipesArr) {
+    constructor(userName, foodArr, shoppingListArr, recipesArr, idNum) {
         this.userName = userName;
         this.foodArr = foodArr;
         this.shoppingListArr = shoppingListArr;
         this.recipesArr=recipesArr;
-    }
-
-    addFoodItem(foodItem){
-        this.foodArr.push(foodItem);
-    }
-
-    addShoppingListItem(shoppingListItem){
-        this.shoppingListArr.push(shoppingListItem);
-    }
-
-    getshoppingListArr(){
-        return this.foodArr;
-    }
-
-    getFoodArr(){
-        return this.foodArr;
-    }
-
-    getUserName(){
-        return this.userName;
-    }
-    getRecipesArr(){
-        return this.recipesArr;
+        this.idNum = idNum
     }
 
 }
 
 let user1 = new User();
-let idNum = 0;
 user1.userName = "Bob";
 let str = sessionStorage.getItem('foodArr');
 let str2 = sessionStorage.getItem('shoppingListArr');
 let str3 = sessionStorage.getItem('recipesArr');
+let str4 = sessionStorage.getItem('idNum');
+
+if(str4 != null){
+    user1.idNum = JSON.parse(str4);
+} else {
+    user1.idNum = 0;
+    let json = JSON.stringify(user1.idNum);
+    sessionStorage.setItem('idNum', json);
+}
+
 
 if(str != null){
     user1.foodArr = JSON.parse(str);
 } else {
     user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
-    
     //Hard code food items onto the list
-    let foodItem1 = {id: idNum++, name: "Chicken Breasts", category: "Protein", quantity: "5", 
+    let foodItem1 = {id:  user1.idNum++, name: "Chicken Breasts", category: "Protein", quantity: "5", 
         expiration: "11/20/2023", allergens: "None", calories: "284", 
         owner:user1.userName, servingSize: "1 Chicken Breast"};
     user1.foodArr[0].push(foodItem1);
     user1.foodArr[10].push(foodItem1);
 
-    let foodItem2 = {id: idNum++, name: "Oat Milk", category: "Dairy", quantity: "1", 
+    let foodItem2 = {id:  user1.idNum++, name: "Oat Milk", category: "Dairy", quantity: "1", 
     expiration: "12/03/2023", allergens: "None", calories: "130", 
     owner:user1.userName, servingSize: "1 Cup"};
     user1.foodArr[1].push(foodItem2);
     user1.foodArr[10].push(foodItem2);
 
-    let foodItem3 = {id: idNum++, name: "Half and half", category: "Dairy", quantity: "1", 
+    let foodItem3 = {id:  user1.idNum++, name: "Half and half", category: "Dairy", quantity: "1", 
     expiration: "11/29/2023", allergens: "Lactose", calories: "100", 
     owner:user1.userName, servingSize: "170g"};
     user1.foodArr[1].push(foodItem3);
     user1.foodArr[10].push(foodItem3);
 
-    let foodItem4 = {id: idNum++, name: "Greek Yogurt", category: "Dairy", quantity: "1", 
+    let foodItem4 = {id:  user1.idNum++, name: "Greek Yogurt", category: "Dairy", quantity: "1", 
     expiration: "12/07/2023", allergens: "Lactose", calories: "130", 
     owner:user1.userName, servingSize: "1 Cup"};
     user1.foodArr[1].push(foodItem4);
     user1.foodArr[10].push(foodItem4);
 
-    let foodItem5 = {id: idNum++, name: "Broccoli", category: "Vegetable", quantity: "7", 
+    let foodItem5 = {id:  user1.idNum++, name: "Broccoli", category: "Vegetable", quantity: "7", 
         expiration: "11/25/2023", allergens: "None", calories: "50", 
         owner:user1.userName, servingSize: "148g"};
     user1.foodArr[2].push(foodItem5);
     user1.foodArr[10].push(foodItem5);
 
-    let foodItem6 = {id: idNum++, name: "Spinach Bag", category: "Vegetable", quantity: "1", 
+    let foodItem6 = {id:  user1.idNum++, name: "Spinach Bag", category: "Vegetable", quantity: "1", 
         expiration: "11/20/2023", allergens: "None", calories: "7", 
         owner:user1.userName, servingSize: "1 Cup"};
     user1.foodArr[2].push(foodItem6);
     user1.foodArr[10].push(foodItem6);
 
-    let foodItem7 = {id: idNum++, name: "Apples", category: "Fruit", quantity: "6", 
+    let foodItem7 = {id:  user1.idNum++, name: "Apples", category: "Fruit", quantity: "6", 
         expiration: "12/04/2023", allergens: "None", calories: "95", 
         owner:user1.userName, servingSize: "1 apple"};
     user1.foodArr[3].push(foodItem7);
     user1.foodArr[10].push(foodItem7);
 
-    let foodItem8 = {id: idNum++, name: "Bananas", category: "Fruit", quantity: "3", 
+    let foodItem8 = {id:  user1.idNum++, name: "Bananas", category: "Fruit", quantity: "3", 
         expiration: "11/10/2023", allergens: "None", calories: "105", 
         owner:user1.userName, servingSize: "1 banana"};
     user1.foodArr[3].push(foodItem8);
     user1.foodArr[10].push(foodItem8);
 
-    let foodItem9 = {id: idNum++, name: "Limes", category: "Fruit", quantity: "3", 
+    let foodItem9 = {id:  user1.idNum++, name: "Limes", category: "Fruit", quantity: "3", 
         expiration: "11/10/2023", allergens: "None", calories: "105", 
         owner:user1.userName, servingSize: "1 banana"};
     user1.foodArr[3].push(foodItem9);
     user1.foodArr[10].push(foodItem9);
 
-    let foodItem10 = {id: idNum++, name: "Bread", category: "Carb", quantity: "1", 
+    let foodItem10 = {id:  user1.idNum++, name: "Bread", category: "Carb", quantity: "1", 
         expiration: "11/21/2023", allergens: "Gluten", calories: "79", 
         owner:user1.userName, servingSize: "1 Slice"};
     user1.foodArr[4].push(foodItem10);
     user1.foodArr[10].push(foodItem10);
 
-    let foodItem11 = {id: idNum++, name: "Angle Hair Pasta", category: "Carb", quantity: "1", 
+    let foodItem11 = {id:  user1.idNum++, name: "Angle Hair Pasta", category: "Carb", quantity: "1", 
         expiration: "06/15/2024", allergens: "Gluten", calories: "211", 
         owner:user1.userName, servingSize: "2 oz"};
     user1.foodArr[4].push(foodItem11);
     user1.foodArr[10].push(foodItem11);
 
-  let foodItem12 = {id: idNum++, name: "Grape Juice", category: "Drink", quantity: "1", 
+  let foodItem12 = {id:  user1.idNum++, name: "Grape Juice", category: "Drink", quantity: "1", 
         expiration: "01/06/2024", allergens: "None", calories: "152", 
         owner:user1.userName, servingSize: "1 cup"};
     user1.foodArr[5].push(foodItem12);
     user1.foodArr[10].push(foodItem12);
 
-    let foodItem13 = {id: idNum++, name: "Kombuchas", category: "Drink", quantity: "3", 
+    let foodItem13 = {id:  user1.idNum++, name: "Kombuchas", category: "Drink", quantity: "3", 
         expiration: "01/01/2024", allergens: "None", calories: "30", 
         owner:user1.userName, servingSize: "8 oz"};
     user1.foodArr[5].push(foodItem13);
     user1.foodArr[10].push(foodItem13);
 
-    let foodItem14 = {id: idNum++, name: "Lasagna", category: "Meal", quantity: "1", 
+    let foodItem14 = {id:  user1.idNum++, name: "Lasagna", category: "Meal", quantity: "1", 
         expiration: "11/15/2023", allergens: "Gluten, Lactose", calories: "166", 
         owner:user1.userName, servingSize: "1 slice (123 oz)"};
     user1.foodArr[6].push(foodItem14);
     user1.foodArr[10].push(foodItem14);
 
-    let foodItem15 = {id: idNum++, name: "Garlic Powder", category: "Spice", quantity: "1", 
+    let foodItem15 = {id:  user1.idNum++, name: "Garlic Powder", category: "Spice", quantity: "1", 
         expiration: "07/23/2025", allergens: "None", calories: "32", 
         owner:user1.userName, servingSize: "1 tablespoon"};
     user1.foodArr[7].push(foodItem15);
     user1.foodArr[10].push(foodItem15);
 
-    let foodItem16 = {id: idNum++, name: "Onion Powder", category: "Spice", quantity: "1", 
+    let foodItem16 = {id:  user1.idNum++, name: "Onion Powder", category: "Spice", quantity: "1", 
         expiration: "03/17/2025", allergens: "None", calories: "24", 
         owner:user1.userName, servingSize: "1 tablespoon"};
     user1.foodArr[7].push(foodItem16);
     user1.foodArr[10].push(foodItem16);
 
-    let foodItem17 = {id: idNum++, name: "Salt", category: "Spice", quantity: "1", 
+    let foodItem17 = {id:  user1.idNum++, name: "Salt", category: "Spice", quantity: "1", 
     expiration: "09/17/2027", allergens: "None", calories: "0", 
     owner:user1.userName, servingSize: "1 tablespoon"};
     user1.foodArr[7].push(foodItem17);
     user1.foodArr[10].push(foodItem17);
 
-    let foodItem18 = {id: idNum++, name: "Pepper", category: "Spice", quantity: "1", 
+    let foodItem18 = {id:  user1.idNum++, name: "Pepper", category: "Spice", quantity: "1", 
     expiration: "04/08/2026", allergens: "None", calories: "17", 
     owner:user1.userName, servingSize: "1 tablespoon"};
     user1.foodArr[7].push(foodItem18);
     user1.foodArr[10].push(foodItem18);
 
-    let foodItem19 = {id: idNum++, name: "Olive Oil", category: "Oil", quantity: "2", 
+    let foodItem19 = {id:  user1.idNum++, name: "Olive Oil", category: "Oil", quantity: "2", 
         expiration: "08/12/2025", allergens: "None", calories: "119", 
         owner:user1.userName, servingSize: "1 tablespoon"};
     user1.foodArr[8].push(foodItem19);
     user1.foodArr[10].push(foodItem19);
 
-    let foodItem20 = {id: idNum++, name: "Avacado Oil", category: "Oil", quantity: "1", 
+    let foodItem20 = {id:  user1.idNum++, name: "Avacado Oil", category: "Oil", quantity: "1", 
         expiration: "09/27/2025", allergens: "None", calories: "124", 
         owner:user1.userName, servingSize: "1 tablespoon"};
     user1.foodArr[8].push(foodItem20);
     user1.foodArr[10].push(foodItem20);
 
-    let foodItem21 = {id: idNum++, name: "Sugar", category: "Other", quantity: "1", 
+    let foodItem21 = {id:  user1.idNum++, name: "Sugar", category: "Other", quantity: "1", 
         expiration: "10/26/2028", allergens: "None", calories: "16", 
         owner:user1.userName, servingSize: "1 teaspoon"};
     user1.foodArr[9].push(foodItem21);
     user1.foodArr[10].push(foodItem21);
+    console.log("user1.idNum");
+    console.log(user1.idNum);
+    let json = JSON.stringify(user1.idNum);
+    sessionStorage.setItem('idNum', json);
 
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
@@ -214,6 +203,8 @@ if(str3 != null){
     let jsonArray = JSON.stringify(user1.recipesArr);
     sessionStorage.setItem('recipesArr', jsonArray);
 }
+
+
 
 function getImage(string){ //returns an image based on the string parameter
     if(string == "apple" || string == "Apple" || string == "apples" || string == "Apples"){
@@ -395,7 +386,7 @@ function toggleStrikethough(index){
 }
 
 function addFromShoppingList(index){
-    let foodItem = {id: idNum++, name: user1.shoppingListArr[index].foodName, 
+    let foodItem = {id: user1.idNum++, name: user1.shoppingListArr[index].foodName, 
         category: "Other", quantity: "", expiration: "", allergens: "", calories: "", 
         owner:user1.userName, servingSize: ""};
     
@@ -415,6 +406,8 @@ function addFromShoppingList(index){
 
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
+    let json = JSON.stringify(user1.idNum);
+    sessionStorage.setItem('idNum', json);
 }
 /*SHOPPING LIST FUNCTIONS END*/
 
@@ -490,7 +483,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
     var caloriesValue = document.getElementById("calories").value;
     var servingSizeValue = document.getElementById("servingSize").value;
 
-    let foodItem = {id: idNum++, name: nameValue, category: categoryValue, quantity: quantityValue, 
+    let foodItem = {id:  user1.idNum++, name: nameValue, category: categoryValue, quantity: quantityValue, 
         expiration: expirationValue, allergens: allergensValue, calories: caloriesValue, 
         owner:user1.userName, servingSize: servingSizeValue};
 
@@ -506,6 +499,8 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
+    let json = JSON.stringify(user1.idNum);
+    sessionStorage.setItem('idNum', json);
     
     myForm.className = "form-popup fpshow";
     plus.className = "menuicon";
@@ -632,6 +627,8 @@ function removeById(id){
             }
         }
     }
+    let jsonArray = JSON.stringify(user1.foodArr);
+    sessionStorage.setItem('foodArr', jsonArray);
 }
 
 function removeFoodItem(i, j){ //removes food item from array and screen
