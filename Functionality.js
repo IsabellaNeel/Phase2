@@ -347,6 +347,7 @@ function toggleStrikethough(index){
         document.getElementById("itemLabel" + index).style.textDecoration = "none"
         document.getElementById("strikeLink" + index).innerHTML = "Mark as purchased and add to kitchen";
         user1.shoppingListArr[index].striked = "false";
+        //removeFromShoppingList(index);
     }
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
