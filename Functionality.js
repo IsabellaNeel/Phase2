@@ -353,23 +353,20 @@ function toggleStrikethough(index){
 }
 
 function addFromShoppingList(index){
-    console.log("index");
-    console.log(index);
-    console.log("user1.shoppingListArr");
-    console.log(user1.shoppingListArr);
-    console.log("user1.shoppingListArr[index]");
-    console.log(user1.shoppingListArr[index]);
-    let foodItem = {name: user1.shoppingListArr[index].foodName, quantity: "", expiration: "", 
-        allergens: "", calories: "", owner:user1.userName, servingSize: ""};
+    let foodItem = {id: idNum++, name: user1.shoppingListArr[index].foodName, 
+        category: "Other", quantity: "", expiration: "", allergens: "", calories: "", 
+        owner:user1.userName, servingSize: ""};
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = new Array();
+        user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
 
-    user1.foodArr.push(foodItem);
+    user1.foodArr[stringToNum("Other")].push(foodItem);
+    user1.foodArr[10].push(foodItem);
+
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
 }
