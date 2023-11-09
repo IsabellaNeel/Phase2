@@ -1,8 +1,9 @@
 class ShoppingListItem {
-    constructor(foodName, notes, striked){
+    constructor(foodName, notes, striked, id){
         this.foodName = foodName;
         this.notes = notes;
         this.striked = striked;
+        this.id = id;
     }
 }
 
@@ -241,7 +242,7 @@ function formatToAddShoppingList(){
     var nameValue = document.getElementById("foodLabelShopping").value;
     var notesValue = document.getElementById("notesLabelShopping").value;
     
-    let shoppingListItem = {foodName: nameValue, notes: notesValue, striked: "false"};
+    let shoppingListItem = {foodName: nameValue, notes: notesValue, striked: "false", id: ""};
 
     let str2 = sessionStorage.getItem('shoppingListArr');
     if(str2 == null){
@@ -343,11 +344,15 @@ function toggleStrikethough(index){
         document.getElementById("strikeLink" + index).innerHTML = "Undo";
         user1.shoppingListArr[index].striked = "true";
         addFromShoppingList(index);
+        console.log("Add: user1.shoppingListArr[index].id");
+        console.log(user1.shoppingListArr[index].id);
     } else {
         document.getElementById("itemLabel" + index).style.textDecoration = "none"
         document.getElementById("strikeLink" + index).innerHTML = "Mark as purchased and add to kitchen";
         user1.shoppingListArr[index].striked = "false";
-        //removeFromShoppingList(index);
+        console.log("remove: user1.shoppingListArr[index].id");
+        console.log(user1.shoppingListArr[index].id);
+        removeById(user1.shoppingListArr[index].id);
     }
     let jsonArray = JSON.stringify(user1.shoppingListArr);
     sessionStorage.setItem('shoppingListArr', jsonArray);
@@ -357,6 +362,10 @@ function addFromShoppingList(index){
     let foodItem = {id: idNum++, name: user1.shoppingListArr[index].foodName, 
         category: "Other", quantity: "", expiration: "", allergens: "", calories: "", 
         owner:user1.userName, servingSize: ""};
+    
+    user1.shoppingListArr[index].id = foodItem.id;
+    console.log("foodItem.id");
+    console.log(foodItem.id);
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
