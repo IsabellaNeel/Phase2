@@ -6,29 +6,76 @@ function toggleMenu() {
     if (menu.className === "menu show") {
         menu.className = "menu hide";
         hamburger.className = "menuicon";
+
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
+
     } else {
         menu.className = "menu show";
         hamburger.className = "menuicon toggled";
+
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
+        
+
     }
+
 };
+
 
 function togglePopup() {
     if (popup.className === "popup pshow" || overlay.className === "overlay pshow") {
         popup.className = "popup";
         overlay.className = "overlay";
         plus.className = "menuicon";
-    } else {
-        popup.className = "popup pshow";
-        overlay.className = "overlay oshow";
-        plus.className = "menuicon toggled";
-        
-        // close all others
+
         popupPersons.className = "popup";
         overlayPersons.className = "overlay";
         popupMeals.className = "popup";
         overlayMeals.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
+
+    } else {
+        popup.className = "popup pshow";
+        overlay.className = "overlay oshow";
+        plus.className = "menuicon toggled";
+        
+        // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
 
@@ -48,6 +95,8 @@ function togglePopupPersons() {
         overlayMeals.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
 
@@ -67,6 +116,8 @@ function togglePopupMeals() {
         overlayPersons.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
 
@@ -86,5 +137,30 @@ function togglePopupFlavors() {
         overlayPersons.className = "overlay";
         popupMeals.className = "popup";
         overlayMeals.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
     }
 };
+
+function togglePopupDiet() {
+    if (popupDiet.className === "popup pshow" || overlayDiet.className === "overlay pshow") {
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
+    } else {
+        popupDiet.className = "popup pshow";
+        overlayDiet.className = "overlay oshow";
+        
+        // close all others
+        plus.className = "menuicon";
+        popup.className = "popup";
+        overlay.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+    }
+}
+
+    
