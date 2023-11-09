@@ -445,7 +445,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     }
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>"
     }
     
     myForm.className = "form-popup";
@@ -454,8 +454,42 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     document.getElementById("result").innerHTML = results;
 }
 
-
 function displayCatagory(i){
+    var results = "<table class = \"carttable\" >";
+   
+    let num = 0;
+    for(let j in user1.foodArr[i]){
+        if(j == 0){
+            results = results + "<div class=\"categoryTitle\">"+ numToString(i) +"</div>"
+        } else {
+            results = results + 
+            "<tr class = \"cartitem\">" +
+                "<td style = \"width: 92.5%\" onclick = \"getFoodInfo(" + i + "," + j + ")\">" +
+                    "<h3>" + user1.foodArr[i][j].name + "</h3>" +
+                "</td>" +
+
+                "<td style = \"width: 7.5%; text-align: center\" onclick = \"removeFoodItem("+ i + "," + j + ")\">" +
+                    "<h3>x</h3>" +
+                "</td>" +
+            "</tr>";
+            num = num + 1;
+        }
+    }
+        results = results + "</table>";
+    
+    if (num == 0){
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your Kitchen Inventory.</p></div>" + results
+    }
+    results = results + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button>";
+
+    myForm.className = "form-popup";
+    plus.className = "menuicon";
+    flushInputs();
+    document.getElementById("result").innerHTML = results;
+}
+
+
+function displayCatagoryOldWay(i){ //not being used anymore
     results =  "<table class=\"foodTable\" >";
     let balanced = 0;
     for(let j in user1.foodArr[i]){
@@ -499,11 +533,9 @@ function flushInputs(){ //new function to clear all of the input fields on the f
 
 function removeById(id){
     for(i in user1.foodArr){
-        if(i != 10){
-            for(j in user1.foodArr[i]){
-                if(j != 0 && user1.foodArr[i][j].id == id){
-                    user1.foodArr[i].splice(j, 1);
-                }
+        for(j in user1.foodArr[i]){
+            if(j != 0 && user1.foodArr[i][j].id == id){
+                user1.foodArr[i].splice(j, 1);
             }
         }
     }
@@ -512,24 +544,10 @@ function removeById(id){
 function removeFoodItem(i, j){ //removes food item from array and screen
     let foodId = user1.foodArr[i][j].id;
     user1.foodArr[i].splice(j, 1);
-    if(i == 10){
-        removeById(foodId);
-    } else {
-        user1.foodArr[10] = new Array();
-        user1.foodArr[10].push("All");
-        for(x in user1.foodArr){
-            if(x != 10){
-                for(y in user1.foodArr[x]){
-                    if(y != 0){
-                        user1.foodArr[10].push(user1.foodArr[x][y]);
-                    }
-                }
-            }
-        }
-    }
+    removeById(foodId);
     let jsonArray = JSON.stringify(user1.foodArr);
     sessionStorage.setItem('foodArr', jsonArray);
-    if(j == 1){
+    if(user1.foodArr[i].length == 1){
         displayAllFood();
     } else {
         displayCatagory(i);
