@@ -261,6 +261,20 @@ button{
     font-size: 20px;
 }
 
+.form-popup-profile {
+    position: fixed;
+    left: 0%;
+    bottom: 100%;
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+    z-index: 5;
+    opacity: 0%;
+    background-color: rgba(36,42,45, 0.25);
+    transition: bottom 0.5s ease, opacity 0.5s ease;
+  }
+
 /* END KARTHIK'S CLASSES */
 
 /* BEGIN SHAWDI'S CLASSES */

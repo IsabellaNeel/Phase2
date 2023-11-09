@@ -9,9 +9,10 @@
             @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
         </style>
         <script type="text/javascript" src="menu.js"></script>
+        <script src="Functionality.js"></script>
     </head>
 
-    <body ontouchstart = "">
+    <body onload="fill_info()" ontouchstart = "">
         <div class = "navbar upper">
             <table class = "navcont" style = "font-size: 1.9rem">
                 <tr style = "width: 100vw;">
@@ -26,7 +27,7 @@
         <div style = "height: 9.5vh">
             <!-- padding space -->
         </div>
-        <div class="menu hide" id="menu">
+        <div class="menu hide" id="menu" style = "height: 30% !important">
             <table style="width: 100% !important;">
                 <tr>
                     <td>
@@ -36,12 +37,86 @@
                 <tr>
                     <td>
                         <ul style = "padding-left: 5%">
-                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Search</li>
-                            <li class="menuitem" onclick="location.href='#putsomethinghere'">Settings</li>
+                            <li class="menuitem" onclick="toggleProfileForm();toggleMenu();">Edit Profile</li>
+                            <li class="menuitem" onclick="togglePopupNetwork();toggleMenu()">View Network</li>
+                            <li class="menuitem" onclick="close_window();toggleMenu()">Logout</li>
                         </ul>
                     </td>
                 </tr>
             </table>
+        </div>
+
+        <div class="overlay ohide" onclick="togglePopupNetwork()" id="overlayNetwork"></div>
+        <div class="popup phide" id="popupNetwork">
+            <!-- <span class="close-button" onclick="togglePopupNetwork()">&times;</span> -->
+            <hr>
+            <h2>Sam 🤓</h2>
+            <h3>Allergens</h3>
+            <p>Peanuts, Shellfish</p>
+            <h3>Preferences</h3>
+            <p>Sweet</p>
+            <h3>Notes</h3>
+            <p> Birthday Oct 9</p>
+            <hr>
+            <h2>Jane 😎</h2>
+            <h3>Allergens</h3>
+            <p>None</p>
+            <h3>Preferences</h3>
+            <p>Spicy, Sweet</p>
+            <h3>Notes</h3>
+            <p></p>
+            <hr>
+        </div>
+
+        <div class="form-popup-profile" id="myFormProfile">
+            <form class="form-container">
+                <h2 style="padding: 2%; text-align: center">Edit Your Profile Information</h2>
+                <table>
+                    <tr>
+                        <td style = "width: 25%">
+                            <label for="nameInput"><span>Name</span></label>
+                        </td>
+                        <td style = "width: 75%">
+                            <input type="text" placeholder="Enter Your Name" name="nameInput" id="nameInput" value="" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "width: 25%">
+                            <label for="allergensInput"><span>Allergens</span></label>
+                        </td>
+                        <td style = "width: 75%">
+                            <input type="text" placeholder="Enter Allergy Info" name="allergensInput" value="" id="allergensInput"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "width: 25%">
+                            <label for="preferencesInput"><span>Preferences</span></label>    
+                        </td>
+                        <td style = "width: 75%">
+                            <input type="text" placeholder="Enter Preferences" name="preferencesInput" value="" id="preferencesInput"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "width: 25%">
+                            <label for="skillInput"><span>Skill</span></label>
+                        </td>
+                        <td style = "width: 75%">
+                            <input type="text" placeholder="Enter Skill Level" name="skillInput" value="" id="skillInput"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "width: 25%">
+                            <label for="notesInput"><span>Notes</span></label>
+                        </td>
+                        <td style = "width: 75%">
+                            <input type="text" placeholder="Enter Some Notes" name="notesInput" value="" id="notesInput"/>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <button type="button" class="btn" onclick="update_profile_info()">Enter</button>
+                <button type="button" class="btn cancel" onclick="fill_info()">Close</button>     
+            </form>
         </div>
         <!-- PUT PAGE CONTENT HERE -->
 
@@ -49,144 +124,25 @@
     <div class="profile-item-grid">
         <div class="profile-item-grid-item" style="text-align: center;">
             <img src="pfp.png" alt="" style="width:256px;height: 256px;">
-            <div style="font-size: 40px;" id="name">Hello!</div>
-            <div>
-            <input type="text" id="nameInput" class = "profileinput"/>
-            <button onclick="update_name()" class="profile-updateinfo-button">Change Name</button>
-            </div>
-        </div>
-        <div class="profile-item-grid-item" style="text-align: center;">
-            <input type="file" id="imgInput" />
-            <button onclick="" class="profile-updateinfo-button">Change Picture</button>
+            <div style="font-size: 40px;" id="name">Hello!<br>Please update your information in the top right!</div>
         </div>
         <div class="profile-item-grid-item">
             Allergens
             <p id="allergens" class="profile-text-content"></p>
-            <div>
-            <input type="text" id="AllergensInput" class = "profileinput"/>
-            <button onclick="update_allergens()" class="profile-updateinfo-button">Update Allergens</button>
-            </div>
         </div>
         <div class="profile-item-grid-item">
             Preferences
             <p id="preferences" class="profile-text-content"></p>
-            <div>
-            <input type="text" id="preferencesInput" class = "profileinput" />
-            <button onclick="update_preferences()" class="profile-updateinfo-button">Update Preferences</button>
-            </div>
         </div>
         <div class="profile-item-grid-item">
             Skill Level
             <p id="skill" class="profile-text-content"></p>
-            <div>
-            <input type="text" id="skillInput" class = "profileinput" />
-            <button onclick="update_skill()" class="profile-updateinfo-button">Update Skill Level</button>
-            </div>
         </div>
         <div class="profile-item-grid-item">
             Notes
             <p id="notes" class="profile-text-content"></p>
-            <div>
-            <input type="text" id="notesInput" class = "profileinput" />
-            <button onclick="update_notes()" class="profile-updateinfo-button">Update Notes</button>
-            </div>
-        </div>
-        <div class="profile-item-grid-item">
-            <button onclick="close_window()" class="profile-logout-button">Logout</button>
         </div>
     </div>
-
-    <script type = "text/javascript">
-        fill_info();
-        function close_window() {
-            if (confirm("Clear data?")) {
-                clear_info("allergens")
-                clear_info("name");
-                clear_info("preferences");
-                clear_info("skill");
-                clear_info("notes")
-                sessionStorage.clear();
-            }
-        }
-        function update_name() {
-            var get = document.getElementById("nameInput");
-            if(get.value){
-                // console.log(get.value);
-                sessionStorage.setItem("name", get.value);
-                fill_info()
-            } else{
-                clear_info("name");
-            }
-        }
-        function update_allergens() {
-            var get = document.getElementById("AllergensInput");
-            if(get.value){
-                // console.log(get.value);
-                sessionStorage.setItem("allergens", get.value);
-                fill_info()
-            } else{
-                clear_info("allergens");
-            }
-        }
-        function update_preferences() {
-            var get = document.getElementById("preferencesInput");
-            if(get.value){
-                // console.log(get.value);
-                sessionStorage.setItem("preferences", get.value);
-                fill_info()
-            } else{
-                clear_info("preferences");
-            }
-        }
-        function update_skill() {
-            var get = document.getElementById("skillInput");
-            if(get.value){
-                // console.log(get.value);
-                sessionStorage.setItem("skill", get.value);
-                fill_info()
-            } else{
-                clear_info("skill");
-            }
-        }
-        function update_notes() {
-            var get = document.getElementById("notesInput");
-            if(get.value){
-                // console.log(get.value);
-                sessionStorage.setItem("notes", get.value);
-                fill_info()
-            } else{
-                clear_info("notes");
-            }
-        }
-
-        function fill_info(){
-            if(sessionStorage.getItem("name")){
-                document.getElementById("name").innerHTML = "Hello " + sessionStorage.getItem("name") + "!";
-            }
-            if(sessionStorage.getItem("allergens")){
-                document.getElementById("allergens").innerHTML = sessionStorage.getItem("allergens");
-            }
-            if(sessionStorage.getItem("preferences")){
-                document.getElementById("preferences").innerHTML = sessionStorage.getItem("preferences");
-            }
-            if(sessionStorage.getItem("skill")){
-                document.getElementById("skill").innerHTML = sessionStorage.getItem("skill");
-            }
-            if(sessionStorage.getItem("notes")){
-                document.getElementById("notes").innerHTML = sessionStorage.getItem("notes");
-            }
-        }
-        function clear_info(input){
-            if(sessionStorage.getItem(input)){
-                document.getElementById(input).innerHTML = "";
-                if(input=="name"){
-                    document.getElementById("name").innerHTML = "Hello!";
-                }
-                sessionStorage.removeItem(input);
-            }
-        }
-    </script>
-
 
         <div class = "navbar lower">
             <table class = "navcont">
