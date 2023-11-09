@@ -420,7 +420,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 }
 
 function displayAllFood(){ //displays all food items from foodArr in boxes
-    var results = "<table class=\"foodTable\" >";
+    var results = "<div class=\"kitchen-instructions\">Click on Catagory to Display</div><table class=\"foodTable\">";
     let num = 0;
     console.log("user1.foodArr");
     console.log(user1.foodArr);
@@ -428,11 +428,11 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
        // if(i < 10){
             if(user1.foodArr[i].length > 1){
                 if(num%3 == 0){
-                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td>";
+                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td>";
                 } else if ((num+1)%3 == 0){
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td></tr>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td></tr>";
                 } else {
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\"> Display " + numToString(i) +"</td>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCatagory(" + i + ")\">" + numToString(i) +"</td>";
                 }
                 num = num + 1;
             }
