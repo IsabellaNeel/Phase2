@@ -11,14 +11,15 @@ function toggleMenu() {
         plus.className = "menuicon";
         popup.className = "popup";
         overlay.className = "overlay";
-        // popupRecipe.className = "popup";
-        // overlayRecipe="overlay";
+
         popupMeals.className = "popup";
         overlayMeals.className = "overlay";
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
         popupPersons.className = "popup";
         overlayPersons.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
 
     } else {
         menu.className = "menu show";
@@ -28,27 +29,28 @@ function toggleMenu() {
         plus.className = "menuicon";
         popup.className = "popup";
         overlay.className = "overlay";
-        popupRecipe.className = "popup";
-        overlayRecipe.className = "overlay";
+
+        popupMeals.className = "popup";
+        overlayMeals.className = "overlay";
+        popupFlavors.className = "popup";
+        overlayFlavors.className = "overlay";
+        popupPersons.className = "popup";
+        overlayPersons.className = "overlay";
+        popupDiet.className = "popup";
+        overlayDiet.className = "overlay";
         
 
     }
 
 };
 
-var toggleRecipe = function() {
-    if (popupRecipe.className === "popup pshow" || overlayRecipe.className === "overlay pshow") {
-        popupRecipe.className = "popup";
-        overlayRecipe.className = "overlay";
 
+var togglePopup = function () {
+    if (popup.className === "popup pshow" || overlay.className === "overlay pshow") {
+        popup.className = "popup";
+        overlay.className = "overlay";
+        plus.className = "menuicon";
 
-    } else {
-        popupRecipe.className = "popup pshow";
-        overlayRecipe.className = "overlay oshow";
-
-        // close all others
-        menu.className = "menu hide";
-        hamburger.className = "menuicon";
         popupPersons.className = "popup";
         overlayPersons.className = "overlay";
         popupMeals.className = "popup";
@@ -57,15 +59,6 @@ var toggleRecipe = function() {
         overlayFlavors.className = "overlay";
         popupDiet.className = "popup";
         overlayDiet.className = "overlay";
-    }
-
-}
-var togglePopup = function () {
-    if (popup.className === "popup pshow" || overlay.className === "overlay pshow") {
-        popup.className = "popup";
-        overlay.className = "overlay";
-        plus.className = "menuicon";
-
 
     } else {
         popup.className = "popup pshow";
@@ -75,8 +68,6 @@ var togglePopup = function () {
         // close all others
         menu.className = "menu hide";
         hamburger.className = "menuicon";
-        popupRecipe.className="popup";
-        overlayRecipe.className = "overlay";
         popupPersons.className = "popup";
         overlayPersons.className = "overlay";
         popupMeals.className = "popup";
