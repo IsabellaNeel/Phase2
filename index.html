@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Kitchen</title>
+        <title>Kitchen Inventory</title>
         <link rel="stylesheet" href="style.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,7 +17,7 @@
             <table class = "navcont" style = "font-size: 1.9rem">
                 <tr style = "width: 100vw;">
                     <td style = "width: 5%"></td>
-                    <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">Kitchen</p></td>
+                    <td style = "width: 45%"><p style = "font-weight: bold !important; text-align: left !important">Kitchen inventory</p></td>
                     <td style = "width: 30%"></td>
                     <td style = "width: 8%" class = "menuicon" onclick="toggleForm();" id = "plus">+</td>
                     <td style = "width: 8%" class = "menuicon" onclick="toggleMenu();" id = "hamburger">&#8801;</td>
@@ -48,7 +48,7 @@
         <!-- PUT PAGE CONTENT HERE -->
         <div class="form-popup" id="myForm">
             <form class="form-container">
-                <h2 style="padding: 2%; text-align: center">Add Food Entry to Your Kitchen</h2>
+                <h2 style="padding: 2%; text-align: center">Add Food Entry to Your Kitchen Inventory</h2>
                 <table>
                     <tr>
                         <td style = "width: 28%">
@@ -56,6 +56,25 @@
                         </td>
                         <td style = "width: 72%">
                             <input type="text" placeholder="Enter Food Label" name="foodLabel" id="foodLabel" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "width: 28%">
+                            <label for="category"><span>Category</span></label>
+                        </td>
+                        <td style = "width: 72%">
+                            <select id="category" name="category" style = "font-size: 16px; padding: 12px;">
+                                <option value="Protein">Protein</option>
+                                <option value="Dairy">Dairy</option>
+                                <option value="Vegetable">Vegetable</option>
+                                <option value="Fruit">Fruit</option>
+                                <option value="Grain">Grain</option>
+                                <option value="Drink">Drink</option>
+                                <option value="Meal">Meal</option>
+                                <option value="Spice">Spice</option>
+                                <option value="Oil">Oil</option>
+                                <option value="Other" selected>Other</option>
+                              </select>
                         </td>
                     </tr>
                     <tr>
@@ -106,6 +125,9 @@
             <!--<button style="bottom:11%; right:2%" class="open-button" onclick="openForm()"><p>+</p></button>-->
         </div>
         <div id="result">
+        </div>
+        <div style = "height: 9.5vh">
+            <!-- padding space -->
         </div>
         <div class = "navbar lower">
             <table class = "navcont">

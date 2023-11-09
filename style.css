@@ -6,7 +6,7 @@ body{
 
 h1{
     text-align: center;
-    padding: 45px;
+    /*padding: 45px;*/
     font-size: 45px;
 }
 
@@ -139,7 +139,7 @@ button{
 }
 
 .carttable{
-    width: calc(100% - 28px);
+    width: calc(100% - 24px);
     border: none;
     table-layout: fixed;
     border-spacing: 0px 12px;
@@ -197,6 +197,7 @@ button{
   border-bottom: 2px solid #2e8cca;
   outline: none;
 }
+
 
 /* END ANDREW'S CLASSES */
 
@@ -351,42 +352,42 @@ button{
 .form-popup {
   position: fixed;
   left: 0%;
-  top: -85%;
+  bottom: 100%;
   padding-left: 9%;
   padding-right: 9%;
-  padding-top: 3%;
-  padding-bottom: 20%;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
   z-index: 5;
   opacity: 0%;
   background-color: rgba(36,42,45, 0.25);
-  transition: top 0.5s ease, opacity 0.5s ease;
+  transition: bottom 0.5s ease, opacity 0.5s ease;
 }
 
 .fpshow {
-  top: 9.5%;
+  bottom: 9.5vh;
   opacity: 100%;
-  transition: top 0.5s ease, opacity 0.5s ease;
+  transition: bottom 0.5s ease, opacity 0.5s ease;
 }
 
 /*form pop up for shopping list items*/
 .form-popup-shopping {
     position: fixed;
     left: 0%;
-    top: -85%;
+    bottom: 100%;
     padding-left: 9%;
     padding-right: 9%;
-    padding-top: 10%;
-    padding-bottom: 42%;
+    padding-top: 15vh;
+    padding-bottom: 30vh;
     z-index: 5;
     opacity: 0%;
     background-color: rgba(36,42,45, 0.25);
-    transition: top 0.5s ease, opacity 0.5s ease;
+    transition: bottom 0.5s ease, opacity 0.5s ease;
   }
   
 .fpsshow {
-    top: 9.5%;
+    bottom: 9.5vh;
     opacity: 100%;
-    transition: top 0.5s ease, opacity 0.5s ease;
+    transition: bottom 0.5s ease, opacity 0.5s ease;
 }
 
 /* Add styles to the form container */
@@ -408,7 +409,7 @@ button{
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=number], .form-container input[type=password] {
   width: 100%;
-  padding: 14px 14px 14px;
+  padding: 12px 12px 12px;
   font-size: 16px;
   margin: 8px 0px 8px 0px;
   border: 1px solid #242a2d;
@@ -419,7 +420,7 @@ button{
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=number]:focus, .form-container input[type=password]:focus {
   background-color: #ecf0f1;
-  padding: 14px 14px 13px;
+  padding: 12px 12px 11px;
   border-bottom: 2px solid #2e8cca;
   outline: none;
   transition: background-color 0.25s ease;
@@ -431,7 +432,7 @@ button{
     padding: 0px; 
     margin: 0px; 
     background: transparent; 
-    width: calc(100% - 28px);
+    width: calc(100% - 24px);
 }
 
 /* Set a style for the submit/login button */
@@ -468,15 +469,16 @@ button{
 .foodBox {
   text-align: center;
   padding: 5px;
-  font-size: 40px;
+  font-size: 32px;
   border: 2px solid #242a2d; 
-  height: 200px; 
-  width: 200px; 
+  height: 140px; 
+  width: 180px; 
   word-wrap: break-word;
 }
 
 .foodTable {
  border-spacing:20px; 
+ font-size: 40px;
 }
 
 .remove-food-button {
@@ -485,7 +487,7 @@ button{
   padding: 18px 20px;
   border: none;
   cursor: default;
-  width: 300px;
+  width: 200px;
   border-radius: 5px;
 }
 
@@ -495,5 +497,34 @@ button{
     margin-left: auto;
     margin-right: auto;
 }
+
+.categoryTitle {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 45px;
+}
+
+.edit-food-button {
+    background-color: #16a085;
+    color: #ffffff;
+    padding: 18px 20px;
+    border: none;
+    cursor: default;
+    width: 200px;
+    border-radius: 5px;
+  }
+  
+  
+  /* Add some hover effects to buttons */
+  .edit-food-button .btn:active {
+    background-color: #18ae90;
+    transition: background-color 0.25s ease;
+  }
+
+  .kitchen-instructions {
+    text-align: center;
+    padding: 5px;
+    font-size: 30px;
+  }
 
 /* END ISABELLA'S CLASSES */
