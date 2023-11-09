@@ -45,7 +45,7 @@ function toggleMenu() {
 };
 
 
-var togglePopup = function () {
+function togglePopup() {
     if (popup.className === "popup pshow" || overlay.className === "overlay pshow") {
         popup.className = "popup";
         overlay.className = "overlay";
