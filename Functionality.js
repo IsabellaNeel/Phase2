@@ -355,9 +355,9 @@ function deleteItem(input, index) {
     var element = input;
     var mark = "";
     if (document.getElementById("itemLabel" + index).style.textDecoration === "none"){
-        mark = "Mark as purchased and add to kitchen";
+        mark = "[Mark as purchased and add to kitchen]";
     } else {
-        mark = "Undo"
+        mark = "[Undo]"
     }
     if (element.className === "expand"){
         element.className = "expand collapse";
@@ -377,14 +377,14 @@ function deleteItem(input, index) {
 function toggleStrikethough(index){
     if (document.getElementById("itemLabel" + index).style.textDecoration === "none"){
         document.getElementById("itemLabel" + index).style.textDecoration = "line-through"
-        document.getElementById("strikeLink" + index).innerHTML = "Undo";
+        document.getElementById("strikeLink" + index).innerHTML = "[Undo]";
         user1.shoppingListArr[index].striked = "true";
         addFromShoppingList(index);
         console.log("Add: user1.shoppingListArr[index].id");
         console.log(user1.shoppingListArr[index].id);
     } else {
         document.getElementById("itemLabel" + index).style.textDecoration = "none"
-        document.getElementById("strikeLink" + index).innerHTML = "Mark as purchased and add to kitchen";
+        document.getElementById("strikeLink" + index).innerHTML = "[Mark as purchased and add to kitchen]";
         user1.shoppingListArr[index].striked = "false";
         console.log("remove: user1.shoppingListArr[index].id");
         console.log(user1.shoppingListArr[index].id);
