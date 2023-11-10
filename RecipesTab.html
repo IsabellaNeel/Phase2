@@ -60,14 +60,14 @@
             <div style="width: calc(100% - 24px)">
                 <label for="recipeName"><span>Recipe Name</span></label>
                 <input type="text" style="display:block" id="recipeName" 
-                name="recipeName" placeholder="Enter Recipe Name" onclick = "toggleOSKeyboard()" required>
+                name="recipeName" placeholder="Enter Recipe Name" onclick = "showOSKeyboard()" required>
             </div>
             <label for="recipeIngredients"><span>Ingredients</span></label>
             <textarea id="recipeIngredients" name="recipeIngredients"
-                style="resize:none;width:476px;height:100px; font-size: 16px" onclick = "toggleOSKeyboard()" placeholder="1 lb cheese&#10;1 tortilla" required></textarea>
+                style="resize:none;width:476px;height:100px; font-size: 16px" onclick = "showOSKeyboard()" placeholder="1 lb cheese&#10;1 tortilla" required></textarea>
             <label for="recipeInstructions"><span>Instructions</span></label>
             <textarea id="recipeInstructions" name="recipeInstructions"
-                style="resize:none;width:476px;height:250px; font-size: 16px" onclick = "toggleOSKeyboard()" 
+                style="resize:none;width:476px;height:250px; font-size: 16px" onclick = "showOSKeyboard()" 
                 placeholder="1) Place a pan on medium heat&#10;2) Place the tortilla in a pan&#10;3) Pour the cheese onto the tortilla" required></textarea>
             <button type="button" class="btn" onclick="addRecipes();">Add Recipe</button>
             <br />
@@ -139,7 +139,7 @@
 
     <!-- PUT PAGE CONTENT HERE -->
     <div id="resultRecipeList"></div>
-    <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "toggleOSKeyboard()">[Click here to close keyboard.]</h3></div>
+    <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "hideOSKeyboard()">[Click here to close keyboard.]</h3></div>
     <div class="navbar lower">
         <table class="navcont">
             <tr style="width: 100vw;">

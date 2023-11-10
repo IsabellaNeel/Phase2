@@ -85,7 +85,7 @@ button{
 .oskeyboard{
     width: 100vw;
     left: 0px;
-    height: 37.5vh;
+    height: 36vh;
     position: fixed;
     bottom: -50%;
     opacity: 0%;

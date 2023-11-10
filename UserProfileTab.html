@@ -79,7 +79,7 @@
                             <label for="nameInput"><span>Name</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Your Name" name="nameInput" id="nameInput" value="" onclick = "toggleOSKeyboard()" required/>
+                            <input type="text" placeholder="Enter Your Name" name="nameInput" id="nameInput" value="" onclick = "showOSKeyboard()" required/>
                         </td>
                     </tr>
                     <tr>
@@ -87,7 +87,7 @@
                             <label for="allergensInput"><span>Allergens</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Allergy Info" name="allergensInput" value="" id="allergensInput" onclick = "toggleOSKeyboard()"/>
+                            <input type="text" placeholder="Enter Allergy Info" name="allergensInput" value="" id="allergensInput" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -95,7 +95,7 @@
                             <label for="preferencesInput"><span>Preferences</span></label>    
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Preferences" name="preferencesInput" value="" id="preferencesInput" onclick = "toggleOSKeyboard()"/>
+                            <input type="text" placeholder="Enter Preferences" name="preferencesInput" value="" id="preferencesInput" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -103,7 +103,7 @@
                             <label for="skillInput"><span>Skill</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Skill Level" name="skillInput" value="" id="skillInput" onclick = "toggleOSKeyboard()"/>
+                            <input type="text" placeholder="Enter Skill Level" name="skillInput" value="" id="skillInput" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -111,7 +111,7 @@
                             <label for="notesInput"><span>Notes</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Some Notes" name="notesInput" value="" id="notesInput" onclick = "toggleOSKeyboard()"/>
+                            <input type="text" placeholder="Enter Some Notes" name="notesInput" value="" id="notesInput" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                 </table>
@@ -153,7 +153,7 @@
         </div>
     </div>
 
-    <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "toggleOSKeyboard()">[Click here to close keyboard.]</h3></div>
+    <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "hideOSKeyboard()">[Click here to close keyboard.]</h3></div>
         <div class = "navbar lower">
             <table class = "navcont">
                 <tr style = "width: 100vw;">
