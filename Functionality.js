@@ -713,7 +713,7 @@ function notYetImplemented(i, j){
 
 /*YOUR KITCHEN FUNCTIONS END*/
 
-/* recipe functions start*/
+/*RECIPE FUNCTIONS START*/
 
 function deleteRecipe(input, index) {
     var element = input;
@@ -781,7 +781,6 @@ function addRecipes(){
     let jsonArray = JSON.stringify(user1.recipesArr);
     sessionStorage.setItem('recipesArr', jsonArray);
     
-
     popup.className = "form-popup";
     displayAllRecipes();
 
@@ -808,3 +807,111 @@ function displayRecipeItem(index) {
     document.getElementById("recipeContainer").style.width = "90%";
     document.getElementById("resultRecipeList").innerHTML = strName + strIngredients + strInstructions + strButtonReturn + strButtonDelete;
 }
+
+
+/*RECIPE FUNCTIONS END*/
+
+/*PROFILE PAGE FUNCTIONS START*/
+function close_window() {
+    if (confirm("Clear data?")) {
+        clear_info("allergens")
+        clear_info("name");
+        clear_info("preferences");
+        clear_info("skill");
+        clear_info("notes")
+        sessionStorage.clear();
+    }
+}
+
+function togglePopupNetwork() {
+    if (popupNetwork.className === "popup pshow" || overlayNetwork.className === "overlay pshow") {
+        popupNetwork.className = "popup";
+        overlayNetwork.className = "overlay";
+    } else {
+        popupNetwork.className = "popup pshow";
+        overlayNetwork.className = "overlay oshow";
+    }
+};
+
+function toggleProfileForm() { // opens/closes the form to enter food items to your kitchen page
+    if (myFormProfile.className === "form-popup fpshow"){
+        myFormProfile.className = "form-popup";
+    } else {
+        myFormProfile.className = "form-popup fpshow";
+    } 
+}
+
+function update_profile_info(){
+    var getProfileName = document.getElementById("nameInput");
+    var getProfileAllergens = document.getElementById("allergensInput");
+    var getProfilePreferences = document.getElementById("preferencesInput");
+    var getProfileSkill = document.getElementById("skillInput");
+    var getProfileNotes = document.getElementById("notesInput");
+
+    if(getProfileName.value){
+        sessionStorage.setItem("name", getProfileName.value);
+    } else{
+        clear_info("name");
+    }
+
+    if(getProfileAllergens.value){
+        sessionStorage.setItem("allergens", getProfileAllergens.value);
+    } else{
+        clear_info("allergens");
+    }
+
+    if(getProfilePreferences.value){
+        sessionStorage.setItem("preferences", getProfilePreferences.value);
+    } else{
+        clear_info("preferences");
+    }
+
+    if(getProfileSkill.value){
+        sessionStorage.setItem("skill", getProfileSkill.value);
+    } else{
+        clear_info("skill");
+    }
+
+    if(getProfileNotes.value){
+        sessionStorage.setItem("notes", getProfileNotes.value);
+    } else{
+        clear_info("notes");
+    }
+
+    fill_info()
+}
+
+function fill_info(){
+    myFormProfile.className = "form-popup-profile";
+    if(sessionStorage.getItem("name")){
+        document.getElementById("name").innerHTML = "Hello " + sessionStorage.getItem("name") + "!";
+        document.getElementById("nameInput").value = sessionStorage.getItem("name");
+    }
+    if(sessionStorage.getItem("allergens")){
+        document.getElementById("allergens").innerHTML = sessionStorage.getItem("allergens");
+        document.getElementById("allergensInput").value = sessionStorage.getItem("allergens");
+    }
+    if(sessionStorage.getItem("preferences")){
+        document.getElementById("preferences").innerHTML = sessionStorage.getItem("preferences");
+        document.getElementById("preferencesInput").value = sessionStorage.getItem("preferences");
+    }
+    if(sessionStorage.getItem("skill")){
+        document.getElementById("skill").innerHTML = sessionStorage.getItem("skill");
+        document.getElementById("skillInput").value = sessionStorage.getItem("skill");
+    }
+    if(sessionStorage.getItem("notes")){
+        document.getElementById("notes").innerHTML = sessionStorage.getItem("notes");
+        document.getElementById("notesInput").value = sessionStorage.getItem("notes");
+    }
+}
+
+function clear_info(input){
+    if(sessionStorage.getItem(input)){
+        document.getElementById(input).innerHTML = "";
+        if(input=="name"){
+            document.getElementById("name").innerHTML = "Hello!<br>Please update your Profile information in the top right!";
+        }
+        sessionStorage.removeItem(input);
+    }
+}
+/*PROFILE PAGE FUNCTIONS END*/
