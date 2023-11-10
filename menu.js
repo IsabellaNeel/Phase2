@@ -79,6 +79,8 @@ function togglePopupPersons() {
         overlayPersons.className = "overlay oshow";
         
         // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
         plus.className = "menuicon";
         popup.className = "form-popup";
         popupMeals.className = "popup";
@@ -99,6 +101,8 @@ function togglePopupMeals() {
         overlayMeals.className = "overlay oshow";
         
         // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
         plus.className = "menuicon";
         popup.className = "form-popup";
         popupPersons.className = "popup";
@@ -119,6 +123,8 @@ function togglePopupFlavors() {
         overlayFlavors.className = "overlay oshow";
         
         // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
         plus.className = "menuicon";
         popup.className = "form-popup";
         popupPersons.className = "popup";
@@ -139,6 +145,8 @@ function togglePopupDiet() {
         overlayDiet.className = "overlay oshow";
         
         // close all others
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
         plus.className = "menuicon";
         popup.className = "form-popup";
         popupPersons.className = "popup";

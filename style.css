@@ -332,6 +332,8 @@ button{
     top: 10px;
     left: 10px;
     font-size: 1.6rem;
+    font-weight: bold;
+    color: #d34233;
     cursor: default;
 }
 
