@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Shopping List</title>
+        <title>Shopping list</title>
         <link rel="stylesheet" href="style.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -53,17 +53,18 @@
                 <h2 style="padding: 2%; text-align: center">Add Item to Your Shopping List</h2>
                 <label for="foodLabelShopping"><span>Food Label</span></label>
                 <br/>
-                <input type="text" placeholder="Enter Food Label" name="foodLabelShopping" id="foodLabelShopping" style = "width: calc(100% - 24px) !important" required/>
+                <input type="text" placeholder="Enter Food Label" name="foodLabelShopping" id="foodLabelShopping" style = "width: calc(100% - 24px) !important" onclick = "showOSKeyboard()" required/>
                 <br/>
                 <label for="notesLabelShopping"><span>Notes</span></label>
                 <br/>
-                <textarea rows="5" cols="49" name="notesLabelShopping" id="notesLabelShopping" form="form-container" style = "resize: none; font-size: 16px"></textarea>
+                <textarea rows="5" cols="49" name="notesLabelShopping" id="notesLabelShopping" form="form-container" style = "resize: none; font-size: 16px" onclick = "showOSKeyboard()"></textarea>
                 <br/>
                 <br/>
                 <button type="button" class="btn" onclick="formatToAddShoppingList()">Enter</button>
                 <button type="button" class="btn cancel" onclick="displayAllShoppingListItems()">Close</button>     
             </form>
         </div>
+        <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "hideOSKeyboard()">[Click here to close keyboard.]</h3></div>
         <div class = "navbar lower">
             <table class = "navcont">
                 <tr style = "width: 100vw;">

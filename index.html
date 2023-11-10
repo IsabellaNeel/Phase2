@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Kitchen Inventory</title>
+        <title>Kitchen inventory</title>
         <link rel="stylesheet" href="style.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -54,7 +54,7 @@
                             <label for="foodLabel"><span>Food Label</span></label>
                         </td>
                         <td style = "width: 72%">
-                            <input type="text" placeholder="Enter Food Label" name="foodLabel" id="foodLabel" required/>
+                            <input type="text" placeholder="Enter Food Label" name="foodLabel" id="foodLabel" onclick = "showOSKeyboard()" required/>
                         </td>
                     </tr>
                     <tr>
@@ -81,7 +81,7 @@
                             <label for="quantity"><span>Quantity</span></label>
                         </td>
                         <td style = "width: 72%">
-                            <input type="number" placeholder="Enter Quantity" name="quantity" id="quantity"/>
+                            <input type="number" placeholder="Enter Quantity" name="quantity" id="quantity" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -89,7 +89,7 @@
                             <label for="expiration"><span>Expiration Date</span></label>    
                         </td>
                         <td style = "width: 72%">
-                            <input type="text" placeholder="Enter Expiration Date" name="expiration" id="expiration"/>
+                            <input type="text" placeholder="Enter Expiration Date" name="expiration" id="expiration" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -97,7 +97,7 @@
                             <label for="allergens"><span>Allergens</span></label>
                         </td>
                         <td style = "width: 72%">
-                            <input type="text" placeholder="Enter Allergens" name="allergens" id="allergens"/>
+                            <input type="text" placeholder="Enter Allergens" name="allergens" id="allergens" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -105,7 +105,7 @@
                             <label for="calories"><span>Calories</span></label>
                         </td>
                         <td style = "width: 72%">
-                            <input type="number" placeholder="Enter Calories" name="calories" id="calories"/>
+                            <input type="number" placeholder="Enter Calories" name="calories" id="calories" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -113,21 +113,21 @@
                            <label for="servingSize"><span>Serving Size</span></label> 
                         </td>
                         <td style = "width: 72%">
-                            <input type="text" placeholder="Enter Serving Size" name="servingSize" id="servingSize"/>
+                            <input type="text" placeholder="Enter Serving Size" name="servingSize" id="servingSize" onclick = "showOSKeyboard()"/>
                         </td>
                     </tr>
                 </table>
-                <br/>
                 <button type="button" class="btn" onclick="formatToAdd()">Enter</button>
                 <button type="button" class="btn cancel" onclick="displayAllFood()">Close</button>     
             </form>
             <!--<button style="bottom:11%; right:2%" class="open-button" onclick="openForm()"><p>+</p></button>-->
         </div>
-        <div id="result">
+        <div id="result" style = "user-select: none">
         </div>
         <div style = "height: 9.5vh">
             <!-- padding space -->
         </div>
+        <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "hideOSKeyboard()">[Click here to close keyboard.]</h3></div>
         <div class = "navbar lower">
             <table class = "navcont">
                 <tr style = "width: 100vw;">

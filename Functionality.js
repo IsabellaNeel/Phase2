@@ -52,7 +52,7 @@ if(str4 != null){
 if(str != null){
     user1.foodArr = JSON.parse(str);
 } else {
-    user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+    user1.foodArr = [["Protein"], ["Dairy"], ["Veggies"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oil"], ["Other"], ["All"]];
     //Hard code food items onto the list
     let foodItem1 = {id:  user1.idNum++, name: "Chicken Breasts", category: "Protein", quantity: "5", 
         expiration: "11/20/2023", allergens: "None", calories: "284", 
@@ -254,6 +254,15 @@ function getImage(string){ //returns an image based on the string parameter
     }
 }
 
+/*Functions for fake on screen keyboard --andrew*/
+function showOSKeyboard(){
+    osKeyboard.className = "oskeyboard oskshow";
+}
+
+function hideOSKeyboard(){
+    osKeyboard.className = "oskeyboard";
+}
+
 /*SHOPPING LIST FUNCTIONS START*/
 function toggleShoppingForm(){
     if (myFormShopping.className === "form-popup-shopping fpsshow"){
@@ -318,7 +327,7 @@ function displayAllShoppingListItems(){
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list. Press the <span style = \"font-weight: bold\">&#8964;</span> button on an item to view more details.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list. Tap the <span style = \"font-weight: bold\">&#8964;</span> button on an item to view more details.</p></div>" + results
     }
     
     myFormShopping.className = "form-popup-shopping";
@@ -346,9 +355,9 @@ function deleteItem(input, index) {
     var element = input;
     var mark = "";
     if (document.getElementById("itemLabel" + index).style.textDecoration === "none"){
-        mark = "Mark as purchased and add to kitchen";
+        mark = "[Mark as purchased and add to kitchen]";
     } else {
-        mark = "Undo"
+        mark = "[Undo]"
     }
     if (element.className === "expand"){
         element.className = "expand collapse";
@@ -368,14 +377,14 @@ function deleteItem(input, index) {
 function toggleStrikethough(index){
     if (document.getElementById("itemLabel" + index).style.textDecoration === "none"){
         document.getElementById("itemLabel" + index).style.textDecoration = "line-through"
-        document.getElementById("strikeLink" + index).innerHTML = "Undo";
+        document.getElementById("strikeLink" + index).innerHTML = "[Undo]";
         user1.shoppingListArr[index].striked = "true";
         addFromShoppingList(index);
         console.log("Add: user1.shoppingListArr[index].id");
         console.log(user1.shoppingListArr[index].id);
     } else {
         document.getElementById("itemLabel" + index).style.textDecoration = "none"
-        document.getElementById("strikeLink" + index).innerHTML = "Mark as purchased and add to kitchen";
+        document.getElementById("strikeLink" + index).innerHTML = "[Mark as purchased and add to kitchen]";
         user1.shoppingListArr[index].striked = "false";
         console.log("remove: user1.shoppingListArr[index].id");
         console.log(user1.shoppingListArr[index].id);
@@ -396,7 +405,7 @@ function addFromShoppingList(index){
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+        user1.foodArr = [["Protein"], ["Dairy"], ["Veggies"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oil"], ["Other"], ["All"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
@@ -454,7 +463,7 @@ function numToString(num){
     } else if (num == 1){
         return "Dairy";
     } else if (num == 2){
-        return "Vegetables";
+        return "Veggies";
     }  else if (num == 3){
         return "Fruits";
     } else if (num == 4){
@@ -466,7 +475,7 @@ function numToString(num){
     } else if (num == 7){
         return "Spices";
     } else if (num == 8){
-        return "Oils";
+        return "Oil";
     } else if (num == 9){
         return "Other";
     }  else if (num == 10){
@@ -489,7 +498,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+        user1.foodArr = [["Protein"], ["Dairy"], ["Veggies"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oil"], ["Other"], ["All"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
@@ -516,11 +525,11 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
        // if(i < 10){
             if(user1.foodArr[i].length > 1){
                 if(num%3 == 0){
-                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td>";
+                    results = results + "<tr><td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" >" + numToString(i) +"</td>";
                 } else if ((num+1)%3 == 0){
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td></tr>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" >" + numToString(i) +"</td></tr>";
                 } else {
-                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" style = \"border-color: " + pickRandColor() + " !important\" >" + numToString(i) +"</td>";
+                    results = results + "<td class=\"foodBox\" onclick=\"displayCategory(" + i + ")\" >" + numToString(i) +"</td>";
                 }
                 num = num + 1;
             }
@@ -533,7 +542,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
     }
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>"
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add food to your kitchen.</p></div>"
     }
     
     myForm.className = "form-popup";
@@ -543,7 +552,7 @@ function displayAllFood(){ //displays all food items from foodArr in boxes
 }
 
 function pickRandColor(){
-    // pick random color out of selected colors to be the food box outline color --andrew
+    // pick random color out of selected colors to be the food box outline color. currently unused --andrew
     var num = 0;
     num = Math.floor(Math.random() * 8);
     var output = "#242a2d"
@@ -586,7 +595,7 @@ function displayCategory(i){
     let num = 0;
     for(let j in user1.foodArr[i]){
         if(j == 0){
-            results = results + "<div class=\"categoryTitle\">"+ numToString(i) +"</div>"
+            results = results + "<div class=\"categoryTitle\">"+ numToString(i) + "</div><p style = \"font-size: 1.25rem; text-align: center\">Tap an item to view details</p>"
         } else {
             results = results + 
             "<tr class = \"cartitem\">" +
@@ -604,7 +613,7 @@ function displayCategory(i){
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your Kitchen Inventory.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your Kitchen Inventory.</p></div>" + results
     }
     results = results + "<button style=\"bottom:11%; right:2%\" class=\"open-button\" onclick=\"displayAllFood()\"><p>&#8592;</p></button>";
 
@@ -704,7 +713,7 @@ function notYetImplemented(i, j){
 
 /*YOUR KITCHEN FUNCTIONS END*/
 
-/* recipe functions start*/
+/*RECIPE FUNCTIONS START*/
 
 function deleteRecipe(input, index) {
     var element = input;
@@ -737,7 +746,7 @@ function displayAllRecipes() {
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.2rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Select a recipe to view it.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Tap on a recipe to view it.</p></div>" + results
     }
     popup.className="form-popup";
     plus.className = "menuicon";
@@ -772,7 +781,6 @@ function addRecipes(){
     let jsonArray = JSON.stringify(user1.recipesArr);
     sessionStorage.setItem('recipesArr', jsonArray);
     
-
     popup.className = "form-popup";
     displayAllRecipes();
 
@@ -784,12 +792,12 @@ function displayRecipeItem(index) {
 
     inputIngredient = user1.recipesArr[index].ingredients;
     ingredientBreak = inputIngredient.replace(/\n/g, '<p>');
-    strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Ingredients<h3></div>" 
+    strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:20px\">Ingredients</h3></div>" 
     + "<div style=\"height:150px \" class=\"scrollable-area\">" + ingredientBreak + "</div>";
 
     inputInstructions = user1.recipesArr[index].instructions;
     instructionBreak = inputInstructions.replace(/\n/g, '<p>');
-    strInstructions = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Instructions</h3></div>" 
+    strInstructions = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:20px\">Instructions</h3></div>" 
     + "<div style=\"height:350px \" class=\"scrollable-area\">" + instructionBreak + "</div>";
 
 
@@ -799,3 +807,92 @@ function displayRecipeItem(index) {
     document.getElementById("recipeContainer").style.width = "90%";
     document.getElementById("resultRecipeList").innerHTML = strName + strIngredients + strInstructions + strButtonReturn + strButtonDelete;
 }
+
+
+/*RECIPE FUNCTIONS END*/
+
+/*PROFILE PAGE FUNCTIONS START*/
+function close_window() {
+    if (confirm("Clear data?")) {
+        clear_info("allergens")
+        clear_info("name");
+        clear_info("preferences");
+        clear_info("skill");
+        clear_info("notes")
+        sessionStorage.clear();
+    }
+}
+
+function update_profile_info(){
+    var getProfileName = document.getElementById("nameInput");
+    var getProfileAllergens = document.getElementById("allergensInput");
+    var getProfilePreferences = document.getElementById("preferencesInput");
+    var getProfileSkill = document.getElementById("skillInput");
+    var getProfileNotes = document.getElementById("notesInput");
+
+    if(getProfileName.value){
+        sessionStorage.setItem("name", getProfileName.value);
+    } else{
+        clear_info("name");
+    }
+
+    if(getProfileAllergens.value){
+        sessionStorage.setItem("allergens", getProfileAllergens.value);
+    } else{
+        clear_info("allergens");
+    }
+
+    if(getProfilePreferences.value){
+        sessionStorage.setItem("preferences", getProfilePreferences.value);
+    } else{
+        clear_info("preferences");
+    }
+
+    if(getProfileSkill.value){
+        sessionStorage.setItem("skill", getProfileSkill.value);
+    } else{
+        clear_info("skill");
+    }
+
+    if(getProfileNotes.value){
+        sessionStorage.setItem("notes", getProfileNotes.value);
+    } else{
+        clear_info("notes");
+    }
+
+    fill_info()
+}
+
+function fill_info(){
+    if(sessionStorage.getItem("name")){
+        document.getElementById("name").innerHTML = "Hello " + sessionStorage.getItem("name") + "!";
+        document.getElementById("nameInput").value = sessionStorage.getItem("name");
+    }
+    if(sessionStorage.getItem("allergens")){
+        document.getElementById("allergens").innerHTML = sessionStorage.getItem("allergens");
+        document.getElementById("allergensInput").value = sessionStorage.getItem("allergens");
+    }
+    if(sessionStorage.getItem("preferences")){
+        document.getElementById("preferences").innerHTML = sessionStorage.getItem("preferences");
+        document.getElementById("preferencesInput").value = sessionStorage.getItem("preferences");
+    }
+    if(sessionStorage.getItem("skill")){
+        document.getElementById("skill").innerHTML = sessionStorage.getItem("skill");
+        document.getElementById("skillInput").value = sessionStorage.getItem("skill");
+    }
+    if(sessionStorage.getItem("notes")){
+        document.getElementById("notes").innerHTML = sessionStorage.getItem("notes");
+        document.getElementById("notesInput").value = sessionStorage.getItem("notes");
+    }
+}
+
+function clear_info(input){
+    if(sessionStorage.getItem(input)){
+        document.getElementById(input).innerHTML = "";
+        if(input=="name"){
+            document.getElementById("name").innerHTML = "Hello!<br>Please update your Profile information in the top right!";
+        }
+        sessionStorage.removeItem(input);
+    }
+}
+/*PROFILE PAGE FUNCTIONS END*/

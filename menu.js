@@ -6,6 +6,16 @@ function toggleMenu() {
     if (menu.className === "menu show") {
         menu.className = "menu hide";
         hamburger.className = "menuicon";
+    } else {
+        menu.className = "menu show";
+        hamburger.className = "menuicon toggled";
+    }
+};
+
+function toggleMenuRecipes() {
+    if (menu.className === "menu show") {
+        menu.className = "menu hide";
+        hamburger.className = "menuicon";
 
         // close all others
         popupMeals.className = "popup";
@@ -138,6 +148,26 @@ function togglePopupDiet() {
         popupFlavors.className = "popup";
         overlayFlavors.className = "overlay";
     }
-}
+};
+
+function togglePopupNetwork() {
+    if (popupNetwork.className === "popup pshow") {
+        popupNetwork.className = "popup";
+        overlayNetwork.className = "overlay";
+    } else {
+        popupNetwork.className = "popup pshow";
+        overlayNetwork.className = "overlay oshow";
+    }
+};
+
+function toggleProfileForm() { // opens/closes the form to enter food items to your kitchen page
+    if (myFormProfile.className === "form-popup-profile fpshow"){
+        myFormProfile.className = "form-popup-profile";
+    } else {
+        myFormProfile.className = "form-popup-profile fpshow";
+        popupNetwork.className = "popup";
+    } 
+};
+
 
     

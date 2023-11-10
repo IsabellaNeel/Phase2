@@ -10,7 +10,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
     </style>
     <script type="text/javascript" src="menu.js"></script>
-    <script src="functionality.js"></script>
+    <script src="Functionality.js"></script>
 </head>
 
 
@@ -24,7 +24,7 @@
                 </td>
                 <td style="width: 30%"></td>
                 <td style="width: 8%" class="menuicon" onclick="togglePopup();" id="plus">+</td>
-                <td style="width: 8%" class="menuicon" onclick="toggleMenu();" id="hamburger">&#8801;</td>
+                <td style="width: 8%" class="menuicon" onclick="toggleMenuRecipes();" id="hamburger">&#8801;</td>
                 <td style="width: 4%"></td>
             </tr>
         </table>
@@ -32,7 +32,6 @@
     <div style="height: 9.5vh">
         <!-- padding space -->
     </div>
-    <!-- originally height: 29% !important-->
     <div class="menu hide" id="menu" style="height: 35% !important">
         <table style="width: 100% !important;">
             <tr>
@@ -55,20 +54,20 @@
     <div style = "width: 100%; margin: auto" id = "recipeContainer">
         <div id="resultRecipeList"></div>
     </div>
-    <div class="form-popup" id="popup" style = "padding-bottom: 6vh !important">
+    <div class="form-popup" id="popup">
         <form name = "recipeForm" id="recipeForm" class="form-container">
             <h2 style="padding: 1%; text-align: center">Add Item to Your Shopping List</h2>
             <div style="width: calc(100% - 24px)">
                 <label for="recipeName"><span>Recipe Name</span></label>
                 <input type="text" style="display:block" id="recipeName" 
-                name="recipeName" placeholder="Enter Recipe Name" required>
+                name="recipeName" placeholder="Enter Recipe Name" onclick = "showOSKeyboard()" required>
             </div>
             <label for="recipeIngredients"><span>Ingredients</span></label>
             <textarea id="recipeIngredients" name="recipeIngredients"
-                style="resize:none;width:476px;height:100px; font-size: 16px" placeholder="1 lb cheese&#10;1 tortilla" required></textarea>
+                style="resize:none;width:476px;height:96px; font-size: 16px" onclick = "showOSKeyboard()" placeholder="1 lb cheese&#10;1 tortilla" required></textarea>
             <label for="recipeInstructions"><span>Instructions</span></label>
             <textarea id="recipeInstructions" name="recipeInstructions"
-                style="resize:none;width:476px;height:250px; font-size: 16px"
+                style="resize:none;width:476px;height:200px; font-size: 16px" onclick = "showOSKeyboard()" 
                 placeholder="1) Place a pan on medium heat&#10;2) Place the tortilla in a pan&#10;3) Pour the cheese onto the tortilla" required></textarea>
             <button type="button" class="btn" onclick="addRecipes();">Add Recipe</button>
             <br />
@@ -77,8 +76,8 @@
     </div>
 
 
-    <div class="overlay ohide" onclick="togglePopupPersons()" id="overlayPersons"></div>
-    <div class="popup phide" id="popupPersons">
+    <div class="overlay" onclick="togglePopupPersons()" id="overlayPersons"></div>
+    <div class="popup" id="popupPersons">
         <span class="close-button" onclick="togglePopupPersons()">&times;</span>
         <h2>Personas</h2>
         <input type="checkbox" id="p1" name="p1" value="p1">
@@ -90,8 +89,8 @@
     </div>
 
 
-    <div class="overlay ohide" onclick="togglePopupMeals()" id="overlayMeals"></div>
-    <div class="popup phide" id="popupMeals">
+    <div class="overlay" onclick="togglePopupMeals()" id="overlayMeals"></div>
+    <div class="popup" id="popupMeals">
         <span class="close-button" onclick="togglePopupMeals()">&times;</span>
         <h2>Meal Types</h2>
         <input type="checkbox" id="m1" name="m1" value="m1">
@@ -109,8 +108,8 @@
     </div>
 
 
-    <div class="overlay ohide" onclick="togglePopupDiet()" id="overlayDiet"></div>
-    <div class="popup phide" id="popupDiet">
+    <div class="overlay" onclick="togglePopupDiet()" id="overlayDiet"></div>
+    <div class="popup" id="popupDiet">
         <span class="close-button" onclick="togglePopupDiet()">&times;</span>
         <h2>Dietary Restrictions</h2>
         <input type="checkbox" id="f1" name="d1" value="d1">
@@ -123,8 +122,8 @@
         <label for="d4">Nut Free</label><br>
     </div>
 
-    <div class="overlay ohide" onclick="togglePopupFlavors()" id="overlayFlavors"></div>
-    <div class="popup phide" id="popupFlavors">
+    <div class="overlay" onclick="togglePopupFlavors()" id="overlayFlavors"></div>
+    <div class="popup" id="popupFlavors">
         <span class="close-button" onclick="togglePopupFlavors()">&times;</span>
         <h2>Flavors</h2>
         <input type="checkbox" id="f1" name="f1" value="f1">
@@ -139,10 +138,8 @@
     
 
     <!-- PUT PAGE CONTENT HERE -->
-
-    <!-- -->
     <div id="resultRecipeList"></div>
-    
+    <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "hideOSKeyboard()">[Click here to close keyboard.]</h3></div>
     <div class="navbar lower">
         <table class="navcont">
             <tr style="width: 100vw;">
