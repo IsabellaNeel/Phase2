@@ -746,7 +746,7 @@ function displayAllRecipes() {
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Select a recipe to view it.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your recipe list. Tap on a recipe to view it.</p></div>" + results
     }
     popup.className="form-popup";
     plus.className = "menuicon";
