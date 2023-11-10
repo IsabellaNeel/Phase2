@@ -60,8 +60,8 @@
                 <textarea rows="5" cols="49" name="notesLabelShopping" id="notesLabelShopping" form="form-container" style = "resize: none; font-size: 16px" onclick = "showOSKeyboard()"></textarea>
                 <br/>
                 <br/>
-                <button type="button" class="btn" onclick="formatToAddShoppingList()">Enter</button>
-                <button type="button" class="btn cancel" onclick="displayAllShoppingListItems()">Close</button>     
+                <button type="button" class="btn" onclick="formatToAddShoppingList(); hideOSKeyboard();">Enter</button>
+                <button type="button" class="btn cancel" onclick="displayAllShoppingListItems(); hideOSKeyboard();">Close</button>     
             </form>
         </div>
         <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "hideOSKeyboard()">[Click here to close keyboard.]</h3></div>
