@@ -18,6 +18,35 @@ button{
     font-family: 'Lato', Helvetica, sans-serif;
 }
 
+/* CUSTOM FONT CLASSES */
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/lato-regular-webfont.woff2') format('woff2'),
+         url('fonts/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/lato-bold-webfont.woff2') format('woff2'),
+         url('fonts/lato-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/lato-italic-webfont.woff2') format('woff2'),
+         url('fonts/lato-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
 /* BEGIN ANDREW'S CLASSES */
 
 .navbar{
@@ -126,7 +155,7 @@ button{
 
 .menuitem {
     font-size: 1.6rem;
-    font-weight: 300;
+    font-weight: normal;
     color: #242a2d;
     text-decoration: none !important;
     text-align: left;
