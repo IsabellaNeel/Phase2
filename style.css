@@ -6,8 +6,12 @@ body{
 
 h1{
     text-align: center;
-    padding: 45px;
     font-size: 45px;
+}
+
+h3{
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 button{
@@ -19,14 +23,14 @@ button{
 .navbar{
     width: 100vw;
     height: 9.5vh; 
-    min-height: 50px; 
+    min-height: 70px; 
     position: fixed; 
     left: 0px;
     box-shadow: 0px 1px 6px 4px rgba(36,42,45, 0.3);
     transition: background 0.25s ease;
     cursor: default !important;
     user-select: none;
-    z-index: 9001;
+    z-index: 100;
 }
 
 .lower{
@@ -78,9 +82,28 @@ button{
     font-weight: bold !important;
 }
 
+.oskeyboard{
+    width: 100vw;
+    left: 0px;
+    height: 37.5vh;
+    position: fixed;
+    bottom: -50%;
+    opacity: 0%;
+    z-index: 101;
+    text-align: center;
+    background: #f6f6f6 url("pretend.png") no-repeat center;
+    transition: bottom 0.5s ease, opacity 0.5s ease;
+}
+
+.oskshow{
+    bottom: 0px;
+    opacity: 100%;
+    transition: bottom 0.5s ease, opacity 0.5s ease;
+}
+
 .menu {
     width: 100% !important;
-    height: 24%;
+    height: 19%;
     position: fixed;
     top: 0;
     color: #212529 !important;
@@ -165,11 +188,6 @@ button{
     background-color: #ffffff;
     border-bottom: 5px solid #3498db;
     transition: border-bottom 0.25s ease, background-color 0.25s ease;
-}
-
-.cartitem td h3{
-    font-size: 1.4rem;
-    font-weight: bold;
 }
 
 .cartitem td p{
@@ -286,24 +304,6 @@ button{
     cursor: default;
 }
 
-.recipe-list {
-    max-width: 100vw;
-    margin: 15px 15px 9.5vh;
-    background-color: #ffffff;
-    padding: 15px;
-    border: none;
-}
-
-.recipe-list ul {
-    list-style-type: none;
-    padding: 0px;
-}
-
-.recipe-list li {
-    padding: 0px;
-    border-bottom: 1px solid #c6ced2;
-}
-
 .overlay {
     display: block;
     position: fixed;
@@ -311,7 +311,7 @@ button{
     left: 0px;
     width: 100%;
     height: 0%;
-    background-color: rgba(36,42,45, 0.25); /* Semi-transparent black overlay */
+    background-color: rgba(36,42,45, 0.25); 
     z-index: 1;
     transition: height 0.5s ease, top 0.5s ease;
 }
@@ -323,11 +323,10 @@ button{
 }
 
 .popup {
-    display: block;
     position: fixed;
-    top: -15%;
+    top: -35%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the pop-up */
+    transform: translate(-50%, -50%); 
     opacity: 0%;
     background-color: #ffffff;
     padding: 25px;
@@ -340,7 +339,17 @@ button{
     opacity: 100%;
     top: 50%;
     transition: top 0.5s ease, opacity 0.5s ease;
+} 
+
+.scrollable-area {
+    overflow:scroll;
+    border: 1px solid #242a2d;
+    padding: 5px;
+    margin: 2px auto 5px;
+    background: rgba(255,255,255,0.9);
+    font-size: 16px;
 }
+
 
 /* END SHAWDI'S CLASSES */
 
@@ -367,7 +376,7 @@ button{
 }
 
 .open-button:active {
-    background-color: #607d8b;
+    background-color: #6c8693;
     transition: background-color 0.25s ease;
 }
 
@@ -378,8 +387,8 @@ button{
   bottom: 100%;
   padding-left: 9%;
   padding-right: 9%;
-  padding-top: 15vh;
-  padding-bottom: 15vh;
+  padding-top: 12vh;
+  padding-bottom: 10vh;
   z-index: 5;
   opacity: 0%;
   background-color: rgba(36,42,45, 0.25);
@@ -492,15 +501,24 @@ button{
 .foodBox {
   text-align: center;
   padding: 5px;
-  font-size: 40px;
-  border: 2px solid #242a2d; 
-  height: 200px; 
-  width: 200px; 
+  font-size: 32px;
+  border: 2px solid #1f628e; 
+  background-color: rgba(255,255,255,0.9);
+  height: 146px; 
+  width: 180px; 
   word-wrap: break-word;
+  cursor: default;
+  transition: border-color 0.25s ease;
+}
+
+.foodBox:active {
+  border-color: #3498db;
+  transition: border-color 0.25s ease;
 }
 
 .foodTable {
- border-spacing:20px; 
+ border-spacing:15px; 
+ font-size: 40px;
 }
 
 .remove-food-button {
@@ -509,8 +527,9 @@ button{
   padding: 18px 20px;
   border: none;
   cursor: default;
-  width: 300px;
+  width: 200px;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 .foodImage {
@@ -519,5 +538,35 @@ button{
     margin-left: auto;
     margin-right: auto;
 }
+
+.categoryTitle {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 45px;
+}
+
+.edit-food-button {
+    background-color: #16a085;
+    color: #ffffff;
+    padding: 18px 20px;
+    border: none;
+    cursor: default;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 16px
+  }
+  
+  
+  /* Add some hover effects to buttons */
+  .edit-food-button .btn:active {
+    background-color: #18ae90;
+    transition: background-color 0.25s ease;
+  }
+
+  .kitchen-instructions {
+    text-align: center;
+    padding: 5px;
+    font-size: 30px;
+  }
 
 /* END ISABELLA'S CLASSES */
