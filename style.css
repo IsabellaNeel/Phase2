@@ -390,7 +390,7 @@ button{
   padding-left: 9%;
   padding-right: 9%;
   padding-top: 12vh;
-  padding-bottom: 10vh;
+  padding-bottom: 11.5vh;
   z-index: 5;
   opacity: 0%;
   background-color: rgba(36,42,45, 0.25);
@@ -411,7 +411,7 @@ button{
     padding-left: 9%;
     padding-right: 9%;
     padding-top: 15vh;
-    padding-bottom: 30vh;
+    padding-bottom: 31vh;
     z-index: 5;
     opacity: 0%;
     background-color: rgba(36,42,45, 0.25);

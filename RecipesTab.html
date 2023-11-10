@@ -54,7 +54,7 @@
     <div style = "width: 100%; margin: auto" id = "recipeContainer">
         <div id="resultRecipeList"></div>
     </div>
-    <div class="form-popup" id="popup" style = "padding-bottom: 6vh !important">
+    <div class="form-popup" id="popup">
         <form name = "recipeForm" id="recipeForm" class="form-container">
             <h2 style="padding: 1%; text-align: center">Add Item to Your Shopping List</h2>
             <div style="width: calc(100% - 24px)">
@@ -64,10 +64,10 @@
             </div>
             <label for="recipeIngredients"><span>Ingredients</span></label>
             <textarea id="recipeIngredients" name="recipeIngredients"
-                style="resize:none;width:476px;height:100px; font-size: 16px" onclick = "showOSKeyboard()" placeholder="1 lb cheese&#10;1 tortilla" required></textarea>
+                style="resize:none;width:476px;height:96px; font-size: 16px" onclick = "showOSKeyboard()" placeholder="1 lb cheese&#10;1 tortilla" required></textarea>
             <label for="recipeInstructions"><span>Instructions</span></label>
             <textarea id="recipeInstructions" name="recipeInstructions"
-                style="resize:none;width:476px;height:250px; font-size: 16px" onclick = "showOSKeyboard()" 
+                style="resize:none;width:476px;height:200px; font-size: 16px" onclick = "showOSKeyboard()" 
                 placeholder="1) Place a pan on medium heat&#10;2) Place the tortilla in a pan&#10;3) Pour the cheese onto the tortilla" required></textarea>
             <button type="button" class="btn" onclick="addRecipes();">Add Recipe</button>
             <br />
