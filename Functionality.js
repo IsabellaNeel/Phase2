@@ -327,7 +327,7 @@ function displayAllShoppingListItems(){
         results = results + "</table>";
     
     if (num == 0){
-        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list. Press the <span style = \"font-weight: bold\">&#8964;</span> button on an item to view more details.</p></div>" + results
+        results = "<div style = \"width: 91%; margin: auto\"><p style = \"font-size: 1.25rem\">Press the <span style = \"font-weight: bold\">+</span> button on the top right to add to your shopping list. Tap the <span style = \"font-weight: bold\">&#8964;</span> button on an item to view more details.</p></div>" + results
     }
     
     myFormShopping.className = "form-popup-shopping";
