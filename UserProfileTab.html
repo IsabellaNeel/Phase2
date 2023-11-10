@@ -37,18 +37,18 @@
                 <tr>
                     <td>
                         <ul style = "padding-left: 5%">
-                            <li class="menuitem" onclick="toggleProfileForm();toggleMenu();">Edit Profile</li>
-                            <li class="menuitem" onclick="togglePopupNetwork();toggleMenu()">View Network</li>
-                            <li class="menuitem" onclick="close_window();toggleMenu()">Logout</li>
+                            <li class="menuitem" onclick="toggleProfileForm(); fill_info(); toggleMenu();">Edit Profile</li>
+                            <li class="menuitem" onclick="togglePopupNetwork(); toggleMenu()">View Network</li>
+                            <li class="menuitem" onclick="close_window(); toggleMenu()" style = "color: #d34233">Logout</li>
                         </ul>
                     </td>
                 </tr>
             </table>
         </div>
 
-        <div class="overlay ohide" onclick="togglePopupNetwork()" id="overlayNetwork"></div>
-        <div class="popup phide" id="popupNetwork">
-            <!-- <span class="close-button" onclick="togglePopupNetwork()">&times;</span> -->
+        <div class="overlay" onclick="togglePopupNetwork()" id="overlayNetwork"></div>
+        <div class="popup" id="popupNetwork" style = "max-height: 70vh; overflow-y: auto">
+            <span class="close-button" onclick="togglePopupNetwork()">&times;</span>
             <hr>
             <h2>Sam 🤓</h2>
             <h3>Allergens</h3>
@@ -79,7 +79,7 @@
                             <label for="nameInput"><span>Name</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Your Name" name="nameInput" id="nameInput" value="" required/>
+                            <input type="text" placeholder="Enter Your Name" name="nameInput" id="nameInput" value="" onclick = "toggleOSKeyboard()" required/>
                         </td>
                     </tr>
                     <tr>
@@ -87,7 +87,7 @@
                             <label for="allergensInput"><span>Allergens</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Allergy Info" name="allergensInput" value="" id="allergensInput"/>
+                            <input type="text" placeholder="Enter Allergy Info" name="allergensInput" value="" id="allergensInput" onclick = "toggleOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -95,7 +95,7 @@
                             <label for="preferencesInput"><span>Preferences</span></label>    
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Preferences" name="preferencesInput" value="" id="preferencesInput"/>
+                            <input type="text" placeholder="Enter Preferences" name="preferencesInput" value="" id="preferencesInput" onclick = "toggleOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -103,7 +103,7 @@
                             <label for="skillInput"><span>Skill</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Skill Level" name="skillInput" value="" id="skillInput"/>
+                            <input type="text" placeholder="Enter Skill Level" name="skillInput" value="" id="skillInput" onclick = "toggleOSKeyboard()"/>
                         </td>
                     </tr>
                     <tr>
@@ -111,13 +111,13 @@
                             <label for="notesInput"><span>Notes</span></label>
                         </td>
                         <td style = "width: 75%">
-                            <input type="text" placeholder="Enter Some Notes" name="notesInput" value="" id="notesInput"/>
+                            <input type="text" placeholder="Enter Some Notes" name="notesInput" value="" id="notesInput" onclick = "toggleOSKeyboard()"/>
                         </td>
                     </tr>
                 </table>
                 <br/>
-                <button type="button" class="btn" onclick="update_profile_info()">Enter</button>
-                <button type="button" class="btn cancel" onclick="fill_info()">Close</button>     
+                <button type="button" class="btn" onclick="update_profile_info(); toggleProfileForm();">Enter</button>
+                <button type="button" class="btn cancel" onclick="fill_info(); toggleProfileForm();">Close</button>     
             </form>
         </div>
         <!-- PUT PAGE CONTENT HERE -->
@@ -127,34 +127,33 @@
         <div class="profile-item-grid-item" style="text-align: center;">
             <img src="pfp.png" alt="" style="width:256px;height: 256px;">
 
-            <div style="font-size: 40px;" id="name">Hello!<br>Please update your information in the top right!</div>
+            <div style="font-size: 1.8rem;" id="name">Hello!<br/>Please update your information by selecting <span style = "font-weight: bold">Edit Profile </span>in the menu.<br/><br/></div>
         </div>
         <div class="profile-item-grid-item">
             Allergens
-            <p id="allergens" class="profile-text-content"></p>
+            <p id="allergens" class="profile-text-content"><span style = "font-style: italic">none</span></p>
         </div>
         <div class="profile-item-grid-item">
             Preferences
-            <p id="preferences" class="profile-text-content"></p>
+            <p id="preferences" class="profile-text-content"><span style = "font-style: italic">none</span></p>
 
         </div>
         <div class="profile-item-grid-item">
             Skill Level
-            <p id="skill" class="profile-text-content"></p>
+            <p id="skill" class="profile-text-content"><span style = "font-style: italic">none</span></p>
 
         </div>
         <div class="profile-item-grid-item">
             Notes
-            <p id="notes" class="profile-text-content"></p>
+            <p id="notes" class="profile-text-content"><span style = "font-style: italic">none</span></p>
 
         </div>
         <div class="profile-item-grid-item">
-            <br/><br/><br/>
+            <br/>
         </div>
     </div>
 
     <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "toggleOSKeyboard()">[Click here to close keyboard.]</h3></div>
-    
         <div class = "navbar lower">
             <table class = "navcont">
                 <tr style = "width: 100vw;">

@@ -24,7 +24,7 @@
                 </td>
                 <td style="width: 30%"></td>
                 <td style="width: 8%" class="menuicon" onclick="togglePopup();" id="plus">+</td>
-                <td style="width: 8%" class="menuicon" onclick="toggleMenu();" id="hamburger">&#8801;</td>
+                <td style="width: 8%" class="menuicon" onclick="toggleMenuRecipes();" id="hamburger">&#8801;</td>
                 <td style="width: 4%"></td>
             </tr>
         </table>
@@ -76,8 +76,8 @@
     </div>
 
 
-    <div class="overlay ohide" onclick="togglePopupPersons()" id="overlayPersons"></div>
-    <div class="popup phide" id="popupPersons">
+    <div class="overlay" onclick="togglePopupPersons()" id="overlayPersons"></div>
+    <div class="popup" id="popupPersons">
         <span class="close-button" onclick="togglePopupPersons()">&times;</span>
         <h2>Personas</h2>
         <input type="checkbox" id="p1" name="p1" value="p1">
@@ -89,8 +89,8 @@
     </div>
 
 
-    <div class="overlay ohide" onclick="togglePopupMeals()" id="overlayMeals"></div>
-    <div class="popup phide" id="popupMeals">
+    <div class="overlay" onclick="togglePopupMeals()" id="overlayMeals"></div>
+    <div class="popup" id="popupMeals">
         <span class="close-button" onclick="togglePopupMeals()">&times;</span>
         <h2>Meal Types</h2>
         <input type="checkbox" id="m1" name="m1" value="m1">
@@ -108,8 +108,8 @@
     </div>
 
 
-    <div class="overlay ohide" onclick="togglePopupDiet()" id="overlayDiet"></div>
-    <div class="popup phide" id="popupDiet">
+    <div class="overlay" onclick="togglePopupDiet()" id="overlayDiet"></div>
+    <div class="popup" id="popupDiet">
         <span class="close-button" onclick="togglePopupDiet()">&times;</span>
         <h2>Dietary Restrictions</h2>
         <input type="checkbox" id="f1" name="d1" value="d1">
@@ -122,8 +122,8 @@
         <label for="d4">Nut Free</label><br>
     </div>
 
-    <div class="overlay ohide" onclick="togglePopupFlavors()" id="overlayFlavors"></div>
-    <div class="popup phide" id="popupFlavors">
+    <div class="overlay" onclick="togglePopupFlavors()" id="overlayFlavors"></div>
+    <div class="popup" id="popupFlavors">
         <span class="close-button" onclick="togglePopupFlavors()">&times;</span>
         <h2>Flavors</h2>
         <input type="checkbox" id="f1" name="f1" value="f1">

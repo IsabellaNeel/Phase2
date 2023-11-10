@@ -792,12 +792,12 @@ function displayRecipeItem(index) {
 
     inputIngredient = user1.recipesArr[index].ingredients;
     ingredientBreak = inputIngredient.replace(/\n/g, '<p>');
-    strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Ingredients<h3></div>" 
+    strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:20px\">Ingredients<h3></div>" 
     + "<div style=\"height:150px \" class=\"scrollable-area\">" + ingredientBreak + "</div>";
 
     inputInstructions = user1.recipesArr[index].instructions;
     instructionBreak = inputInstructions.replace(/\n/g, '<p>');
-    strInstructions = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:25px\">Instructions</h3></div>" 
+    strInstructions = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:20px\">Instructions</h3></div>" 
     + "<div style=\"height:350px \" class=\"scrollable-area\">" + instructionBreak + "</div>";
 
 
@@ -821,24 +821,6 @@ function close_window() {
         clear_info("notes")
         sessionStorage.clear();
     }
-}
-
-function togglePopupNetwork() {
-    if (popupNetwork.className === "popup pshow" || overlayNetwork.className === "overlay pshow") {
-        popupNetwork.className = "popup";
-        overlayNetwork.className = "overlay";
-    } else {
-        popupNetwork.className = "popup pshow";
-        overlayNetwork.className = "overlay oshow";
-    }
-};
-
-function toggleProfileForm() { // opens/closes the form to enter food items to your kitchen page
-    if (myFormProfile.className === "form-popup fpshow"){
-        myFormProfile.className = "form-popup";
-    } else {
-        myFormProfile.className = "form-popup fpshow";
-    } 
 }
 
 function update_profile_info(){
@@ -882,7 +864,6 @@ function update_profile_info(){
 }
 
 function fill_info(){
-    myFormProfile.className = "form-popup-profile";
     if(sessionStorage.getItem("name")){
         document.getElementById("name").innerHTML = "Hello " + sessionStorage.getItem("name") + "!";
         document.getElementById("nameInput").value = sessionStorage.getItem("name");
