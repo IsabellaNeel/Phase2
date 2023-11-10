@@ -6,8 +6,12 @@ body{
 
 h1{
     text-align: center;
-    /*padding: 45px;*/
     font-size: 45px;
+}
+
+h3{
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 button{
@@ -19,14 +23,14 @@ button{
 .navbar{
     width: 100vw;
     height: 9.5vh; 
-    min-height: 50px; 
+    min-height: 70px; 
     position: fixed; 
     left: 0px;
     box-shadow: 0px 1px 6px 4px rgba(36,42,45, 0.3);
     transition: background 0.25s ease;
     cursor: default !important;
     user-select: none;
-    z-index: 9001;
+    z-index: 100;
 }
 
 .lower{
@@ -76,6 +80,25 @@ button{
 .selected p{
     color: #1f628e !important;
     font-weight: bold !important;
+}
+
+.oskeyboard{
+    width: 100vw;
+    left: 0px;
+    height: 37.5vh;
+    position: fixed;
+    bottom: -50%;
+    opacity: 0%;
+    z-index: 101;
+    text-align: center;
+    background: #f6f6f6 url("pretend.png") no-repeat center;
+    transition: bottom 0.5s ease, opacity 0.5s ease;
+}
+
+.oskshow{
+    bottom: 0px;
+    opacity: 100%;
+    transition: bottom 0.5s ease, opacity 0.5s ease;
 }
 
 .menu {
@@ -165,11 +188,6 @@ button{
     background-color: #ffffff;
     border-bottom: 5px solid #3498db;
     transition: border-bottom 0.25s ease, background-color 0.25s ease;
-}
-
-.cartitem td h3{
-    font-size: 1.4rem;
-    font-weight: bold;
 }
 
 .cartitem td p{
@@ -475,6 +493,7 @@ button{
   height: 146px; 
   width: 180px; 
   word-wrap: break-word;
+  cursor: default;
   transition: border-color 0.25s ease;
 }
 

@@ -254,6 +254,15 @@ function getImage(string){ //returns an image based on the string parameter
     }
 }
 
+/*Function for fake on screen keyboard --andrew*/
+function toggleOSKeyboard(){
+    if (osKeyboard.className === "oskeyboard oskshow"){
+        osKeyboard.className = "oskeyboard";
+    } else {
+        osKeyboard.className = "oskeyboard oskshow";
+    }
+}
+
 /*SHOPPING LIST FUNCTIONS START*/
 function toggleShoppingForm(){
     if (myFormShopping.className === "form-popup-shopping fpsshow"){

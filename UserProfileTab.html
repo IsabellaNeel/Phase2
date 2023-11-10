@@ -9,6 +9,16 @@
             @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
         </style>
         <script type="text/javascript" src="menu.js"></script>
+        <script type="text/javascript">
+            /*Function for fake on screen keyboard --andrew*/
+            function toggleOSKeyboard(){
+                if (osKeyboard.className === "oskeyboard oskshow"){
+                    osKeyboard.className = "oskeyboard";
+                } else {
+                    osKeyboard.className = "oskeyboard oskshow";
+                }
+            }
+        </script>
     </head>
 
     <body ontouchstart = "">
@@ -26,7 +36,7 @@
         <div style = "height: 9.5vh">
             <!-- padding space -->
         </div>
-        <div class="menu hide" id="menu">
+        <div class="menu hide" id="menu" style = "height: 25% !important">
             <table style="width: 100% !important;">
                 <tr>
                     <td>
@@ -51,7 +61,7 @@
             <img src="pfp.png" alt="" style="width:256px;height: 256px;">
             <div style="font-size: 40px;" id="name">Hello!</div>
             <div>
-            <input type="text" id="nameInput" class = "profileinput"/>
+            <input type="text" id="nameInput" class = "profileinput" onclick = "toggleOSKeyboard()"/>
             <button onclick="update_name()" class="profile-updateinfo-button">Change Name</button>
             </div>
         </div>
@@ -63,7 +73,7 @@
             Allergens
             <p id="allergens" class="profile-text-content"></p>
             <div>
-            <input type="text" id="AllergensInput" class = "profileinput"/>
+            <input type="text" id="AllergensInput" class = "profileinput" onclick = "toggleOSKeyboard()"/>
             <button onclick="update_allergens()" class="profile-updateinfo-button">Update Allergens</button>
             </div>
         </div>
@@ -71,7 +81,7 @@
             Preferences
             <p id="preferences" class="profile-text-content"></p>
             <div>
-            <input type="text" id="preferencesInput" class = "profileinput" />
+            <input type="text" id="preferencesInput" class = "profileinput" onclick = "toggleOSKeyboard()"/>
             <button onclick="update_preferences()" class="profile-updateinfo-button">Update Preferences</button>
             </div>
         </div>
@@ -79,7 +89,7 @@
             Skill Level
             <p id="skill" class="profile-text-content"></p>
             <div>
-            <input type="text" id="skillInput" class = "profileinput" />
+            <input type="text" id="skillInput" class = "profileinput" onclick = "toggleOSKeyboard()"/>
             <button onclick="update_skill()" class="profile-updateinfo-button">Update Skill Level</button>
             </div>
         </div>
@@ -87,15 +97,18 @@
             Notes
             <p id="notes" class="profile-text-content"></p>
             <div>
-            <input type="text" id="notesInput" class = "profileinput" />
+            <input type="text" id="notesInput" class = "profileinput" onclick = "toggleOSKeyboard()"/>
             <button onclick="update_notes()" class="profile-updateinfo-button">Update Notes</button>
             </div>
         </div>
         <div class="profile-item-grid-item">
             <button onclick="close_window()" class="profile-logout-button">Logout</button>
         </div>
+        <div class="profile-item-grid-item">
+            <br/><br/><br/>
+        </div>
     </div>
-
+    <div class = "oskeyboard" id = "osKeyboard"><h3 style = "color: #ffffff !important; text-decoration: underline; cursor: pointer" onclick = "toggleOSKeyboard()">[Click here to close keyboard.]</h3></div>
     <script type = "text/javascript">
         fill_info();
         function close_window() {
