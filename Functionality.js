@@ -21,6 +21,13 @@ class FoodItem {
     }
   }
 
+class UserPersona {
+    constructor(name){
+        this.name = name;
+    }
+
+}
+
 class User {
     static foodArr;
     constructor(userName, foodArr, shoppingListArr, recipesArr, idNum) {
@@ -35,6 +42,10 @@ class User {
 
 let user1 = new User();
 user1.userName = "Bob";
+let sam = new UserPersona;
+sam.name = "Sam";
+let jane = new UserPersona;
+jane.name = "Jane";
 let str = sessionStorage.getItem('foodArr');
 let str2 = sessionStorage.getItem('shoppingListArr');
 let str3 = sessionStorage.getItem('recipesArr');
@@ -62,7 +73,7 @@ if(str != null){
 
     let foodItem2 = {id:  user1.idNum++, name: "Oat Milk", category: "Dairy", quantity: "1", 
     expiration: "12/03/2023", allergens: "None", calories: "130", 
-    owner:user1.userName, servingSize: "1 Cup"};
+    owner: sam.name, servingSize: "1 Cup"};
     user1.foodArr[1].push(foodItem2);
     user1.foodArr[10].push(foodItem2);
 
@@ -74,7 +85,7 @@ if(str != null){
 
     let foodItem4 = {id:  user1.idNum++, name: "Greek Yogurt", category: "Dairy", quantity: "1", 
     expiration: "12/07/2023", allergens: "Lactose", calories: "130", 
-    owner:user1.userName, servingSize: "1 Cup"};
+    owner:jane.name, servingSize: "1 Cup"};
     user1.foodArr[1].push(foodItem4);
     user1.foodArr[10].push(foodItem4);
 
@@ -86,7 +97,7 @@ if(str != null){
 
     let foodItem6 = {id:  user1.idNum++, name: "Spinach Bag", category: "Vegetable", quantity: "1", 
         expiration: "11/20/2023", allergens: "None", calories: "7", 
-        owner:user1.userName, servingSize: "1 Cup"};
+        owner:sam.name, servingSize: "1 Cup"};
     user1.foodArr[2].push(foodItem6);
     user1.foodArr[10].push(foodItem6);
 
@@ -134,7 +145,7 @@ if(str != null){
 
     let foodItem14 = {id:  user1.idNum++, name: "Lasagna", category: "Meal", quantity: "1", 
         expiration: "11/15/2023", allergens: "Gluten, Lactose", calories: "166", 
-        owner:user1.userName, servingSize: "1 slice (123 oz)"};
+        owner:jane.name, servingSize: "1 slice (123 oz)"};
     user1.foodArr[6].push(foodItem14);
     user1.foodArr[10].push(foodItem14);
 
