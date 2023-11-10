@@ -1,5 +1,5 @@
 body{
-    background: #eceff1 linear-gradient(to bottom right, #f6f6f6, #eceff1) no-repeat fixed !important;
+    background: #eceff1 linear-gradient(to bottom right, #f7f7f7, #eceff1) no-repeat fixed !important;
     color: #000000;
     font-family: 'Lato', Helvetica, sans-serif;
 }
@@ -91,7 +91,7 @@ button{
     opacity: 0%;
     z-index: 101;
     text-align: center;
-    background: #f6f6f6 url("pretend.png") no-repeat center;
+    background: #f7f7f7 url("pretend.png") no-repeat center;
     transition: bottom 0.5s ease, opacity 0.5s ease;
 }
 
@@ -143,9 +143,9 @@ button{
 
 .menuitem:active {
     color: #000000;
-    background: #f6f6f6;
+    background: #f7f7f7;
     border-bottom: 3px solid #3498db !important;
-    border-top: 3px solid #f6f6f6 !important;
+    border-top: 3px solid #f7f7f7 !important;
     transition: all 0.25s ease;
 }
 
@@ -447,7 +447,7 @@ button{
   font-size: 16px;
   margin: 8px 0px 8px 0px;
   border: 1px solid #242a2d;
-  background-color: #f6f6f6;
+  background-color: #f7f7f7;
   transition: background-color 0.25s ease;
 }
 
