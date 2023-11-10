@@ -792,7 +792,7 @@ function displayRecipeItem(index) {
 
     inputIngredient = user1.recipesArr[index].ingredients;
     ingredientBreak = inputIngredient.replace(/\n/g, '<p>');
-    strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:20px\">Ingredients<h3></div>" 
+    strIngredients = "<div><h3 style=\"margin-top: 0px; margin-bottom: 2px;font-size:20px\">Ingredients</h3></div>" 
     + "<div style=\"height:150px \" class=\"scrollable-area\">" + ingredientBreak + "</div>";
 
     inputInstructions = user1.recipesArr[index].instructions;
