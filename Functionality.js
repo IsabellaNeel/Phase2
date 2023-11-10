@@ -595,7 +595,7 @@ function displayCategory(i){
     let num = 0;
     for(let j in user1.foodArr[i]){
         if(j == 0){
-            results = results + "<div class=\"categoryTitle\">"+ numToString(i) + "</div><p style = \"font-size: 1.25rem; text-align: center\">Tap on an item to view details</p>"
+            results = results + "<div class=\"categoryTitle\">"+ numToString(i) + "</div><p style = \"font-size: 1.25rem; text-align: center\">Tap on an item to view details.</p>"
         } else {
             results = results + 
             "<tr class = \"cartitem\">" +
