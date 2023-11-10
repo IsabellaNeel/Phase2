@@ -62,7 +62,7 @@ button{
     color: #2e8cca;
     line-height: normal;
     transition: color 0.25s ease;
-    font-size: 1.5rem; 
+    font-size: 1.6rem; 
     text-decoration: none;
     cursor: default;
 }
@@ -302,7 +302,7 @@ button{
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     cursor: default;
 }
 
