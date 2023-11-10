@@ -502,12 +502,12 @@ button{
 
 .foodBox {
   text-align: center;
-  padding: 5px;
+  padding: 5px 3px;
   font-size: 28px;
   border: 2px solid #1f628e; 
   background-color: rgba(255,255,255,0.9);
-  height: 146px; 
-  width: 180px; 
+  height: 147px; 
+  width: 182px; 
   word-wrap: break-word;
   cursor: default;
   transition: border-color 0.25s ease;
@@ -519,7 +519,7 @@ button{
 }
 
 .foodTable {
- border-spacing:14px; 
+ border-spacing:13px; 
  font-size: 40px;
 }
 
