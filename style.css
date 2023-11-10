@@ -502,8 +502,8 @@ button{
 
 .foodBox {
   text-align: center;
-  padding: 5px 3px;
-  font-size: 28px;
+  padding: 5px;
+  font-size: 30px;
   border: 2px solid #1f628e; 
   background-color: rgba(255,255,255,0.9);
   height: 147px; 
@@ -519,8 +519,11 @@ button{
 }
 
 .foodTable {
- border-spacing:13px; 
- font-size: 40px;
+  border-spacing:14px; 
+  font-size: 40px;
+  width: calc(90vw + 28px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .remove-food-button {

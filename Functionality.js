@@ -52,7 +52,7 @@ if(str4 != null){
 if(str != null){
     user1.foodArr = JSON.parse(str);
 } else {
-    user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+    user1.foodArr = [["Protein"], ["Dairy"], ["Veggies"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     //Hard code food items onto the list
     let foodItem1 = {id:  user1.idNum++, name: "Chicken Breasts", category: "Protein", quantity: "5", 
         expiration: "11/20/2023", allergens: "None", calories: "284", 
@@ -405,7 +405,7 @@ function addFromShoppingList(index){
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+        user1.foodArr = [["Protein"], ["Dairy"], ["Veggies"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
@@ -463,7 +463,7 @@ function numToString(num){
     } else if (num == 1){
         return "Dairy";
     } else if (num == 2){
-        return "Vegetables";
+        return "Veggies";
     }  else if (num == 3){
         return "Fruits";
     } else if (num == 4){
@@ -498,7 +498,7 @@ function formatToAdd(){ //adds food item to foodArr after food item form has bee
 
     let str = sessionStorage.getItem('foodArr');
     if(str == null){
-        user1.foodArr = [["Protein"], ["Dairy"], ["Vegetables"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
+        user1.foodArr = [["Protein"], ["Dairy"], ["Veggies"], ["Fruits"], ["Carbs"], ["Drinks"], ["Meals"], ["Spices"], ["Oils"], ["Other"], ["All"]];
     } else {
         user1.foodArr = JSON.parse(str);
     }
