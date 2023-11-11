@@ -568,7 +568,7 @@ function pickRandColor(){
     num = Math.floor(Math.random() * 8);
     var output = "#242a2d"
     
-    switch(4){
+    switch(num){
         case 0:
             output = "#242a2d"; // dark grey
             break;
