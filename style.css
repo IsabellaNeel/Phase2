@@ -191,11 +191,12 @@ button{
 }
 
 .carttable{
-    width: calc(100% - 24px);
+    width: calc(100% - 30px);
     border: none;
     table-layout: fixed;
     border-spacing: 0px 12px;
     margin: 15px 15px 9.5vh;
+    
 }
 
 .cartitem{
